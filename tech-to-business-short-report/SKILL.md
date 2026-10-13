@@ -1,5 +1,5 @@
 ---
-name: tech-to-business-report
+name: tech-to-business-short-report
 description: Turns technical work into a short business update that leadership understands at a glance. One topic becomes one item of 3–4 lines, labeled with a traffic light — 🟢 HIGHLIGHT, 🔴 LOWLIGHT or 🟠 RISK (LOW/MEDIUM/HIGH) — that says what it means for the business with a number, and flags risks early with a clear ask. Use this whenever someone technical needs to report up or out — a status update, weekly or monthly report, incident, change or project summary, an update for a manager, director, executive committee or client — or asks how to explain technical work in business terms, even if they never say "report". Asks only for the role and a few numbers. Never invents numbers.
 ---
 

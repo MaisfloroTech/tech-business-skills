@@ -136,7 +136,7 @@ Or just tell Claude Code: *"install the plugin tech-business-skills from the mar
 
 **Upload the skill as a zip (web or desktop)**
 
-1. Download `tech-to-business-report.zip` from the [latest release](../../releases/latest). Don't unzip it.
+1. Download `tech-to-business-short-report.zip` from the [latest release](../../releases/latest). Don't unzip it.
 2. In Claude, go to **Customize → Skills**, choose **Upload skill** and select the zip.
 
 You'll need to repeat this for every update.
@@ -146,7 +146,7 @@ You'll need to repeat this for every update.
 ```bash
 git clone https://github.com/MaisfloroTech/tech-business-skills.git
 mkdir -p ~/.claude/skills
-cp -r tech-business-skills/tech-to-business-report ~/.claude/skills/
+cp -r tech-business-skills/tech-to-business-short-report ~/.claude/skills/
 ```
 
 </details>
@@ -161,7 +161,7 @@ Start a new chat and say something like:
 
 Then paste whatever you have: notes, ticket titles, numbers. **Messy is fine.** Claude asks once for any missing basic number and hands you the report.
 
-You don't need to name the skill. To call it explicitly, type `/` and pick **tech-to-business-report** (in Claude Code: `/tech-business-skills:tech-to-business-report`).
+You don't need to name the skill. To call it explicitly, type `/` and pick **tech-to-business-short-report** (in Claude Code: `/tech-business-skills:tech-to-business-short-report`).
 
 Works for a week, a month, a project or a single incident.
 
@@ -198,7 +198,7 @@ Click **Use this template** to create your own private copy, then:
 
 One skill today, more on the way, each in its own folder:
 
-- [x] 📄 **Tech-to-business report**: short updates with highlights, lowlights and risks
+- [x] 📄 **Tech-to-business short report**: short updates with highlights, lowlights and risks
 - [ ] 🧱 Business case for technical debt
 - [ ] 🚨 Incident postmortem for leadership
 - [ ] 💰 Budget and headcount justification
@@ -214,7 +214,7 @@ The most valuable contributions are **role cards** and **before/after examples**
 
 ```
 tech-business-skills/
-├── tech-to-business-report/      ← one folder per skill
+├── tech-to-business-short-report/  ← one folder per skill
 │   ├── SKILL.md                  the method and an example
 │   └── references/
 │       ├── labels.md             HIGHLIGHT / LOWLIGHT / RISK

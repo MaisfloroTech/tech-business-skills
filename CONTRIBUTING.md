@@ -13,13 +13,13 @@ Thanks for helping technical people speak business.
 
 Role cards live in `<skill>/references/roles/`. Each role belongs to one family file.
 
-1. Edit the family file in **one** skill folder (for example `tech-to-business-report/references/roles/security.md`).
+1. Edit the family file in **one** skill folder (for example `tech-to-business-short-report/references/roles/security.md`).
 2. Follow the card format in `roles/README.md`: Produces / Serves / If it stops, the ladder, typical risks, red flag.
 3. Write definitions in your own words; link to roadmap.sh instead of copying it.
 4. Propagate the change to every skill and check it:
 
 ```bash
-python .github/scripts/skills.py sync --from tech-to-business-report
+python .github/scripts/skills.py sync --from tech-to-business-short-report
 python .github/scripts/skills.py validate
 ```
 
@@ -38,14 +38,14 @@ python .github/scripts/skills.py validate
 3. Copy the shared method files into it:
 
    ```bash
-   python .github/scripts/skills.py sync --from tech-to-business-report
+   python .github/scripts/skills.py sync --from tech-to-business-short-report
    ```
 
 4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews.
 5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
 
    ```json
-   "skills": ["./tech-to-business-report", "./tech-debt-business-case"]
+   "skills": ["./tech-to-business-short-report", "./tech-debt-business-case"]
    ```
 
 6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
