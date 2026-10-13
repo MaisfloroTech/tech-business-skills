@@ -1,0 +1,23 @@
+{
+  "name": "tech-business-skills",
+  "displayName": "Tech Business Skills",
+  "description": "Your translator between engineering and business: skills that help tech leads turn technical work into reports leadership acts on. No made-up numbers.",
+  "author": {
+    "name": "MaisfloroTech",
+    "url": "https://github.com/MaisfloroTech"
+  },
+  "homepage": "https://github.com/MaisfloroTech/tech-business-skills",
+  "repository": "https://github.com/MaisfloroTech/tech-business-skills",
+  "license": "MIT",
+  "keywords": [
+    "engineering-leadership",
+    "tech-lead",
+    "business-communication",
+    "reporting",
+    "star-method",
+    "smart-goals"
+  ],
+  "skills": [
+    "./tech-to-business-report"
+  ]
+}

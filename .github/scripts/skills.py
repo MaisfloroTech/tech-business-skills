@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import filecmp
+import json
 import re
 import shutil
 import sys
@@ -119,6 +120,17 @@ def validate() -> int:
                 a, b = base / rel, other / rel
                 if not a.exists() or not b.exists() or not filecmp.cmp(a, b, shallow=False):
                     errors.append(f"{rel} differs between {base.name} and {other.name} (run sync)")
+
+    # Every skill must be listed in the plugin manifest so plugin installs pick it up.
+    manifest = ROOT / ".claude-plugin" / "plugin.json"
+    if manifest.exists():
+        listed = json.loads(manifest.read_text(encoding="utf-8")).get("skills", [])
+        listed = {str(Path(x)).strip("./") for x in ([listed] if isinstance(listed, str) else listed)}
+        for skill in found:
+            if skill.name not in listed:
+                errors.append(f"{skill.name}: not listed in .claude-plugin/plugin.json \"skills\"")
+    else:
+        errors.append(".claude-plugin/plugin.json is missing")
 
     # No images anywhere in the repo, so nothing private gets committed by accident.
     for path in ROOT.rglob("*"):

@@ -50,59 +50,56 @@ what I did          what changed               money, customers, risk, speed
 
 ## Install
 
-Pick the place where you use Claude. You install it once; after that Claude uses it automatically whenever you ask for a report.
+### Claude on the web or the desktop app (no code)
 
-| You use Claude in... | Difficulty | Go to |
-|---|---|---|
-| The browser (claude.ai) | Easy, no code | [Claude on the web](#claude-on-the-web) |
-| The desktop app (Mac / Windows) | Easy, no code | [Claude Desktop](#claude-desktop) |
-| The terminal | Technical | [Claude Code](#claude-code) |
+1. Open **[Customize → Plugins](https://claude.ai/customize/plugins)**.
+2. Click **Add → Add marketplace** and paste:
+   ```
+   MaisfloroTech/tech-business-skills
+   ```
+3. Find **Tech Business Skills** in the list and click **Add**.
 
-> **Before you start:** skills need a paid Claude plan (Pro, Max, Team or Enterprise). Skills you upload are private to your account, and they don't sync between web/desktop and Claude Code — install it in each place you use.
+Done. It updates on its own when new skills are published, and it's also available in Claude Code if you sign in with the same account.
 
-### Claude on the web
+### Claude Code (one command)
 
-1. Open the [**latest release**](../../releases/latest) of this repo.
-2. Under **Assets**, click **`tech-to-business-report.zip`** to download it. **Don't unzip it.**
-3. Go to [claude.ai](https://claude.ai) and open the section where your **skills** are managed (in settings or the customize menu).
-4. Choose **Upload skill** and select the zip you downloaded.
-5. Make sure the skill is switched **on**.
+Inside a Claude Code session:
 
-Can't find skills or the upload button? Your account may need skills or code execution turned on first. Menus change between versions, so check [Anthropic's Help Center](https://support.claude.com) and search for "skills".
-
-### Claude Desktop
-
-Same steps as the web, inside the app:
-
-1. Download **`tech-to-business-report.zip`** from the [**latest release**](../../releases/latest). **Don't unzip it.**
-2. Open the Claude desktop app and go to the section where your **skills** are managed.
-3. Choose **Upload skill**, select the zip and make sure it's switched **on**.
-
-### Claude Code
-
-```bash
-# 1. Download the repo
-git clone https://github.com/MaisfloroTech/tech-business-skills.git
-
-# 2. Install the skill for all your projects
-mkdir -p ~/.claude/skills
-cp -r tech-business-skills/tech-to-business-report ~/.claude/skills/
-
-#    ...or only for one project
-mkdir -p <your-project>/.claude/skills
-cp -r tech-business-skills/tech-to-business-report <your-project>/.claude/skills/
+```
+/plugin install tech-business-skills --marketplace MaisfloroTech/tech-business-skills
 ```
 
-Restart Claude Code. Type `/skills` to check it's listed, or call it directly with `/tech-to-business-report`.
+Or from your terminal:
 
-In Claude Code the skill can read files, so you can point it at your data:
+```bash
+claude plugin install tech-business-skills --marketplace MaisfloroTech/tech-business-skills
+```
 
-> *Write my monthly report from `metrics/october.csv` and the incidents in `postmortems/`.*
+Works in the terminal and in the **Code** tab of the desktop app. Needs a recent Claude Code version; if the command isn't recognized, run `claude update` first.
 
-### Updating
+> **Even easier:** just tell Claude Code *"install the plugin tech-business-skills from the marketplace MaisfloroTech/tech-business-skills"* and it runs the command for you.
 
-- **Web / Desktop:** download the new zip from the latest release and upload it again, replacing the old one.
-- **Claude Code:** `cd tech-business-skills && git pull`, then copy the folder again.
+<details>
+<summary><b>Other ways to install</b> (if the options above don't work for you)</summary>
+
+**Upload the skill as a zip (web or desktop)**
+
+1. Download `tech-to-business-report.zip` from the [latest release](../../releases/latest). Don't unzip it.
+2. In Claude, go to **Customize → Skills**, choose **Upload skill** and select the zip.
+
+You need to repeat this for every update.
+
+**Copy the skill folder (Claude Code)**
+
+```bash
+git clone https://github.com/MaisfloroTech/tech-business-skills.git
+mkdir -p ~/.claude/skills
+cp -r tech-business-skills/tech-to-business-report ~/.claude/skills/
+```
+
+</details>
+
+**Requirements:** a paid Claude plan (Pro, Max, Team or Enterprise). On Team and Enterprise plans an admin may need to allow adding marketplaces, and can also install the plugin for the whole organization so everyone reports with the same standard.
 
 ## Use it
 
@@ -112,7 +109,7 @@ Start a new chat and write something like:
 
 Then paste your notes, ticket titles or numbers — messy is fine. Claude asks you for your role, the audience and whatever is missing, and gives you the one-pager back.
 
-You don't need to name the skill: asking for a report, a status update or "how do I explain this to the business" is enough.
+You don't need to name the skill: asking for a report, a status update or "how do I explain this to the business" is enough. To call it explicitly, type `/` and pick **tech-to-business-report** (in Claude Code: `/tech-business-skills:tech-to-business-report`).
 
 **Languages.** The skill answers in the language you write in. Write in Spanish and you get the questions and the report in Spanish; write in English and you get English. You can also mix: *"talk to me in Spanish but write the report in English"*. Labels (HIGHLIGHT, LOWLIGHT, RISK) stay in English by default because they are a shared vocabulary; ask if you want them translated.
 
@@ -147,6 +144,7 @@ tech-business-skills/
 │       ├── roles/                  # role cards, grouped in 8 families
 │       ├── template.md             # the one-pager format
 │       └── example.md              # a full worked example (fictional data)
+├── .claude-plugin/                 # makes the repo installable as a plugin (one line to add each new skill)
 ├── .github/                        # CI, release automation and the build script
 ├── CONTRIBUTING.md
 ├── LICENSE

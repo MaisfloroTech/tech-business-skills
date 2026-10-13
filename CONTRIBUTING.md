@@ -42,8 +42,14 @@ python .github/scripts/skills.py validate
    ```
 
 4. Add the skill's own `references/template.md` and `references/example.md`.
-5. Run `python .github/scripts/skills.py build` and test the zip in Claude before opening a PR.
-6. Add the skill to the table in `README.md`.
+5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
+
+   ```json
+   "skills": ["./tech-to-business-report", "./tech-debt-business-case"]
+   ```
+
+6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
+7. Add the skill to the table in `README.md`.
 
 ## Releases (maintainers)
 

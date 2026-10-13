@@ -1,0 +1,15 @@
+{
+  "name": "tech-business-skills",
+  "description": "Skills that help tech leads translate engineering work into business impact.",
+  "owner": {
+    "name": "MaisfloroTech",
+    "url": "https://github.com/MaisfloroTech"
+  },
+  "plugins": [
+    {
+      "name": "tech-business-skills",
+      "source": "./",
+      "description": "Turn technical work into one-page reports leadership acts on: highlights, lowlights and risks, STAR stories, SMART goals. No made-up numbers."
+    }
+  ]
+}
