@@ -46,25 +46,40 @@ Each item:
 
 - **Full-word label with its light**: `🟢 [HIGHLIGHT]`, `🔴 [LOWLIGHT]`, `🟠 [RISK – MEDIUM]`. Never `[H]`, `[L]`, `[R-Medium]`.
 - **Title in business words**, never technical: "Infrastructure optimization", not "Database cost" or "DB downsize". Use the title table in `references/business-language.md`.
-- **Written as a short narrative, 3–4 lines max**: when it happened, what was done (plain words), the business result with numbers, and the follow-up.
-- **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if the user gave the total, customers or users affected.
+- **3–4 lines max**, written as one short narrative.
+- **Answers the 6 questions any business reader asks** (5W1H), in this order of importance:
+
+| Question | What it answers | Example |
+|---|---|---|
+| **What?** | The business action or event, and its result with numbers | "optimized the infrastructure… savings of USD 1,200/month" |
+| **Why?** | The business reason or cause | "to reduce operating costs" / "an update overloaded the database" |
+| **When?** | The date, or the deadline for risks | "On Oct 11" / "before Oct 30" |
+| **Where?** | Which system, product, area or customers, in plain words | "our main database", "checkout", "customers in Chile" |
+| **Who?** | The team that did it, and who was or could be affected | "the SRE team", "customers paying in checkout" |
+| **How?** | How it was done, and how customers are protected next | "in a planned 2-hour maintenance window… monitoring to ensure availability" |
+
+  Weave them into the sentences; don't write them as a list. If one is unknown and it matters, use a placeholder in the user's language (`ENTER_DATE` / `INGRESA_FECHA`). If adding them breaks the 3–4 line limit, keep What, Why, When and Who and compress Where and How.
+
+- **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if given (otherwise a placeholder), customers or users affected.
 - **Technical details only as a simple %** or plain words. No vCPU, p95, CVE or similar jargon unless spelled out.
-- **End with the follow-up** in business terms: what is being done next and how customers are protected (e.g. "We're monitoring closely after the change to ensure availability for our customers."). For risks, end with `ASK:` what you need, from whom, by when.
+- **For risks, end with** `ASK:` what you need, from whom, by when.
 
 Shapes:
 
 ```
-🟢 [HIGHLIGHT] <Business title>: On <date>, we <business action> on <component in plain words>, <change as %>, generating <result with number> (<% of current total, if known>). <Follow-up that reassures the business>.
+🟢 [HIGHLIGHT] <Business title>: On <when>, <who> <what: business action> on <where>, to <why>, <change as %> and generating <result with number> (<% of current total>). <How it was done and how customers are protected>.
 ```
 
 ```
-🔴 [LOWLIGHT] <Business title>: On <date>, <what customers or the business experienced, with numbers>. <Cause in plain words>. <What we changed so it doesn't happen again>.
+🔴 [LOWLIGHT] <Business title>: On <when>, <who was affected> couldn't <what>, for <duration / numbers>, in <where>. <Why: cause in plain words>. <How: what <team> changed so it doesn't happen again>.
 ```
 
 ```
-🟠 [RISK – HIGH] <Business title>: <what could happen to the business and when, with a number>. <Why it could happen, in plain words>.
+🟠 [RISK – HIGH] <Business title>: <what could happen> to <who / where> on <when>, <with a number>. <Why it could happen>. <How we're mitigating>.
 ASK: <what you need, from whom, by when>.
 ```
+
+**Check before answering:** read the item as a business reader and confirm it answers What, Why, When, Where, Who and How, uses no jargon, has a number and fits in 3–4 lines.
 
 With two or more items, start with `Overall:` and the most severe light and label. With one item, no overall line.
 
@@ -87,26 +102,26 @@ The first time in a conversation, add once, in the user's language: a short invi
 Input: *"SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window."*
 
 ```
-🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). We're monitoring closely after the change to ensure availability for our customers.
+🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11, the SRE team optimized the infrastructure of our main database to reduce operating costs, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). The change was made in a planned 2-hour maintenance window, and we're monitoring closely to ensure availability for our customers.
 ```
 
 **Missing number → placeholder (Spanish input, Spanish output).**
-Input: *"Bajé la BD principal de 32 a 24 vCPU el 11 de octubre, ahorra unos USD 1.200 al mes. Ventana de 2 horas."*
+Input: *"Soy SRE. Bajé la BD principal de 32 a 24 vCPU el 11 de octubre, ahorra unos USD 1.200 al mes. Ventana de 2 horas."*
 
 ```
-🟢 [HIGHLIGHT] Optimización de infraestructura: El 11 de octubre se realizó una optimización de infraestructura en nuestra base de datos principal, reduciendo un 25% su tamaño (costo mensual actual: USD INGRESA_MONTO) y generando ahorros de USD 1.200/mes (≈ USD 14.400/año). Estamos en continuo monitoreo post cambio, garantizando la disponibilidad para nuestros clientes.
+🟢 [HIGHLIGHT] Optimización de infraestructura: El 11 de octubre, el equipo de SRE realizó una optimización de infraestructura en nuestra base de datos principal para reducir costos operativos, disminuyendo un 25% su tamaño (costo mensual actual: USD INGRESA_MONTO) y generando ahorros de USD 1.200/mes (≈ USD 14.400/año). Se hizo en una ventana de mantenimiento planificada de 2 horas y estamos en continuo monitoreo post cambio, garantizando la disponibilidad para nuestros clientes.
 ```
 
 Reemplaza INGRESA_MONTO antes de enviar.
 
 **Several topics → several items.**
-Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x."*
+Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x. Need a perf environment approved by Oct 16 to test before Oct 30."*
 
 ```
 Overall: 🟠 RISK – HIGH
 
-🟠 [RISK – HIGH] Black Friday readiness: our checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3 times normal traffic, and we have only tested up to 2 times.
+🟠 [RISK – HIGH] Black Friday readiness: on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
 ASK: approve a temporary test environment by Oct 16 so we can validate before Oct 30.
 
-🔴 [LOWLIGHT] Service interruption: On Oct 7, customers couldn't complete payments for 25 minutes (~1,100 failed payments). An update overloaded the database; we reverted it and now check every update for this before release.
+🔴 [LOWLIGHT] Service interruption: On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
 ```

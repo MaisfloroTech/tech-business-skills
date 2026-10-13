@@ -40,6 +40,7 @@ You tell it your **role** and paste what happened (notes, tickets, a few numbers
 - 🎯 **One topic, one item.** One thing, done well. No splitting a single change into five bullets.
 - ✂️ **3–4 lines.** No essays, no one-pagers.
 - 🚦 **A traffic light** the business reads in a second: 🟢 good, 🟠 watch out, 🔴 bad.
+- ❓ **Answers the 6 questions** any business reader asks: what, why, when, where, who and how.
 - 🗣️ **Business words, not jargon:** "Infrastructure optimization, 25% smaller", not "DB downsized to 24 vCPU".
 - 💼 **Business first:** money, customers, risk or speed, with a number.
 - 🔮 **Risks anticipated:** if your notes hint at something that could go wrong, it flags it before it becomes a fire.
@@ -77,6 +78,19 @@ Every 🟠 RISK ends with an **ASK**: what you need, from whom, by when. Need bu
 
 If it isn't good, bad or a risk for the business, it doesn't go in the report. No "FYI" padding.
 
+## ❓ The 6 questions every item answers
+
+Anyone in the business will ask these. Every item answers them, woven into 3–4 lines:
+
+| | Question | In the example below |
+|---|---|---|
+| 📌 | **What?** | Optimized the infrastructure, USD 1,200/month saved |
+| 🎯 | **Why?** | To reduce operating costs |
+| 📅 | **When?** | On Oct 11 |
+| 📍 | **Where?** | Our main database |
+| 👥 | **Who?** | The SRE team; customers kept safe |
+| 🛠️ | **How?** | Planned 2-hour maintenance window, monitoring after the change |
+
 ## 👀 What a report looks like
 
 ### One topic → one item
@@ -87,7 +101,7 @@ If it isn't good, bad or a risk for the business, it doesn't go in the report. N
 
 **You get:**
 
-> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). We're monitoring closely after the change to ensure availability for our customers.
+> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team optimized the infrastructure of our main database to reduce operating costs, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). The change was made in a planned 2-hour maintenance window, and we're monitoring closely to ensure availability for our customers.
 
 Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in business words (*Infrastructure optimization*, not *DB downsize*), "32 → 24 vCPU" becomes "25% smaller", and it closes by reassuring the reader about customers instead of adding a separate scary bullet.
 
@@ -95,16 +109,16 @@ Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in
 
 **You write:**
 
-> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x.*
+> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x. Need a perf environment approved by Oct 16 to test before Oct 30.*
 
 **You get:**
 
 > **Overall: 🟠 RISK – HIGH**
 >
-> 🟠 **[RISK – HIGH] Black Friday readiness:** our checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3 times normal traffic, and we have only tested up to 2 times.
+> 🟠 **[RISK – HIGH] Black Friday readiness:** on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
 > **ASK:** approve a temporary test environment by Oct 16 so we can validate before Oct 30.
 >
-> 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't complete payments for 25 minutes (~1,100 failed payments). An update overloaded the database; we reverted it and now check every update for this before release.
+> 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
 
 The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads.
 
