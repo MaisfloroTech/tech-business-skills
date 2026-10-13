@@ -1,6 +1,6 @@
 ---
 name: tech-to-business-smart-objectives
-description: Writes one quarterly technical objective that the business understands and can track. Produces a main SMART objective that always starts with planning, answers the 6 questions (what, why, when, where, who, how), names an owner, and breaks down into 1–3 specific SMART objectives with deliverables, numbers and dates. Use this whenever someone technical needs to write, fix or review a quarterly objective, OKR, goal, KPI or performance objective, plan their Q, or turn a technical initiative (migration, upgrade, automation, security, cost reduction, reliability) into a goal leadership will approve, even if they never say "SMART". Asks only for the basics. Never invents numbers or dates.
+description: Writes one quarterly technical objective that the business understands and can track, tailored to the writer's role. Produces a main SMART objective that always starts with planning, answers the 6 questions (what, why, when, where, who, how), names an owner, and breaks down into 1–3 specific SMART objectives with deliverables, numbers and dates. Use this whenever someone technical needs to write, fix or review a quarterly objective, OKR, goal, KPI or performance objective, plan their Q, or turn a technical initiative (migration, upgrade, automation, security, cost reduction, reliability) into a goal leadership will approve, even if they never say "SMART". Asks only for the basics. Never invents numbers or dates.
 ---
 
 # Tech-to-business SMART objectives
@@ -21,7 +21,7 @@ If the user already gave enough, **write the objective right away**.
 
 Otherwise ask, in **one short message**, only for what's missing:
 
-1. **Role / team** and who owns the objective.
+1. **Their role** (backend developer, SRE, security, data, DevRel, QA, PM, engineering manager...) and who owns the objective.
 2. **What** they want to achieve this quarter (the initiative, in their own words) and **which quarter**.
 3. **Why** it matters to the business (cost, customers, risk, speed, revenue, compliance).
 4. **Who else** is involved (other teams, vendors).
@@ -34,7 +34,18 @@ Never ask a second round. **Anything still missing goes in as an UPPERCASE place
 
 If you're about to write a fact the user didn't give you (a date, a number, a reason, a team, a target), it's a placeholder. The only things you may add yourself are arithmetic on the user's numbers and plain-language rewording. Don't assume the quarter's end date: companies use different fiscal calendars; use the date the user gives or a placeholder.
 
-### 2. Write the main objective
+### 2. Use the role
+
+The role decides what "measurable" and "relevant" mean. Before writing, read `references/roles/README.md` and then **only the family file that matches the role**. Use its card to:
+
+- **Pick the right kind of measure** for that role: features adopted and bugs reduced for a developer; availability, recovery time or cost for SRE/DevOps; critical exposure closed for security; data freshness or decisions enabled for data; reach and adoption for DevRel. Turn the initiative into that measure, never into a list of tasks.
+- **Climb from output to business impact** (`references/translation-ladder.md`): the objective's *why* and its validation step should land on the business outcome for that role, not only on the deliverable.
+- **Shape the placeholders** so they ask for the right number for that role, e.g. for security `reducing open critical vulnerabilities from ENTER_NUMBER to ENTER_NUMBER`, for SRE `availability of ENTER_PERCENT`, instead of a generic `ENTER_NUMBER`.
+- **Default the owner** to the user's team when they don't name another one: `Owner: <role's team> (ENTER_OWNER)`.
+
+If the role isn't in any family, use the three questions in `references/roles/README.md` (what they produce, who uses it, what breaks if they stop) to infer what matters, without inventing facts. If the user didn't say their role and you can't tell it from the message, use the closest generic measure and keep going; never ask a second round.
+
+### 3. Write the main objective
 
 One objective, **2–4 lines**, that:
 
@@ -58,7 +69,7 @@ One objective, **2–4 lines**, that:
 
 - **Uses business words** for the business reason and plain words for the technical part (see `references/business-language.md`). The objective is read by both the team and leadership, so technical names are fine when they're the thing being delivered (e.g. "data lake"), but explain the *why* in business terms.
 
-### 3. Break it into 1–3 specific objectives
+### 4. Break it into 1–3 specific objectives
 
 Each specific objective is **one line**, SMART, with a **deliverable, a number or clear acceptance criteria, and a due date**:
 
@@ -68,7 +79,7 @@ Each specific objective is **one line**, SMART, with a **deliverable, a number o
 
 Use as many as the objective needs (1–3), not always 3. Dates should be in sequence and inside the quarter.
 
-### 4. Format
+### 5. Format
 
 ```
 🎯 <Main objective title in business words> · <Quarter>
@@ -85,7 +96,7 @@ Specific objectives:
 
 Spanish labels: `Responsable:`, `Objetivos específicos:`, `Planificación`, `Ejecución`, `Validación`.
 
-### 5. Close
+### 6. Close
 
 After the objective, add **one line** with the SMART check, marking with ⚠️ any letter that depends on a placeholder:
 

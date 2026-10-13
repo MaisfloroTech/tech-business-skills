@@ -187,6 +187,7 @@ Writing quarterly objectives is the task everyone postpones, and most technical 
 No number, no date, no owner, no business reason, and no plan. This skill fixes that:
 
 - 🗺️ **Planning comes first.** Every objective starts with *"Plan and implement…"*, because nothing moves without a plan.
+- 👩‍💻 **Tailored to your role:** a developer is measured by features adopted and bugs reduced, SRE by availability and cost, security by exposure closed, DevRel by reach and adoption. It picks the right measure for yours.
 - 📏 **SMART by design:** specific, measurable, achievable in one quarter, relevant to the business, time-bound.
 - ❓ **The 6 questions answered:** what, why, when, where, who and how.
 - 🧩 **One main objective + 1–3 specific ones:** planning first, then execution, then validation, each with a deliverable, a number and a date.
