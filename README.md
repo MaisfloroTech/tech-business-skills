@@ -8,7 +8,7 @@ A growing collection of Claude Skills that help tech leads explain technical wor
 
 **🚦 Traffic-light labels · 🗣️ Business words, not jargon · 🚫 No made-up numbers**
 
-[🧰 The skills](#-the-skills) · [⚡ Install](#-install-once-get-every-skill) · [📄 Skill 1: Short report](#-skill-1--tech-to-business-short-report) · [🇪🇸 Español](#-hablas-español)
+[🧰 The skills](#-the-skills) · [⚡ Install](#-install-once-get-every-skill) · [📄 Skill 1: Short report](#-skill-1--tech-to-business-short-report) · [🎯 Skill 2: SMART objectives](#-skill-2--tech-to-business-smart-objectives) · [🇪🇸 Español](#-hablas-español)
 
 </div>
 
@@ -40,6 +40,7 @@ Nobody teaches technical people to answer those questions. New leaders usually l
 | # | Skill | What it does | Status |
 |:-:|---|---|:-:|
 | 1 | 📄 [**Tech-to-business short report**](#-skill-1--tech-to-business-short-report)<br>`tech-to-business-short-report` | Turns a technical change, incident or risk into a 3–4 line business update with a traffic light, numbers and an owner | ✅ Available |
+| 2 | 🎯 [**Tech-to-business SMART objectives**](#-skill-2--tech-to-business-smart-objectives)<br>`tech-to-business-smart-objectives` | Turns a technical initiative into one quarterly SMART objective, starting with planning, with 1–3 specific objectives and an owner | ✅ Available |
 
 More skills are on the way. Install once and every new skill arrives automatically.
 Need one that isn't here? [Open an issue](../../issues) 💬
@@ -169,6 +170,83 @@ You don't need to name the skill. To call it explicitly, type `/` and pick **tec
 
 ---
 
+<div align="center">
+
+# 🎯 Skill 2 · Tech-to-business SMART objectives
+
+**`tech-to-business-smart-objectives`**
+
+*One technical initiative in → one quarterly objective the business can approve and track.*
+
+</div>
+
+Writing quarterly objectives is the task everyone postpones, and most technical objectives end up like this:
+
+> *"Improve the data platform."* · *"Work on the migration."* · *"Optimize monitoring."*
+
+No number, no date, no owner, no business reason, and no plan. This skill fixes that:
+
+- 🗺️ **Planning comes first.** Every objective starts with *"Plan and implement…"*, because nothing moves without a plan.
+- 📏 **SMART by design:** specific, measurable, achievable in one quarter, relevant to the business, time-bound.
+- ❓ **The 6 questions answered:** what, why, when, where, who and how.
+- 🧩 **One main objective + 1–3 specific ones:** planning first, then execution, then validation, each with a deliverable, a number and a date.
+- 👤 **A clear owner**, so everyone knows who answers for it.
+- ✅ **A SMART check** at the end that shows which letter still needs your input.
+
+### 👀 Example: with gaps → placeholders
+
+**You write:**
+
+> *"I'm the data lead. Plan and implement the migration (phase 1 of 4) of our current data lake, with the Data, Infrastructure and Development teams. Deliverables: plan, dates, architecture, documentation and X migrated flows. It's for Q1."*
+
+**You get:**
+
+> 🎯 **Data platform modernization · Q1**
+>
+> Plan and implement phase 1 (of 4) of the migration of our current data lake to ENTER_TARGET_PLATFORM, together with the Data, Infrastructure and Development teams, migrating ENTER_NUMBER data flows by ENTER_DATE, to ENTER_BUSINESS_REASON.
+>
+> **Owner:** Data team (ENTER_OWNER)
+>
+> **Specific objectives:**
+> 1. 🗺️ **Planning:** deliver the migration plan with dates, target architecture and documentation, approved by Data, Infrastructure and Development, by ENTER_DATE.
+> 2. 🛠️ **Execution:** migrate ENTER_NUMBER phase-1 data flows to the new platform, meeting ENTER_SUCCESS_CRITERIA, by ENTER_DATE.
+> 3. ✅ **Validation:** deliver the documentation of the migrated flows and the new architecture by ENTER_DATE.
+>
+> SMART: S ✓ · M ⚠️ ENTER_NUMBER · A ✓ · R ⚠️ ENTER_BUSINESS_REASON · T ⚠️ ENTER_DATE
+
+It didn't know the target platform, the number of flows, the dates or **why** the business needs this, so it left them in UPPERCASE for you instead of guessing. The ⚠️ in the SMART check shows exactly what makes it not-yet-SMART.
+
+### 👀 Example: complete
+
+**You write:**
+
+> *"SRE lead (Ana Pérez). Q3 2026, due Sep 25. Move 40 services' alerting from emails to on-call paging with runbooks, with the Backend and Support teams. Plan approved by Jul 17, all services moved by Aug 28. Today customers report 60% of incidents before we notice; goal is under 20%."*
+
+**You get:**
+
+> 🎯 **Early problem detection · Q3 2026**
+>
+> Plan and implement on-call paging with runbooks for our 40 production services, together with the Backend and Support teams, so we detect problems before customers do, reducing customer-reported incidents from 60% to under 20% by Sep 25, 2026.
+>
+> **Owner:** SRE team (Ana Pérez)
+>
+> **Specific objectives:**
+> 1. 🗺️ **Planning:** deliver the rollout plan, alert ownership per service and runbook template, approved by SRE, Backend and Support, by Jul 17.
+> 2. 🛠️ **Execution:** move all 40 services from email alerts to on-call paging, each with a runbook, by Aug 28.
+> 3. ✅ **Validation:** customer-reported incidents below 20% of all incidents, by Sep 25.
+>
+> SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ✓
+
+### 🚀 Use it
+
+> *"Help me write my Q1 objective. I'm a backend developer and I want to …"*
+
+Or in Spanish: *"Ayúdame a redactar mi objetivo del Q1. Soy desarrolladora backend y quiero …"*
+
+To call it explicitly, type `/` and pick **tech-to-business-smart-objectives** (in Claude Code: `/tech-business-skills:tech-to-business-smart-objectives`). One objective per answer; ask again for the next one.
+
+---
+
 ## 🧭 How every skill thinks
 
 These rules are shared by every skill in the repo, current and future.
@@ -246,6 +324,9 @@ tech-business-skills/
 │       ├── honesty-rules.md        no invented numbers or facts
 │       ├── business-language.md    technical → business titles and words
 │       └── roles/                  role cards in 8 families
+├── tech-to-business-smart-objectives/  🎯 Skill 2
+│   ├── SKILL.md
+│   └── references/                 same shared method files
 ├── .claude-plugin/                 makes the repo installable in one step
 └── .github/                        CI and releases
 ```

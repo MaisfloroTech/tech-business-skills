@@ -28,6 +28,7 @@ SHARED = [
     "references/labels.md",
     "references/translation-ladder.md",
     "references/honesty-rules.md",
+    "references/business-language.md",
     "references/roles",
 ]
 

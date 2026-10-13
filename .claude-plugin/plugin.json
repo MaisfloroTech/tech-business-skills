@@ -13,9 +13,13 @@
     "tech-lead",
     "business-communication",
     "reporting",
-    "risk-management"
+    "risk-management",
+    "okr",
+    "smart-goals",
+    "quarterly-planning"
   ],
   "skills": [
-    "./tech-to-business-short-report"
+    "./tech-to-business-short-report",
+    "./tech-to-business-smart-objectives"
   ]
 }
