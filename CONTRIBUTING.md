@@ -25,12 +25,12 @@ python .github/scripts/skills.py validate
 
 ## Add a new skill
 
-1. Create a top-level folder named in `kebab-case` (lowercase, hyphens), e.g. `tech-debt-business-case/`.
+1. Create a top-level folder named in `kebab-case` (lowercase, hyphens), e.g. `my-new-skill/`.
 2. Add a `SKILL.md` with frontmatter:
 
    ```yaml
    ---
-   name: tech-debt-business-case     # must match the folder name
+   name: my-new-skill     # must match the folder name
    description: What it does AND when Claude should use it (max 1024 characters, no angle brackets).
    ---
    ```
@@ -45,7 +45,7 @@ python .github/scripts/skills.py validate
 5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
 
    ```json
-   "skills": ["./tech-to-business-short-report", "./tech-debt-business-case"]
+   "skills": ["./tech-to-business-short-report", "./my-new-skill"]
    ```
 
 6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.

@@ -40,11 +40,8 @@ Nobody teaches technical people to answer those questions. New leaders usually l
 | # | Skill | What it does | Status |
 |:-:|---|---|:-:|
 | 1 | 📄 [**Tech-to-business short report**](#-skill-1--tech-to-business-short-report)<br>`tech-to-business-short-report` | Turns a technical change, incident or risk into a 3–4 line business update with a traffic light, numbers and an owner | ✅ Available |
-| 2 | 🧱 Business case for technical debt | Turns "we need to refactor" into a decision leadership can approve | 🔜 Coming soon |
-| 3 | 🚨 Incident postmortem for leadership | Explains what happened, the business impact and what changed, without blame or jargon | 🔜 Coming soon |
-| 4 | 💰 Budget and headcount justification | Makes the case for people or spend in terms of risk and return | 🔜 Coming soon |
 
-Install once and every new skill arrives automatically.
+More skills are on the way. Install once and every new skill arrives automatically.
 Need one that isn't here? [Open an issue](../../issues) 💬
 
 ---
