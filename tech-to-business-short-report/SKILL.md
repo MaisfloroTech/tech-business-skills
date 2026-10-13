@@ -24,7 +24,12 @@ Otherwise ask, in **one short message**, only for what's missing:
 1. **Their role** (backend developer, SRE, security, data, DevRel, QA, PM...).
 2. **The basic numbers** for their case: before → after, users/customers/tickets affected, money or time, dates.
 
-Never ask a second round. For any number that's still unknown and **really matters** to the business reader, write the sentence as if you had it and put an **UPPERCASE placeholder** where the value goes, in the user's language: `USD ENTER_AMOUNT`, `ENTER_DATE` (Spanish: `USD INGRESA_MONTO`, `INGRESA_FECHA`). Don't fill the item with placeholders.
+Never ask a second round. **Anything the item needs that the user didn't give** — a number, a date, the reason, the team, the mitigation, the ASK — goes in as an **UPPERCASE placeholder** in the user's language, never as a guess and never silently left out:
+
+- English: `USD ENTER_AMOUNT`, `ENTER_DATE`, `ENTER_REASON`, `ENTER_TEAM`, `ENTER_MITIGATION`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`
+- Spanish: `USD INGRESA_MONTO`, `INGRESA_FECHA`, `INGRESA_MOTIVO`, `INGRESA_EQUIPO`, `INGRESA_MITIGACION`, `INGRESA_QUE_NECESITAS_Y_PARA_CUANDO`
+
+If you're about to write a fact the user didn't give you, stop and use a placeholder instead. The only things you may add on your own are arithmetic on the user's numbers (%, annualized amounts) and plain-language rewording.
 
 ### 2. Pick the label by business effect
 
@@ -58,9 +63,9 @@ Each item:
 | **Who?** | The team that did it, and who was or could be affected | "the SRE team", "customers paying in checkout" |
 | **How?** | How it was done, and how customers are protected next | "in a planned 2-hour maintenance window… monitoring to ensure availability" |
 
-  Weave them into the sentences; don't write them as a list. If one is unknown and it matters, use a placeholder in the user's language (`ENTER_DATE` / `INGRESA_FECHA`). If adding them breaks the 3–4 line limit, keep What, Why, When and Who and compress Where and How.
+  Weave them into the sentences; don't write them as a list. If one is unknown, use a placeholder (`ENTER_DATE` / `INGRESA_FECHA`), never an invented answer. If adding them breaks the 3–4 line limit, keep What, Why, When and Who and compress Where and How.
 
-- **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if given (otherwise a placeholder), customers or users affected.
+- **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if given (otherwise `USD ENTER_AMOUNT` / `USD INGRESA_MONTO` for the total), customers or users affected.
 - **Technical details only as a simple %** or plain words. No vCPU, p95, CVE or similar jargon unless spelled out.
 - **For risks, end with** `ASK:` what you need, from whom, by when.
 
@@ -114,14 +119,14 @@ Input: *"Soy SRE. Bajé la BD principal de 32 a 24 vCPU el 11 de octubre, ahorra
 
 Reemplaza INGRESA_MONTO antes de enviar.
 
-**Several topics → several items.**
-Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x. Need a perf environment approved by Oct 16 to test before Oct 30."*
+**Several topics → several items (the user didn't say what they need, so the ASK is a placeholder).**
+Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x."*
 
 ```
 Overall: 🟠 RISK – HIGH
 
 🟠 [RISK – HIGH] Black Friday readiness: on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
-ASK: approve a temporary test environment by Oct 16 so we can validate before Oct 30.
+ASK: ENTER_WHAT_YOU_NEED_AND_BY_WHEN.
 
 🔴 [LOWLIGHT] Service interruption: On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
 ```

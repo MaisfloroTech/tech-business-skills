@@ -10,10 +10,10 @@ Every number in a report comes from the writer, from a file or tool they provide
 
 ## 2. Leave a visible placeholder for what is missing
 
-When a number that matters is not available, write the sentence as if you had it and put an **UPPERCASE placeholder** where the value goes, in the user's language, so they only have to replace it:
+When anything the report needs is not available — a number, a date, the reason, the team, the mitigation, the ask — write the sentence as if you had it and put an **UPPERCASE placeholder** where it goes, in the user's language, so they only have to replace it:
 
-- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`
-- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`
+- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`, `ENTER_REASON`, `ENTER_MITIGATION`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`
+- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`, `INGRESA_MOTIVO`, `INGRESA_MITIGACION`, `INGRESA_QUE_NECESITAS_Y_PARA_CUANDO`
 
 Example:
 
@@ -21,7 +21,7 @@ Example:
 
 The placeholder is a feature: it shows exactly what to fill in, and it stops an invented figure from travelling upward. Never replace it with a guess. A report with placeholders is a draft; it should not be sent until they're filled.
 
-Use placeholders only for numbers that really matter to the business reader. Don't fill an item with them.
+**Rule of thumb:** if you're about to write something the user didn't tell you (a plan, a date, a cause, a request, a team), it's a placeholder. The only things you may add yourself are arithmetic on the user's numbers and plain-language rewording.
 
 ## 3. Show your arithmetic
 

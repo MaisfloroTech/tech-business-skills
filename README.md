@@ -109,18 +109,18 @@ Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in
 
 **You write:**
 
-> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x. Need a perf environment approved by Oct 16 to test before Oct 30.*
+> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x.*
 
 **You get:**
 
 > **Overall: 🟠 RISK – HIGH**
 >
 > 🟠 **[RISK – HIGH] Black Friday readiness:** on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
-> **ASK:** approve a temporary test environment by Oct 16 so we can validate before Oct 30.
+> **ASK:** ENTER_WHAT_YOU_NEED_AND_BY_WHEN.
 >
 > 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
 
-The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads.
+The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads. You didn't say what you need, so instead of inventing an ask it leaves **ENTER_WHAT_YOU_NEED_AND_BY_WHEN** for you to replace.
 
 ## ⚡ Install in 1 minute
 
@@ -194,7 +194,7 @@ The skill answers in whatever language you write in.
 This skill makes technical work *sound* like business. That's exactly why it has rules:
 
 - 🚫 **It never invents numbers.** No "industry averages", no plausible guesses.
-- 🕳️ **Gaps stay visible** as UPPERCASE placeholders (`USD ENTER_AMOUNT`, `INGRESA_FECHA`), so you just replace them before sending.
+- 🕳️ **Anything you didn't say becomes an UPPERCASE placeholder** (`USD ENTER_AMOUNT`, `INGRESA_FECHA`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`), never a guess. You replace them before sending.
 - 🧮 **It shows its math** for anything calculated.
 - 📉 **Bad news stays the size it was.** No turning lowlights into highlights.
 
