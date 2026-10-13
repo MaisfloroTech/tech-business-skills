@@ -37,7 +37,9 @@ Nobody teaches technical people to answer those questions. Big companies have wh
 
 You tell it your **role** and paste what happened (notes, tickets, a few numbers). It asks **once** for any basic number that's missing, and gives you back short updates the business understands:
 
-- ✂️ **3–4 lines per item.** No essays, no one-pagers.
+- 🎯 **One topic, one item.** One thing, done well. No splitting a single change into five bullets.
+- ✂️ **3–4 lines.** No essays, no one-pagers.
+- 🚦 **A traffic light** the business reads in a second: 🟢 good, 🟠 watch out, 🔴 bad.
 - 💼 **Business first:** money, customers, risk or speed, with a number.
 - 🔮 **Risks anticipated:** if your notes hint at something that could go wrong, it flags it before it becomes a fire.
 - 🙋 **Every risk ends with an ask:** what you need, from whom, by when.
@@ -60,43 +62,50 @@ Every item climbs the same ladder:
 
 The skill knows **31+ roles** (based on the role-based roadmaps of [roadmap.sh](https://roadmap.sh/roadmaps), plus SRE and Tech Lead), so it knows which numbers matter for yours. A useful question for any role: **what breaks, and for whom, if you stop doing your job for a month?** That's usually your business impact.
 
-## 🏷️ Only three labels
+## 🚦 Only three labels, with a traffic light
 
-Every item gets exactly one. If it isn't one of these, it doesn't go in the report. No "FYI" padding.
+Every item gets exactly one, picked by its **effect on the business**, not by how technical it was.
 
-| | Label | Meaning | Must include |
+| | Label | Meaning | Examples |
 |---|---|---|---|
-| 🟢 | **HIGHLIGHT** | Something good **already happened** | A measurable result |
-| 🔴 | **LOWLIGHT** | Something bad **already happened** | Cause, impact, what you learned |
-| 🟠 | **RISK** Low · Medium · High | Something **could happen**, or an opportunity could be lost | Probability, impact, mitigation and an **ASK** |
+| 🟢 | **[HIGHLIGHT]** | Something **good for the business** already happened | Money saved or earned, happier customers, time saved, risk reduced, incidents avoided |
+| 🟠 | **[RISK – LOW / MEDIUM / HIGH]** | Something **could** hurt the business, or an opportunity could be lost | A peak the system may not hold, a deadline at risk, rising costs, someone key leaving |
+| 🔴 | **[LOWLIGHT]** | Something **bad for the business** already happened | Outage customers noticed, lost revenue, security incident, missed commitment |
 
-💬 *Need budget, people or a decision?* Write it as a risk: what happens if you **don't** get it, and what you need from the reader, by when.
+Every 🟠 RISK ends with an **ASK**: what you need, from whom, by when. Need budget, people or a decision? Write the risk of **not** getting it.
+
+If it isn't good, bad or a risk for the business, it doesn't go in the report. No "FYI" padding.
 
 ## 👀 What a report looks like
 
-**You paste:**
+### One topic → one item
 
-> *SRE. This week: checkout down 25 min Tuesday, ~1,100 failed payments, DB connections maxed in a release. Cloud bill 41k → 34.5k/month after rightsizing. Black Friday in 6 weeks, never load-tested above 2x, last year peak was 3x.*
+**You write:**
+
+> *SRE. Downsized the main database from 32 to 24 vCPU, should save about USD 1,200/month. 2-hour maintenance window, effective since yesterday.*
 
 **You get:**
 
-```
-Overall: RISK: High
+> 🟢 **[HIGHLIGHT] Database cost:** ~USD 1,200/month less (≈ USD 14,400/year) on the main database, effective since yesterday. We right-sized the server (32 → 24 vCPU) in a planned 2-hour window. Watch: performance during the next month-end peak.
 
-[R-High] Black Friday capacity: checkout could slow down or fail on the
-highest-revenue day of the year. Last year's peak was 3x normal traffic;
-we've never tested above 2x.
-ASK: approve a temporary performance environment by Oct 16.
+Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The thing to monitor goes inside the same item as a short *Watch*, not as a separate scary bullet.
 
-[L] Checkout outage: 25 min down on Tuesday, ~1,100 failed payments,
-revenue impact [MISSING: revenue per minute — Finance]. Caused by a release
-that maxed database connections; releases are now checked for this.
+### Several topics → several items
 
-[H] Cloud cost: monthly bill down from USD 41k to 34.5k (−16%),
-≈ USD 78k/year saved, with no impact on service.
-```
+**You write:**
 
-Short. Labeled. Every claim has a number, or an honest `[MISSING]`. The Black Friday risk was in the notes as a side comment; the skill turned it into the first thing leadership reads.
+> *SRE. Checkout down 25 min Tuesday, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x.*
+
+**You get:**
+
+> **Overall: 🟠 RISK – HIGH**
+>
+> 🟠 **[RISK – HIGH] Black Friday capacity:** checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3x normal traffic; we've never tested above 2x.
+> **ASK:** approve a temporary performance environment by Oct 16.
+>
+> 🔴 **[LOWLIGHT] Checkout outage:** 25 min down on Tuesday, ~1,100 failed payments, revenue impact [MISSING: revenue per minute — Finance]. A release maxed out database connections; releases are now checked for this.
+
+The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads.
 
 ## ⚡ Install in 1 minute
 
