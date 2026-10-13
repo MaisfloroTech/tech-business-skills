@@ -1,0 +1,19 @@
+# Build output
+dist/
+
+# Never commit images or screenshots (they may contain private data)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.heic
+*.heif
+*.bmp
+*.tiff
+
+# OS / editor
+.DS_Store
+__pycache__/
+.vscode/
+.idea/
