@@ -180,7 +180,7 @@ The skill answers in whatever language you write in.
 This skill makes technical work *sound* like business. That's exactly why it has rules:
 
 - 🚫 **It never invents numbers.** No "industry averages", no plausible guesses.
-- 🕳️ **Gaps stay visible** as `[MISSING: what — who has it]`, so you know exactly what to fill before sending.
+- 🕳️ **Gaps stay visible** as UPPERCASE placeholders (`USD ENTER_AMOUNT`, `INGRESA_FECHA`), so you just replace them before sending.
 - 🧮 **It shows its math** for anything calculated.
 - 📉 **Bad news stays the size it was.** No turning lowlights into highlights.
 

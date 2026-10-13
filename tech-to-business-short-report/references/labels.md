@@ -8,7 +8,7 @@ Every report item carries exactly one label, written as a **full word** with its
 | 🔴 | **[LOWLIGHT]** | Something **bad for the business** that already happened | Measurable impact, cause, what changed so it doesn't repeat |
 | 🟠 | **[RISK – LOW]** · **[RISK – MEDIUM]** · **[RISK – HIGH]** | Something that **could** hurt the business, or an opportunity that could be lost | Impact if it happens, why it could happen, **ASK** |
 
-Always write the full words: `[HIGHLIGHT]`, `[LOWLIGHT]`, `[RISK – HIGH]`. Never abbreviations like `[H]`, `[L]` or `[R-High]`. Same for gaps: `[MISSING: ...]`.
+Always write the full words: `[HIGHLIGHT]`, `[LOWLIGHT]`, `[RISK – HIGH]`. Never abbreviations like `[H]`, `[L]` or `[R-High]`.
 
 ## How to pick the label: what is good, medium or bad for a business
 

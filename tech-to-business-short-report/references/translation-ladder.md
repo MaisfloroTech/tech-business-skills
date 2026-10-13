@@ -10,7 +10,7 @@ Every item climbs the same three steps:
 | **2. Outcome** | What changed because of it? | 38% of searches now use filters; support tickets about search dropped from 120 to 45 per month |
 | **3. Business impact** | Why does the business care? | ~75 fewer tickets/month ≈ 0.5 support FTE freed; search-to-purchase rate up 1.2 points |
 
-**Rule: an item that stops at Output is not ready.** Ask for the next step. If the writer does not have the data, mark it `[MISSING: ...]` and say where it could come from (see `honesty-rules.md`). Never fill the gap yourself.
+**Rule: an item that stops at Output is not ready.** Ask for the next step. If the writer does not have the data, leave an UPPERCASE placeholder such as `ENTER_AMOUNT` (see `honesty-rules.md`). Never fill the gap yourself.
 
 ## The four currencies of business impact
 
@@ -52,7 +52,7 @@ These are formulas, not data. Use them only with inputs the writer gives you, an
 - **Cloud savings** = monthly cost before − monthly cost after (annualize only if the change is permanent)
 - **Delay cost** = value per week of the thing being delayed × weeks of delay
 
-If an input is unknown, keep the formula and mark the input: `[MISSING: average cost per support ticket — ask Support Ops]`.
+If an input is unknown, keep the formula and use a placeholder for it, e.g. `USD ENTER_COST_PER_TICKET`.
 
 ## Words that signal you are still at Output
 

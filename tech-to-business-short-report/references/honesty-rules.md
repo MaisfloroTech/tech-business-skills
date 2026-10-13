@@ -8,19 +8,20 @@ These rules are not optional.
 
 Every number in a report comes from the writer, from a file or tool they provided, or from arithmetic on those. Not from estimates the assistant makes, "industry averages", or plausible-sounding guesses.
 
-## 2. Mark what is missing, visibly
+## 2. Leave a visible placeholder for what is missing
 
-When a needed number is not available, write it in the report as:
+When a number that matters is not available, write the sentence as if you had it and put an **UPPERCASE placeholder** where the value goes, in the user's language, so they only have to replace it:
 
-```
-[MISSING: <what is missing> — <who or where it could come from>]
-```
+- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`
+- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`
 
-Examples:
-- `[MISSING: revenue per hour on checkout — ask Finance or the product analytics dashboard]`
-- `[MISSING: number of customers affected — check support tickets tagged with the incident ID]`
+Example:
 
-A visible gap is a feature. It teaches the writer what they need to go find, and it stops a fabricated figure from travelling upward. A report can be shared with gaps marked as "draft"; it should not be sent as final with gaps.
+> 🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% (current monthly cost: USD ENTER_AMOUNT) and generating savings of USD 1,200/month (≈ USD 14,400/year). We're monitoring closely after the change to ensure availability for our customers.
+
+The placeholder is a feature: it shows exactly what to fill in, and it stops an invented figure from travelling upward. Never replace it with a guess. A report with placeholders is a draft; it should not be sent until they're filled.
+
+Use placeholders only for numbers that really matter to the business reader. Don't fill an item with them.
 
 ## 3. Show your arithmetic
 

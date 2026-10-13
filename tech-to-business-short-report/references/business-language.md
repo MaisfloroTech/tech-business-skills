@@ -53,5 +53,5 @@ Example:
 ## Percentages
 
 - **Size or capacity reduction**: compute it from before → after (32 → 24 = 25%).
-- **% of current cost**: only if the user gave the current total. Otherwise leave it out; don't invent a total.
+- **% of current cost**: only if the user gave the current total. Otherwise add a placeholder for it, e.g. `(current monthly cost: USD ENTER_AMOUNT)` / `(costo mensual actual: USD INGRESA_MONTO)`. Never invent a total.
 - Words like "significant" are fine **only next to the number**, never instead of it.
