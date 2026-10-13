@@ -12,8 +12,8 @@ Every number in a report comes from the writer, from a file or tool they provide
 
 When anything the report needs is not available — a number, a date, the reason, the team, the mitigation, the ask — write the sentence as if you had it and put an **UPPERCASE placeholder** where it goes, in the user's language, so they only have to replace it:
 
-- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`, `ENTER_REASON`, `ENTER_MITIGATION`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`
-- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`, `INGRESA_MOTIVO`, `INGRESA_MITIGACION`, `INGRESA_QUE_NECESITAS_Y_PARA_CUANDO`
+- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`, `ENTER_REASON`, `ENTER_MITIGATION`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`, `ENTER_TEAM_OR_PERSON`
+- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`, `INGRESA_MOTIVO`, `INGRESA_MITIGACION`, `INGRESA_QUE_NECESITAS_Y_PARA_CUANDO`, `INGRESA_EQUIPO_O_PERSONA`
 
 Example:
 

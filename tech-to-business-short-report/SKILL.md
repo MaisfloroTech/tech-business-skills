@@ -51,7 +51,7 @@ Each item:
 
 - **Full-word label with its light**: `🟢 [HIGHLIGHT]`, `🔴 [LOWLIGHT]`, `🟠 [RISK – MEDIUM]`. Never `[H]`, `[L]`, `[R-Medium]`.
 - **Title in business words**, never technical: "Infrastructure optimization", not "Database cost" or "DB downsize". Use the title table in `references/business-language.md`.
-- **3–4 lines max**, written as one short narrative.
+- **3–4 lines max** for the narrative, plus the `ASK:` (risks only) and `Owner:` lines.
 - **Answers the 6 questions any business reader asks** (5W1H), in this order of importance:
 
 | Question | What it answers | Example |
@@ -67,24 +67,28 @@ Each item:
 
 - **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if given (otherwise `USD ENTER_AMOUNT` / `USD INGRESA_MONTO` for the total), customers or users affected.
 - **Technical details only as a simple %** or plain words. No vCPU, p95, CVE or similar jargon unless spelled out.
-- **For risks, end with** `ASK:` what you need, from whom, by when.
+- **For risks, add** `ASK:` what you need, from whom, by when.
+- **Every item ends with a responsible line**: `Owner:` (Spanish: `Responsable:`) with the team and, if given, the person: `Owner: SRE team (Ana Pérez)`. This is who the business contacts with questions. If the user didn't say, use `Owner: ENTER_TEAM_OR_PERSON` / `Responsable: INGRESA_EQUIPO_O_PERSONA`. Never leave it out.
 
 Shapes:
 
 ```
 🟢 [HIGHLIGHT] <Business title>: On <when>, <who> <what: business action> on <where>, to <why>, <change as %> and generating <result with number> (<% of current total>). <How it was done and how customers are protected>.
+Owner: <team (person)>
 ```
 
 ```
 🔴 [LOWLIGHT] <Business title>: On <when>, <who was affected> couldn't <what>, for <duration / numbers>, in <where>. <Why: cause in plain words>. <How: what <team> changed so it doesn't happen again>.
+Owner: <team (person)>
 ```
 
 ```
 🟠 [RISK – HIGH] <Business title>: <what could happen> to <who / where> on <when>, <with a number>. <Why it could happen>. <How we're mitigating>.
 ASK: <what you need, from whom, by when>.
+Owner: <team (person)>
 ```
 
-**Check before answering:** read the item as a business reader and confirm it answers What, Why, When, Where, Who and How, uses no jargon, has a number and fits in 3–4 lines.
+**Check before answering:** read the item as a business reader and confirm it answers What, Why, When, Where, Who and How, has an Owner line, uses no jargon, has a number and fits in 3–4 lines (plus the ASK and Owner lines).
 
 With two or more items, start with `Overall:` and the most severe light and label. With one item, no overall line.
 
@@ -108,6 +112,7 @@ Input: *"SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves ab
 
 ```
 🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11, the SRE team optimized the infrastructure of our main database to reduce operating costs, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). The change was made in a planned 2-hour maintenance window, and we're monitoring closely to ensure availability for our customers.
+Owner: SRE team
 ```
 
 **Missing number → placeholder (Spanish input, Spanish output).**
@@ -115,9 +120,10 @@ Input: *"Soy SRE. Bajé la BD principal de 32 a 24 vCPU el 11 de octubre, ahorra
 
 ```
 🟢 [HIGHLIGHT] Optimización de infraestructura: El 11 de octubre, el equipo de SRE realizó una optimización de infraestructura en nuestra base de datos principal para reducir costos operativos, disminuyendo un 25% su tamaño (costo mensual actual: USD INGRESA_MONTO) y generando ahorros de USD 1.200/mes (≈ USD 14.400/año). Se hizo en una ventana de mantenimiento planificada de 2 horas y estamos en continuo monitoreo post cambio, garantizando la disponibilidad para nuestros clientes.
+Responsable: Equipo de SRE (INGRESA_NOMBRE_DEL_RESPONSABLE)
 ```
 
-Reemplaza INGRESA_MONTO antes de enviar.
+Reemplaza INGRESA_MONTO e INGRESA_NOMBRE_DEL_RESPONSABLE antes de enviar.
 
 **Several topics → several items (the user didn't say what they need, so the ASK is a placeholder).**
 Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x."*
@@ -127,6 +133,8 @@ Overall: 🟠 RISK – HIGH
 
 🟠 [RISK – HIGH] Black Friday readiness: on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
 ASK: ENTER_WHAT_YOU_NEED_AND_BY_WHEN.
+Owner: SRE team
 
 🔴 [LOWLIGHT] Service interruption: On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
+Owner: SRE team
 ```

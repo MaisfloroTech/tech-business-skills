@@ -45,6 +45,7 @@ You tell it your **role** and paste what happened (notes, tickets, a few numbers
 - 💼 **Business first:** money, customers, risk or speed, with a number.
 - 🔮 **Risks anticipated:** if your notes hint at something that could go wrong, it flags it before it becomes a fire.
 - 🙋 **Every risk ends with an ask:** what you need, from whom, by when.
+- 👤 **Every item has an owner:** the team or person the business can go to with questions.
 
 No long interviews. One round of questions at most, then your report.
 
@@ -88,7 +89,7 @@ Anyone in the business will ask these. Every item answers them, woven into 3–4
 | 🎯 | **Why?** | To reduce operating costs |
 | 📅 | **When?** | On Oct 11 |
 | 📍 | **Where?** | Our main database |
-| 👥 | **Who?** | The SRE team; customers kept safe |
+| 👥 | **Who?** | The SRE team, named as **Owner** so the business knows who to ask |
 | 🛠️ | **How?** | Planned 2-hour maintenance window, monitoring after the change |
 
 ## 👀 What a report looks like
@@ -101,7 +102,8 @@ Anyone in the business will ask these. Every item answers them, woven into 3–4
 
 **You get:**
 
-> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team optimized the infrastructure of our main database to reduce operating costs, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). The change was made in a planned 2-hour maintenance window, and we're monitoring closely to ensure availability for our customers.
+> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team optimized the infrastructure of our main database to reduce operating costs, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). The change was made in a planned 2-hour maintenance window, and we're monitoring closely to ensure availability for our customers.<br>
+> **Owner:** SRE team
 
 Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in business words (*Infrastructure optimization*, not *DB downsize*), "32 → 24 vCPU" becomes "25% smaller", and it closes by reassuring the reader about customers instead of adding a separate scary bullet.
 
@@ -115,10 +117,12 @@ Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in
 
 > **Overall: 🟠 RISK – HIGH**
 >
-> 🟠 **[RISK – HIGH] Black Friday readiness:** on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.
-> **ASK:** ENTER_WHAT_YOU_NEED_AND_BY_WHEN.
+> 🟠 **[RISK – HIGH] Black Friday readiness:** on Black Friday (Nov 27), our checkout could slow down or fail for customers on the highest-revenue day of the year. Last year's peak was 3 times normal traffic and the SRE team has only tested up to 2 times.<br>
+> **ASK:** ENTER_WHAT_YOU_NEED_AND_BY_WHEN.<br>
+> **Owner:** SRE team
 >
-> 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.
+> 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't pay in checkout for 25 minutes (~1,100 failed payments). An update overloaded the database; the SRE team reverted it and now checks every update for this before release.<br>
+> **Owner:** SRE team
 
 The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads. You didn't say what you need, so instead of inventing an ask it leaves **ENTER_WHAT_YOU_NEED_AND_BY_WHEN** for you to replace.
 
