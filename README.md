@@ -1,95 +1,151 @@
-# tech-business-skills
+<div align="center">
 
-**Your translator between engineering and business.**
+# 🌉 tech-business-skills
 
-Claude Skills that help tech leads — especially new ones — turn incidents, metrics, tech debt and projects into reports leadership acts on: every item flagged as highlight, lowlight or risk, every risk with a clear ask, and every claim backed by a number. No made-up numbers.
+### Your translator between engineering and business
 
----
+Claude Skills that help tech leads turn incidents, metrics, tech debt and projects<br>into reports leadership actually reads, and acts on.
 
-## Why this exists
+**🟢 Highlights · 🔴 Lowlights · 🟠 Risks · 📏 SMART goals · 🚫 No made-up numbers**
 
-People get promoted for being great engineers. Then nobody teaches them to talk to finance, defend a budget, or explain why a refactor matters.
+[⚡ Install in 1 minute](#-install-in-1-minute) · [👀 See an example](#-what-a-report-looks-like) · [🇪🇸 Español](#-hablas-español)
 
-The result is reports like *"migrated service X, fixed 14 bugs, attended 6 meetings"* — true, busy, and meaningless to the people who decide priorities and money.
-
-These skills don't just write the report for you. They **ask the questions a senior leader would ask** — *"What changed after that shipped? For whom? What would it have cost not to do it?"* — so you learn to translate your own work.
-
-## What's inside
-
-| Skill | What it does |
-|---|---|
-| [`tech-to-business-report`](tech-to-business-report/) | Turns technical work (a week, a month, a project, an incident) into a one-page report: each item labeled HIGHLIGHT / LOWLIGHT / RISK, told in STAR form, translated to business impact, and tracked against SMART goals. |
-
-More skills will be added one at a time, each in its own folder.
-
-## How it works
-
-**1. Every item gets one of three labels.**
-
-| Label | Meaning |
-|---|---|
-| **[H] HIGHLIGHT** | Something good already happened, with a measurable result |
-| **[L] LOWLIGHT** | Something bad already happened: cause, impact, what you learned |
-| **[R] RISK: Low / Medium / High** | Something could happen (or an opportunity could be lost) — always with an **ASK** |
-
-If it's not one of the three, it doesn't go in the report. No "FYI" padding.
-
-**2. Every item climbs the translation ladder.**
-
-```
-Output           →  Outcome                 →  Business impact
-what I did          what changed               money, customers, risk, speed
-"fixed 14 bugs"     "search tickets −62%"      "≈ 0.5 support FTE freed"
-```
-
-**3. The assistant knows your role.** It uses role cards (based on the role-based roadmaps of [roadmap.sh](https://roadmap.sh/roadmaps), plus SRE and Tech Lead) to ask the right questions: features and bugs for developers, exposure windows for security, audience reach and adoption for developer relations, and so on.
-
-**4. It never invents numbers.** Missing data shows up as `[MISSING: what — where to get it]`, and the report is marked as a draft until you fill it in.
+</div>
 
 ---
 
-## Install
+## 😩 The problem
 
-### Claude on the web or the desktop app (no code)
+You got promoted because you're great at the technical stuff. Then one day your director asks for "a quick update for the leadership meeting", and you write this:
+
+> *Migrated three services to the new cluster. Fixed 14 bugs. Implemented alerting for payments. Attended the architecture review. Worked on performance.*
+
+Everything is true. You worked hard. And the people reading it have **no idea why any of it matters.**
+
+Meanwhile, they're asking themselves:
+
+- 💸 *Did this make us money, or save us money?*
+- 👥 *Did customers notice?*
+- 🔥 *Is anything about to break?*
+- 🙋 *Do they need something from me?*
+
+Nobody teaches technical people to answer those questions. Big companies have whole rituals for it (weekly business reviews, highlights and lowlights, one-pagers). New leaders usually learn it the hard way: in a meeting where the CFO asks *"so what?"* and there's no good answer.
+
+**This repo is the shortcut.**
+
+## 💡 What it does
+
+It's not a template you fill in. It's a coach that **asks you the questions a senior leader would ask**, until your work speaks business.
+
+```
+You:     "I fixed 14 bugs in search."
+Claude:  "Nice. How many support tickets about search came in before and after?"
+You:     "Around 120 a month before, 45 now."
+Claude:  "That's 75 fewer tickets a month. Do you know the average cost of handling one?"
+You:     "No idea."
+Claude:  "I'll mark it as [MISSING: cost per ticket — ask Support Ops]
+          so it doesn't look invented. Want to keep going?"
+```
+
+Then it gives you a **one-page report** a busy executive can read in two minutes.
+
+## 🪜 From "what I did" to "why it matters"
+
+Every item climbs the same ladder:
+
+| | 🔧 Output<br>*what I did* | 📈 Outcome<br>*what changed* | 💼 Business impact<br>*why anyone cares* |
+|---|---|---|---|
+| **👩‍💻 Developer** | Shipped search filters, fixed 14 bugs | 38% of searches use filters; search tickets 120 → 45/month | ~75 fewer tickets/month ≈ half a support person freed |
+| **🎤 Developer Relations** | Gave 12 talks and 4 workshops | 340 sign-ups from the target audience, 60 active accounts | New active users at a fraction of paid acquisition cost |
+| **🛡️ Cyber Security** | Closed 300 vulnerabilities | Critical exposure window down from 45 to 9 days | Audit passed with zero critical findings; enterprise deal unblocked |
+| **⚙️ SRE / DevOps** | Rightsized cloud resources, added alerting | Monthly bill USD 41k → 34.5k; payment errors detected in 4 min (was 20) | ≈ USD 78k/year saved; issues caught before customers notice |
+| **📊 Data Engineer** | Migrated 20 pipelines | Data freshness from 24h to 1h; zero failed loads this month | Sales sees yesterday's numbers this morning, not tomorrow |
+
+*All figures in this README are fictional examples.*
+
+The skill knows **31+ roles** (based on the role-based roadmaps of [roadmap.sh](https://roadmap.sh/roadmaps), plus SRE and Tech Lead), so it asks the *right* questions for yours. Not in the list? It asks you three things and figures it out:
+
+1. What do you produce?
+2. Who uses it?
+3. **What breaks, and for whom, if you stop doing it for a month?** ← that's usually your business impact
+
+## 🏷️ Only three labels
+
+Every item gets exactly one. If it isn't one of these, it doesn't go in the report. No "FYI" padding.
+
+| | Label | Meaning | Must include |
+|---|---|---|---|
+| 🟢 | **HIGHLIGHT** | Something good **already happened** | A measurable result |
+| 🔴 | **LOWLIGHT** | Something bad **already happened** | Cause, impact, what you learned |
+| 🟠 | **RISK** Low · Medium · High | Something **could happen**, or an opportunity could be lost | Probability, impact, mitigation and an **ASK** |
+
+💬 *Need budget, people or a decision?* Write it as a risk: what happens if you **don't** get it, and what you need from the reader, by when.
+
+## 👀 What a report looks like
+
+```markdown
+# Payments Platform — Weekly report — Week of Oct 5
+Overall status: RISK: High
+
+## Need to know
+
+[R-High] Black Friday capacity (Platform, highest-revenue day of the year):
+Last year's peak was 3x normal traffic; we have never tested above 2x.
+Probability of degradation: high without a test. Mitigation: test plan ready.
+ACTION: run 3x load test — Platform, by Oct 30.
+ASK: approve a temporary performance environment by Oct 16.
+
+[L] Checkout outage, Tuesday (Platform, ~1,100 failed checkouts):
+25 min of failed checkouts after DB connections maxed out during a release.
+Rolled back. Revenue impact: [MISSING: revenue per minute — ask Finance].
+Learned: connection limits are now checked in the release pipeline.
+
+[H] Cloud cost down USD 6.5k/month (Platform, infrastructure budget):
+Rightsizing cut the bill from USD 41k to 34.5k (−16%), permanent.
+≈ USD 78k/year at current usage.
+
+## Goal tracking
+| Goal (SMART)                          | Target | Expected | Actual | Status    |
+|---------------------------------------|--------|----------|--------|-----------|
+| Checkout availability ≥ 99.9% in Q4   | 99.9%  | 99.9%    | 99.82% | Off track |
+| Cut cloud cost by USD 8k/month in Q4  | 8,000  | 2,700    | 6,500  | On track  |
+```
+
+Short. Labeled. Every claim has a number, or an honest `[MISSING]`.
+👉 Full worked example: [`references/example.md`](tech-to-business-report/references/example.md)
+
+## ⚡ Install in 1 minute
+
+### 💻 Claude on the web or the desktop app (no code)
 
 1. Open **[Customize → Plugins](https://claude.ai/customize/plugins)**.
 2. Click **Add → Add marketplace** and paste:
    ```
    MaisfloroTech/tech-business-skills
    ```
-3. Find **Tech Business Skills** in the list and click **Add**.
+3. Find **Tech Business Skills** and click **Add**. ✅
 
-Done. It updates on its own when new skills are published, and it's also available in Claude Code if you sign in with the same account.
+It updates on its own when new skills are published, and it also shows up in Claude Code if you use the same account.
 
-### Claude Code (one command)
-
-Inside a Claude Code session:
+### ⌨️ Claude Code (one command)
 
 ```
 /plugin install tech-business-skills --marketplace MaisfloroTech/tech-business-skills
 ```
 
-Or from your terminal:
-
-```bash
-claude plugin install tech-business-skills --marketplace MaisfloroTech/tech-business-skills
-```
-
-Works in the terminal and in the **Code** tab of the desktop app. Needs a recent Claude Code version; if the command isn't recognized, run `claude update` first.
-
-> **Even easier:** just tell Claude Code *"install the plugin tech-business-skills from the marketplace MaisfloroTech/tech-business-skills"* and it runs the command for you.
+Or just tell Claude Code: *"install the plugin tech-business-skills from the marketplace MaisfloroTech/tech-business-skills"*. If the command isn't recognized, run `claude update` first.
 
 <details>
-<summary><b>Other ways to install</b> (if the options above don't work for you)</summary>
+<summary>🧰 <b>Other ways to install</b></summary>
 
 **Upload the skill as a zip (web or desktop)**
 
 1. Download `tech-to-business-report.zip` from the [latest release](../../releases/latest). Don't unzip it.
 2. In Claude, go to **Customize → Skills**, choose **Upload skill** and select the zip.
 
-You need to repeat this for every update.
+You'll need to repeat this for every update.
 
-**Copy the skill folder (Claude Code)**
+**Copy the folder (Claude Code)**
 
 ```bash
 git clone https://github.com/MaisfloroTech/tech-business-skills.git
@@ -99,77 +155,89 @@ cp -r tech-business-skills/tech-to-business-report ~/.claude/skills/
 
 </details>
 
-**Requirements:** a paid Claude plan (Pro, Max, Team or Enterprise). On Team and Enterprise plans an admin may need to allow adding marketplaces, and can also install the plugin for the whole organization so everyone reports with the same standard.
+> 📝 You need a paid Claude plan (Pro, Max, Team or Enterprise). On Team and Enterprise, an admin may need to allow adding marketplaces, and can install it for the whole organization so everyone reports with the same standard.
 
-## Use it
+## 🚀 Use it
 
-Start a new chat and write something like:
+Start a new chat and say something like:
 
-> *Help me write my report for this week. I'm a backend developer and it goes to my director.*
+> *"Help me write my report for this month. I'm a backend developer and it goes to my director."*
 
-Then paste your notes, ticket titles or numbers — messy is fine. Claude asks you for your role, the audience and whatever is missing, and gives you the one-pager back.
+Then paste whatever you have: notes, ticket titles, numbers, a CSV. **Messy is fine.** Claude asks for what's missing and hands you the one-pager.
 
-You don't need to name the skill: asking for a report, a status update or "how do I explain this to the business" is enough. To call it explicitly, type `/` and pick **tech-to-business-report** (in Claude Code: `/tech-business-skills:tech-to-business-report`).
+You don't need to name the skill. To call it explicitly, type `/` and pick **tech-to-business-report** (in Claude Code: `/tech-business-skills:tech-to-business-report`).
 
-**Languages.** The skill answers in the language you write in. Write in Spanish and you get the questions and the report in Spanish; write in English and you get English. You can also mix: *"talk to me in Spanish but write the report in English"*. Labels (HIGHLIGHT, LOWLIGHT, RISK) stay in English by default because they are a shared vocabulary; ask if you want them translated.
+Works for a week, a month, a quarter, a project or a single incident.
 
-> **¿Hablas español?** Instálalo igual que arriba y escríbele en español, por ejemplo: *"Ayúdame con mi reporte de este mes. Soy desarrolladora backend y va para mi directora."* Te va a hacer las preguntas y entregar el reporte en español.
+## 🇪🇸 ¿Hablas español?
 
-If it helped you, [give the repo a star](https://github.com/MaisfloroTech/tech-business-skills) — it's how we know people are using it.
+Instálalo igual que arriba y escríbele en español:
 
-## For teams and companies
+> *"Ayúdame con mi reporte de este mes. Soy desarrolladora backend y va para mi directora."*
 
-Use this repo as a **template** to create your own private copy, then:
+Te hace las preguntas y te entrega el reporte en español. También puedes mezclar: *"háblame en español pero el reporte en inglés para mi jefe global"*. Las etiquetas (HIGHLIGHT, LOWLIGHT, RISK) quedan en inglés por defecto porque son vocabulario común entre equipos; si las quieres traducidas, pídelo.
 
-- Add your own examples (with your real metrics) to `references/example.md`.
-- Adjust the goal thresholds or labels to match how your leadership already reports.
-- Distribute the zip to your team, or install it workspace-wide on Team/Enterprise plans.
+The skill answers in whatever language you write in.
 
-Keep real company data in your private copy only.
+## 🛡️ The honesty promise
 
----
+This skill makes technical work *sound* like business. That's exactly why it has rules:
 
-## Repository structure
+- 🚫 **It never invents numbers.** No "industry averages", no plausible guesses.
+- 🕳️ **Gaps stay visible** as `[MISSING: what — where to get it]`, and the report is marked **DRAFT** until you fill them.
+- 🧮 **It shows its math** for anything calculated.
+- 📉 **Bad news stays the size it was.** No turning lowlights into highlights.
 
-One folder per skill. Each folder is self-contained, so it can be zipped and uploaded as is.
+A report with an honest gap is better than a polished one that falls apart at the first question.
+
+## 🏢 For teams and companies
+
+Click **Use this template** to create your own private copy, then:
+
+- Add examples with your real metrics (in your private copy only).
+- Tune labels and goal thresholds to how your leadership already reports.
+- Install it for the whole organization from Claude's admin settings.
+
+## 🗺️ What's next
+
+One skill today, more on the way, each in its own folder:
+
+- [x] 📄 **Tech-to-business report**: the one-pager
+- [ ] 🧱 Business case for technical debt
+- [ ] 🚨 Incident postmortem for leadership
+- [ ] 💰 Budget and headcount justification
+- [ ] 🔢 Translate any technical metric into business impact
+
+Need a role or a skill that isn't here? [Open an issue](../../issues) 💬
+
+## 🤝 Contributing
+
+The most valuable contributions are **role cards** and **before/after examples** (fictional data only). See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## 📁 What's inside
 
 ```
 tech-business-skills/
-├── tech-to-business-report/
-│   ├── SKILL.md                    # what the skill does and the step-by-step method
+├── tech-to-business-report/      ← one folder per skill
+│   ├── SKILL.md                  the method, step by step
 │   └── references/
-│       ├── labels.md               # HIGHLIGHT / LOWLIGHT / RISK and severity
-│       ├── translation-ladder.md   # output → outcome → business impact
-│       ├── honesty-rules.md        # no invented numbers, [MISSING: ...]
-│       ├── roles/                  # role cards, grouped in 8 families
-│       ├── template.md             # the one-pager format
-│       └── example.md              # a full worked example (fictional data)
-├── .claude-plugin/                 # makes the repo installable as a plugin (one line to add each new skill)
-├── .github/                        # CI, release automation and the build script
-├── CONTRIBUTING.md
-├── LICENSE
-└── README.md
+│       ├── labels.md             HIGHLIGHT / LOWLIGHT / RISK
+│       ├── translation-ladder.md output → outcome → impact
+│       ├── honesty-rules.md      no invented numbers
+│       ├── roles/                role cards in 8 families
+│       ├── template.md           the one-pager format
+│       └── example.md            a full worked example
+├── .claude-plugin/               makes it installable in one step
+└── .github/                      CI and releases
 ```
 
-The method files (`labels.md`, `translation-ladder.md`, `honesty-rules.md`, `roles/`) are shared: every skill carries an identical copy. CI checks that they never drift apart.
+---
 
-## Roadmap
+<div align="center">
 
-Next skills will follow the same method, one folder each. Ideas under consideration:
+⭐ **If this helped you sound more like business and less like a changelog, give it a star.**<br>
+It's how we know it's reaching the people who need it.
 
-- Business case for technical debt
-- Incident postmortem for leadership
-- Translating a technical metric into business impact
-- Budget and headcount justification
+Made with ☕ by [MaisfloroTech](https://github.com/MaisfloroTech) · [MIT License](LICENSE)
 
-The method isn't limited to engineering. Role cards for other functions can be added over time.
-
-Have a role or a skill you need? [Open an issue](../../issues).
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). The most valuable contributions are **role cards** and **before/after examples** with fictional data.
-
-## License
-
-[MIT](LICENSE)
+</div>
