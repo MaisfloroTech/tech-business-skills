@@ -114,6 +114,10 @@ Then paste your notes, ticket titles or numbers — messy is fine. Claude asks y
 
 You don't need to name the skill: asking for a report, a status update or "how do I explain this to the business" is enough.
 
+**Languages.** The skill answers in the language you write in. Write in Spanish and you get the questions and the report in Spanish; write in English and you get English. You can also mix: *"talk to me in Spanish but write the report in English"*. Labels (HIGHLIGHT, LOWLIGHT, RISK) stay in English by default because they are a shared vocabulary; ask if you want them translated.
+
+> **¿Hablas español?** Instálalo igual que arriba y escríbele en español, por ejemplo: *"Ayúdame con mi reporte de este mes. Soy desarrolladora backend y va para mi directora."* Te va a hacer las preguntas y entregar el reporte en español.
+
 If it helped you, [give the repo a star](https://github.com/MaisfloroTech/tech-business-skills) — it's how we know people are using it.
 
 ## For teams and companies
