@@ -40,6 +40,7 @@ You tell it your **role** and paste what happened (notes, tickets, a few numbers
 - 🎯 **One topic, one item.** One thing, done well. No splitting a single change into five bullets.
 - ✂️ **3–4 lines.** No essays, no one-pagers.
 - 🚦 **A traffic light** the business reads in a second: 🟢 good, 🟠 watch out, 🔴 bad.
+- 🗣️ **Business words, not jargon:** "Infrastructure optimization, 25% smaller", not "DB downsized to 24 vCPU".
 - 💼 **Business first:** money, customers, risk or speed, with a number.
 - 🔮 **Risks anticipated:** if your notes hint at something that could go wrong, it flags it before it becomes a fire.
 - 🙋 **Every risk ends with an ask:** what you need, from whom, by when.
@@ -82,28 +83,28 @@ If it isn't good, bad or a risk for the business, it doesn't go in the report. N
 
 **You write:**
 
-> *SRE. Downsized the main database from 32 to 24 vCPU, should save about USD 1,200/month. 2-hour maintenance window, effective since yesterday.*
+> *SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window.*
 
 **You get:**
 
-> 🟢 **[HIGHLIGHT] Database cost:** ~USD 1,200/month less (≈ USD 14,400/year) on the main database, effective since yesterday. We right-sized the server (32 → 24 vCPU) in a planned 2-hour window. Watch: performance during the next month-end peak.
+> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). We're monitoring closely after the change to ensure availability for our customers.
 
-Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The thing to monitor goes inside the same item as a short *Watch*, not as a separate scary bullet.
+Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in business words (*Infrastructure optimization*, not *DB downsize*), "32 → 24 vCPU" becomes "25% smaller", and it closes by reassuring the reader about customers instead of adding a separate scary bullet.
 
 ### Several topics → several items
 
 **You write:**
 
-> *SRE. Checkout down 25 min Tuesday, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x.*
+> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x.*
 
 **You get:**
 
 > **Overall: 🟠 RISK – HIGH**
 >
-> 🟠 **[RISK – HIGH] Black Friday capacity:** checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3x normal traffic; we've never tested above 2x.
-> **ASK:** approve a temporary performance environment by Oct 16.
+> 🟠 **[RISK – HIGH] Black Friday readiness:** our checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3 times normal traffic, and we have only tested up to 2 times.
+> **ASK:** approve a temporary test environment by Oct 16 so we can validate before Oct 30.
 >
-> 🔴 **[LOWLIGHT] Checkout outage:** 25 min down on Tuesday, ~1,100 failed payments, revenue impact [MISSING: revenue per minute — Finance]. A release maxed out database connections; releases are now checked for this.
+> 🔴 **[LOWLIGHT] Service interruption:** On Oct 7, customers couldn't complete payments for 25 minutes (~1,100 failed payments). An update overloaded the database; we reverted it and now check every update for this before release.
 
 The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads.
 
@@ -219,6 +220,7 @@ tech-business-skills/
 │       ├── labels.md             HIGHLIGHT / LOWLIGHT / RISK
 │       ├── translation-ladder.md output → outcome → impact
 │       ├── honesty-rules.md      no invented numbers
+│       ├── business-language.md  technical → business titles and words
 │       └── roles/                role cards in 8 families
 ├── .claude-plugin/               makes it installable in one step
 └── .github/                      CI and releases

@@ -38,28 +38,31 @@ Example: downsizing a database to save money is a 🟢 HIGHLIGHT, even if it nee
 
 ### 3. Write it
 
-**One topic = one item.** If the user reports one change or event, the report is **one item**. A side effect to keep an eye on goes **inside** that item as a short `Watch:` clause, never as a separate item. Only write several items when the user gives several distinct topics (max 5).
+Read `references/business-language.md` before writing. **The reader is business, not engineering.**
+
+**One topic = one item.** If the user reports one change or event, the report is **one item**. Only write several items when the user gives several distinct topics (max 5).
 
 Each item:
 
 - **Full-word label with its light**: `🟢 [HIGHLIGHT]`, `🔴 [LOWLIGHT]`, `🟠 [RISK – MEDIUM]`. Never `[H]`, `[L]`, `[R-Medium]`.
-- **3–4 lines max.**
-- **Business meaning first**, technical detail second and short. Use the matching family file in `references/roles/` to know what matters for that role.
-- **At least one number.** Annualize recurring savings or costs when it helps (monthly × 12), and show it as an estimate if the source is an estimate.
-- **Risks end with** `ASK:` what you need, from whom, by when (or `ASK: none, monitoring until <date>`).
+- **Title in business words**, never technical: "Infrastructure optimization", not "Database cost" or "DB downsize". Use the title table in `references/business-language.md`.
+- **Written as a short narrative, 3–4 lines max**: when it happened, what was done (plain words), the business result with numbers, and the follow-up.
+- **Numbers the business cares about**: % change (computed from before → after), money (monthly and annualized for recurring amounts), % of current total if the user gave the total, customers or users affected.
+- **Technical details only as a simple %** or plain words. No vCPU, p95, CVE or similar jargon unless spelled out.
+- **End with the follow-up** in business terms: what is being done next and how customers are protected (e.g. "We're monitoring closely after the change to ensure availability for our customers."). For risks, end with `ASK:` what you need, from whom, by when.
 
-Format:
-
-```
-🟢 [HIGHLIGHT] <Topic>: <business result with a number>. <What was done, in a few plain words>. Watch: <only if needed>.
-```
+Shapes:
 
 ```
-🔴 [LOWLIGHT] <Topic>: <business impact with a number>. <Cause in plain words>. <What changed so it doesn't repeat>.
+🟢 [HIGHLIGHT] <Business title>: On <date>, we <business action> on <component in plain words>, <change as %>, generating <result with number> (<% of current total, if known>). <Follow-up that reassures the business>.
 ```
 
 ```
-🟠 [RISK – HIGH] <Topic>: <what could happen to the business, with a number>. <Why it could happen>.
+🔴 [LOWLIGHT] <Business title>: On <date>, <what customers or the business experienced, with numbers>. <Cause in plain words>. <What we changed so it doesn't happen again>.
+```
+
+```
+🟠 [RISK – HIGH] <Business title>: <what could happen to the business and when, with a number>. <Why it could happen, in plain words>.
 ASK: <what you need, from whom, by when>.
 ```
 
@@ -81,22 +84,20 @@ The first time in a conversation, add once, in the user's language: a short invi
 ## Examples (fictional data)
 
 **One topic → one item.**
-Input: *"SRE. Downsized the main database from 32 to 24 vCPU, should save about USD 1,200/month. 2-hour maintenance window, effective since yesterday."*
+Input: *"SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window."*
 
 ```
-🟢 [HIGHLIGHT] Database cost: ~USD 1,200/month less (≈ USD 14,400/year) on the main database, effective since yesterday. We right-sized the server (32 → 24 vCPU) in a planned 2-hour window. Watch: performance during the next month-end peak.
+🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). We're monitoring closely after the change to ensure availability for our customers.
 ```
-
-Confirm before sending: whether customers noticed anything during the 2-hour window.
 
 **Several topics → several items.**
-Input: *"SRE. Checkout down 25 min Tuesday, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x."*
+Input: *"SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release. Black Friday in 6 weeks, never load-tested above 2x, last year's peak was 3x."*
 
 ```
 Overall: 🟠 RISK – HIGH
 
-🟠 [RISK – HIGH] Black Friday capacity: checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3x normal traffic; we've never tested above 2x.
-ASK: approve a temporary performance environment by Oct 16.
+🟠 [RISK – HIGH] Black Friday readiness: our checkout could slow down or fail on the highest-revenue day of the year. Last year's peak was 3 times normal traffic, and we have only tested up to 2 times.
+ASK: approve a temporary test environment by Oct 16 so we can validate before Oct 30.
 
-🔴 [LOWLIGHT] Checkout outage: 25 min down on Tuesday, ~1,100 failed payments, revenue impact [MISSING: revenue per minute — Finance]. A release maxed out database connections; releases are now checked for this.
+🔴 [LOWLIGHT] Service interruption: On Oct 7, customers couldn't complete payments for 25 minutes (~1,100 failed payments). An update overloaded the database; we reverted it and now check every update for this before release.
 ```

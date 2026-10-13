@@ -43,8 +43,8 @@ Pick the label by the **main business effect** of what happened, not by how tech
 
 ## Rules
 
-1. **One topic → one item, one label.** A single change or event is told as **one** item, even if it has a side effect to watch. Mention the watch point inside the same item (for example `Watch: ...`), don't split it into a second item.
-   - A cost saving is a 🟢 HIGHLIGHT. If it also needs monitoring, add one `Watch:` clause inside it. It does **not** become a separate RISK item.
+1. **One topic → one item, one label.** A single change or event is told as **one** item, even if it has a side effect to watch. Mention what you're watching inside the same item, as the closing follow-up sentence; don't split it into a second item.
+   - A cost saving is a 🟢 HIGHLIGHT. If it also needs monitoring, say so in its closing sentence ("We're monitoring closely after the change to ensure availability for our customers."). It does **not** become a separate RISK item.
    - Create a separate RISK item only when the risk is a **different topic** from what the user reported, or when the risk is bigger than the result itself.
 
 2. **If it is not good, bad or a risk for the business, it doesn't go in the report.** No "FYI". Context goes inside an item.
