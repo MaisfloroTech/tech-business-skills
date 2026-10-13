@@ -8,6 +8,8 @@ A growing collection of Claude Skills that help tech leads explain technical wor
 
 **🚦 Traffic-light labels · 🗣️ Business words, not jargon · 🚫 No made-up numbers**
 
+👋 **Start every message with your role:** *"I'm a…"* / *"Soy…"*
+
 [🧰 The skills](#-the-skills) · [⚡ Install](#-install-once-get-every-skill) · [📄 Skill 1: Short report](#-skill-1--tech-to-business-short-report) · [🎯 Skill 2: SMART objectives](#-skill-2--tech-to-business-smart-objectives) · [🇪🇸 Español](#-hablas-español)
 
 </div>
@@ -44,6 +46,17 @@ Nobody teaches technical people to answer those questions. New leaders usually l
 
 More skills are on the way. Install once and every new skill arrives automatically.
 Need one that isn't here? [Open an issue](../../issues) 💬
+
+> [!IMPORTANT]
+> ## 👋 Always start with your role
+>
+> Begin every message with **"I'm a…"** or **"My role is…"**
+> En español: **"Soy…"** o **"Mi rol es…"**
+>
+> *"**I'm a backend developer.** …"* · *"**My role is SRE lead.** …"* · *"**Soy líder de datos.** …"*
+>
+> Your role decides which numbers matter (bugs and adoption for a developer, availability and cost for SRE, exposure for security…). Say it first and you get your answer in one shot, without extra questions.
+
 
 ---
 
@@ -130,7 +143,7 @@ You tell it your **role** and what happened (notes, tickets, a few numbers). It 
 
 **You write:**
 
-> *SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window.*
+> *"I'm an SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window."*
 
 **You get:**
 
@@ -143,7 +156,7 @@ Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in
 
 **You write:**
 
-> *SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x.*
+> *"I'm an SRE. Checkout down 25 min Tuesday Oct 7, ~1,100 failed payments, DB connections maxed in a release; we rolled back and added a connection check to releases. Black Friday is Nov 27, never load-tested above 2x, last year's peak was 3x."*
 
 **You get:**
 
@@ -160,9 +173,9 @@ The Black Friday comment was a side note in the input; the skill turned it into 
 
 ### 🚀 Use it
 
-Start a new chat and say something like:
+Start a new chat and **begin with your role** ("I'm a…" / "My role is…"):
 
-> *"I'm a backend developer. Turn this into an update for my director: …"*
+> *"**I'm a backend developer.** Turn this into an update for my director: …"*
 
 Paste whatever you have: notes, ticket titles, numbers. **Messy is fine.**
 
@@ -221,7 +234,7 @@ It didn't know the target platform, the number of flows, the dates or **why** th
 
 **You write:**
 
-> *"SRE lead (Ana Pérez). Q3 2026, due Sep 25. Move 40 services' alerting from emails to on-call paging with runbooks, with the Backend and Support teams. Plan approved by Jul 17, all services moved by Aug 28. Today customers report 60% of incidents before we notice; goal is under 20%."*
+> *"I'm Ana Pérez, my role is SRE lead. Q3 2026, due Sep 25. Move 40 services' alerting from emails to on-call paging with runbooks, with the Backend and Support teams. Plan approved by Jul 17, all services moved by Aug 28. Today customers report 60% of incidents before we notice; goal is under 20%."*
 
 **You get:**
 
@@ -240,9 +253,11 @@ It didn't know the target platform, the number of flows, the dates or **why** th
 
 ### 🚀 Use it
 
-> *"Help me write my Q1 objective. I'm a backend developer and I want to …"*
+Start a new chat and **begin with your role** ("I'm a…" / "My role is…"):
 
-Or in Spanish: *"Ayúdame a redactar mi objetivo del Q1. Soy desarrolladora backend y quiero …"*
+> *"**I'm a backend developer.** Help me write my Q1 objective: I want to …"*
+
+Or in Spanish: *"**Soy desarrolladora backend.** Ayúdame a redactar mi objetivo del Q1: quiero …"*
 
 To call it explicitly, type `/` and pick **tech-to-business-smart-objectives** (in Claude Code: `/tech-business-skills:tech-to-business-smart-objectives`). One objective per answer; ask again for the next one.
 
@@ -291,9 +306,9 @@ A report with an honest gap is better than a polished one that falls apart at th
 
 ### 🇪🇸 ¿Hablas español?
 
-Instálalo igual que arriba y escríbele en español:
+Instálalo igual que arriba y escríbele en español, **empezando siempre por tu rol** ("Soy…" / "Mi rol es…"):
 
-> *"Soy desarrolladora backend. Conviértelo en una actualización para mi directora: …"*
+> *"**Mi rol es desarrolladora backend.** Conviértelo en una actualización para mi directora: …"*
 
 Te responde y te entrega el reporte en español. También puedes mezclar: *"háblame en español pero el reporte en inglés para mi jefe global"*. Las etiquetas (HIGHLIGHT, LOWLIGHT, RISK) quedan en inglés por defecto porque son vocabulario común entre equipos; si las quieres traducidas, pídelo.
 

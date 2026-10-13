@@ -41,7 +41,7 @@ python .github/scripts/skills.py validate
    python .github/scripts/skills.py sync --from tech-to-business-short-report
    ```
 
-4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews.
+4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews. Every skill **asks for the role first** ("I'm a…" / "My role is…") and uses the role cards, and every example input starts with the role.
 5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
 
    ```json
