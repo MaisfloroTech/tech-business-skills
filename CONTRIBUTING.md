@@ -49,7 +49,7 @@ python .github/scripts/skills.py validate
    ```
 
 6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
-7. Add the skill to the table in `README.md`.
+7. In `README.md`, mark it ✅ Available in **The skills** table and add its own big section (`# <emoji> Skill N · <Name>`) after the previous skill, following the same layout: what it does, an example, how to use it.
 
 ## Releases (maintainers)
 
