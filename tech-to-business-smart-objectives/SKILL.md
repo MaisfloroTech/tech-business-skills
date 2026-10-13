@@ -84,12 +84,37 @@ Each specific objective is **one line**, SMART, with a **deliverable, a number o
 
 Use as many as the objective needs (1–3), not always 3. Dates should be in sequence and inside the quarter.
 
-### 5. Format
+### 5. Add the expected business impact (optional line)
+
+Right after the main objective, add **one line** with the expected business impact as **percentages**, so leadership sees the return at a glance. Pick 1–3 impact types that fit the objective and the role:
+
+| Impact type | Example |
+|---|---|
+| ⚡ Performance | "50% faster checkout (6 → 3 s)" |
+| 💰 Cost | "20% lower infrastructure cost (USD 10k → 8k/month)" |
+| 🔁 Development lifecycle | "40% shorter lead time from code to production", "2x more deploys per week" |
+| 🟢 Availability / reliability | "67% fewer incidents reported by customers", "99.5% → 99.9% availability" |
+| 🛡️ Security risk | "67% less time exposed to critical vulnerabilities" |
+| 😊 Customers | "30% fewer support tickets", "+5 points of satisfaction" |
+| 📈 Revenue / conversion | "+2 points of checkout conversion" |
+| ⏱️ Team time | "80% less time to close the month (4 days freed per month)" |
+| ✅ Compliance | "0 critical findings in the audit" |
+
+Rules:
+- **Compute the % only from the user's numbers** (before → after) and show both values in parentheses so anyone can check it.
+- If there are no numbers for an impact that clearly matters, use a placeholder: `ENTER_PERCENT% lower infrastructure cost` / `INGRESA_PORCENTAJE% menos costo de infraestructura`.
+- The line is **optional**: leave it out only if no business impact type applies at all. Never pad it with impacts the objective doesn't affect.
+
+Format: `📈 Business impact (expected): <impact 1> · <impact 2> · <impact 3>` (Spanish: `📈 Impacto en el negocio (esperado):`).
+
+### 6. Format
 
 ```
 🎯 <Main objective title in business words> · <Quarter>
 
 <Main objective: 2–4 lines starting with "Plan and…", answering the 6 questions>
+
+📈 Business impact (expected): <x% improvement in …> · <…>
 
 Owner: <team (person)>
 
@@ -99,9 +124,9 @@ Specific objectives:
 3. ✅ <Validation>: <how success is proven, with a number>, by <date>.
 ```
 
-Spanish labels: `Responsable:`, `Objetivos específicos:`, `Planificación`, `Ejecución`, `Validación`.
+Spanish labels: `📈 Impacto en el negocio (esperado):`, `Responsable:`, `Objetivos específicos:`, `Planificación`, `Ejecución`, `Validación`.
 
-### 6. Close
+### 7. Close
 
 After the objective, add **one line** with the SMART check, marking with ⚠️ any letter that depends on a placeholder:
 
@@ -134,6 +159,8 @@ Input: *"Soy líder de datos. Quiero planear e implementar la migración (la pri
 
 Planear e implementar la primera fase (1 de 4) de la migración del actual data lake a INGRESA_PLATAFORMA_DESTINO, en conjunto con los equipos de Datos, Infraestructura y Desarrollo, migrando INGRESA_CANTIDAD flujos de datos antes del INGRESA_FECHA, para INGRESA_MOTIVO_DE_NEGOCIO.
 
+📈 Impacto en el negocio (esperado): INGRESA_PORCENTAJE% menos tiempo para tener los datos disponibles · INGRESA_PORCENTAJE% menos costo de la plataforma de datos
+
 Responsable: Equipo de Datos (INGRESA_RESPONSABLE)
 
 Objetivos específicos:
@@ -152,6 +179,8 @@ Input: *"I'm Ana Pérez, my role is SRE lead. Q3 2026, due Sep 25. Move 40 servi
 🎯 Early problem detection · Q3 2026
 
 Plan and implement on-call paging with runbooks for our 40 production services, together with the Backend and Support teams, so we detect problems before customers do, reducing customer-reported incidents from 60% to under 20% by Sep 25, 2026.
+
+📈 Business impact (expected): ~67% lower share of incidents reported by customers first (60% → under 20%)
 
 Owner: SRE team (Ana Pérez)
 

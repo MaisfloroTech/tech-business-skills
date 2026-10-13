@@ -278,6 +278,7 @@ No number, no date, no owner, no business reason, and no plan. This skill fixes 
 - ❓ **The 6 questions answered:** what, why, when, where, who and how.
 - 🧩 **One main objective + 1–3 specific ones:** planning first, then execution, then validation, each with a deliverable, a number and a date.
 - 👤 **A clear owner**, so everyone knows who answers for it.
+- 📈 **Expected business impact in %** (optional): performance, cost, development lifecycle, availability, security risk, customers, revenue or team time, computed from your numbers.
 - ✅ **A SMART check** at the end that shows which letter still needs your input.
 
 ### 👀 Example: with gaps → placeholders
@@ -291,6 +292,8 @@ No number, no date, no owner, no business reason, and no plan. This skill fixes 
 > 🎯 **Data platform modernization · Q1**
 >
 > Plan and implement phase 1 (of 4) of the migration of our current data lake to ENTER_TARGET_PLATFORM, together with the Data, Infrastructure and Development teams, migrating ENTER_NUMBER data flows by ENTER_DATE, to ENTER_BUSINESS_REASON.
+>
+> 📈 **Business impact (expected):** ENTER_PERCENT% less time to get data available · ENTER_PERCENT% lower data platform cost
 >
 > **Owner:** Data team (ENTER_OWNER)
 >
@@ -314,6 +317,8 @@ It didn't know the target platform, the number of flows, the dates or **why** th
 > 🎯 **Early problem detection · Q3 2026**
 >
 > Plan and implement on-call paging with runbooks for our 40 production services, together with the Backend and Support teams, so we detect problems before customers do, reducing customer-reported incidents from 60% to under 20% by Sep 25, 2026.
+>
+> 📈 **Business impact (expected):** ~67% lower share of incidents reported by customers first (60% → under 20%)
 >
 > **Owner:** SRE team (Ana Pérez)
 >
@@ -339,6 +344,8 @@ It didn't know the target platform, the number of flows, the dates or **why** th
 🎯 Faster checkout for mobile customers · Q2
 
 Plan and implement performance improvements to our mobile checkout page, together with the Design and Backend teams, reducing its load time from 6 to under 3 seconds by June 15, because 70% of our traffic comes from mobile, and measuring the effect on mobile checkout conversion (today: ENTER_PERCENT).
+
+📈 Business impact (expected): 50% faster mobile checkout (6 → 3 s) · ENTER_PERCENT% higher mobile checkout conversion
 
 Owner: Frontend team (ENTER_OWNER)
 
@@ -366,6 +373,8 @@ SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ ENTER_DATE
 
 Planear e implementar la remediación de las 120 vulnerabilidades críticas abiertas en nuestros servidores expuestos a internet, junto a los equipos de Infraestructura y Desarrollo, pasando de 45 días promedio de exposición a ninguna crítica con más de 15 días abierta antes del 15 de diciembre, para llegar preparados a la auditoría ISO 27001 (certificación de seguridad) de enero.
 
+📈 Impacto en el negocio (esperado): al menos 67% menos tiempo de exposición a vulnerabilidades críticas (45 → máximo 15 días)
+
 Responsable: Equipo de Ciberseguridad (INGRESA_RESPONSABLE)
 
 Objetivos específicos:
@@ -392,6 +401,8 @@ SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ INGRESA_FECHA
 
 Plan and implement an automated monthly close dashboard for the Finance team, together with Finance and Data Engineering, reducing the time to prepare the monthly close report from 5 days to 1 by March 20, 2027, freeing 4 days of Finance's work every month.
 
+📈 Business impact (expected): 80% less time to close the month (5 → 1 day) · 4 days of Finance's work freed per month
+
 Owner: BI team (ENTER_OWNER)
 
 Specific objectives:
@@ -417,6 +428,8 @@ SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ ENTER_DATE
 🎯 Fraud prevention · Q3
 
 Plan and implement improvements to our payments fraud detection model, together with the Payments and Risk teams, increasing detected fraudulent payments from 70% to 85% while keeping wrongly blocked legitimate payments at or below 1%, by ENTER_DATE, to ENTER_BUSINESS_REASON.
+
+📈 Business impact (expected): ~21% more fraudulent payments detected (70% → 85%) · USD ENTER_AMOUNT in fraud losses avoided
 
 Owner: ML team (ENTER_OWNER)
 

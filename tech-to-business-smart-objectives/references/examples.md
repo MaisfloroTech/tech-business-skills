@@ -15,6 +15,8 @@ Input: *"I'm a frontend developer. Q2. The checkout page takes 6 seconds to load
 
 Plan and implement performance improvements to our mobile checkout page, together with the Design and Backend teams, reducing its load time from 6 to under 3 seconds by June 15, because 70% of our traffic comes from mobile, and measuring the effect on mobile checkout conversion (today: ENTER_PERCENT).
 
+📈 Business impact (expected): 50% faster mobile checkout (6 → 3 s) · ENTER_PERCENT% higher mobile checkout conversion
+
 Owner: Frontend team (ENTER_OWNER)
 
 Specific objectives:
@@ -35,6 +37,8 @@ Input: *"Soy analista de ciberseguridad. Q4. Hoy tenemos 120 vulnerabilidades cr
 🎯 Fortalecimiento de la seguridad · Q4
 
 Planear e implementar la remediación de las 120 vulnerabilidades críticas abiertas en nuestros servidores expuestos a internet, junto a los equipos de Infraestructura y Desarrollo, pasando de 45 días promedio de exposición a ninguna crítica con más de 15 días abierta antes del 15 de diciembre, para llegar preparados a la auditoría ISO 27001 (certificación de seguridad) de enero.
+
+📈 Impacto en el negocio (esperado): al menos 67% menos tiempo de exposición a vulnerabilidades críticas (45 → máximo 15 días)
 
 Responsable: Equipo de Ciberseguridad (INGRESA_RESPONSABLE)
 
@@ -57,6 +61,8 @@ Input: *"I'm a BI analyst. Q1 2027. Finance builds the monthly close report by h
 
 Plan and implement an automated monthly close dashboard for the Finance team, together with Finance and Data Engineering, reducing the time to prepare the monthly close report from 5 days to 1 by March 20, 2027, freeing 4 days of Finance's work every month.
 
+📈 Business impact (expected): 80% less time to close the month (5 → 1 day) · 4 days of Finance's work freed per month
+
 Owner: BI team (ENTER_OWNER)
 
 Specific objectives:
@@ -77,6 +83,8 @@ Input: *"My role is ML engineer. Q3. Our fraud model catches 70% of fraudulent p
 🎯 Fraud prevention · Q3
 
 Plan and implement improvements to our payments fraud detection model, together with the Payments and Risk teams, increasing detected fraudulent payments from 70% to 85% while keeping wrongly blocked legitimate payments at or below 1%, by ENTER_DATE, to ENTER_BUSINESS_REASON.
+
+📈 Business impact (expected): ~21% more fraudulent payments detected (70% → 85%) · USD ENTER_AMOUNT in fraud losses avoided
 
 Owner: ML team (ENTER_OWNER)
 
