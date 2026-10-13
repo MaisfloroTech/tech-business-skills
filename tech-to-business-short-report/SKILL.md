@@ -114,6 +114,9 @@ The first time in a conversation, add once, in the user's language: a short invi
 
 ## Examples (fictional data)
 
+More examples by role (developer, cybersecurity, data, ML) are in `references/examples.md`. Read the one closest to the user's role before writing.
+
+
 **One topic → one item.**
 Input: *"I'm an SRE. Downsized the main database from 32 to 24 vCPU on Oct 11, saves about USD 1,200/month. The database costs ~USD 10,000/month. 2-hour maintenance window."*
 

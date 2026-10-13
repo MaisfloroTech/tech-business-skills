@@ -123,6 +123,9 @@ The first time in a conversation, add once, in the user's language: a short invi
 
 ## Examples (fictional data)
 
+More examples by role (developer, cybersecurity, data, ML) are in `references/examples.md`. Read the one closest to the user's role before writing.
+
+
 **Spanish input, with gaps.**
 Input: *"Soy líder de datos. Quiero planear e implementar la migración (la primera fase de 4) del actual datalake. Con los equipos de datos, infraestructura y desarrollo. Hay que entregar el plan, fechas, arquitectura, documentación y X flujos migrados. Es para el Q1."*
 

@@ -171,6 +171,79 @@ Saving money is good for the business, so it's a 🟢 HIGHLIGHT. The title is in
 
 The Black Friday comment was a side note in the input; the skill turned it into the first thing leadership reads. You didn't say what you need, so instead of inventing an ask it leaves **ENTER_WHAT_YOU_NEED_AND_BY_WHEN** for you to replace.
 
+### 👀 More examples by role
+
+<details>
+<summary><b>👩‍💻 Backend developer → 🟢 HIGHLIGHT</b></summary>
+
+**You write:**
+
+> *"I'm a backend developer. On Oct 9 we released the new search filters in the web store, together with Product and Support. Search-related support tickets dropped from 120 to 45 per month."*
+
+**You get:**
+
+```
+🟢 [HIGHLIGHT] Better search for customers: On Oct 9, the backend team released new search filters in our web store, together with the Product and Support teams. Since then, support tickets about search dropped from 120 to 45 per month (−63%), so customers find products with less help.
+Owner: Backend team (ENTER_OWNER)
+```
+
+---
+
+</details>
+
+<details>
+<summary><b>🛡️ Cybersecurity → 🟠 RISK – HIGH</b></summary>
+
+**You write:**
+
+> *"My role is security analyst. 3 critical vulnerabilities on the customer portal have been open for 30 days; our policy is 15. The patch needs a 1-hour downtime that Product hasn't approved yet. SOC 2 audit is on Nov 20."*
+
+**You get:**
+
+```
+🟠 [RISK – HIGH] Customer portal security: three critical security gaps on our customer portal have been open for 30 days, twice our 15-day policy, and could be flagged in the SOC 2 external security audit on Nov 20. Fixing them needs a 1-hour planned downtime of the portal.
+ASK: Product team to approve the 1-hour maintenance window by ENTER_DATE.
+Owner: Security team (ENTER_OWNER)
+```
+
+---
+
+</details>
+
+<details>
+<summary><b>📊 Data engineer → 🔴 LOWLIGHT</b></summary>
+
+**You write:**
+
+> *"I'm a data engineer. On Oct 6 the daily sales pipeline failed and the sales dashboard was 2 days out of date; the commercial team built the weekly forecast with old data. A source system changed its schema without notice. We added schema checks and alerts."*
+
+**You get:**
+
+```
+🔴 [LOWLIGHT] Data availability for decisions: On Oct 6, our daily sales data stopped updating, so the sales dashboard was 2 days out of date and the commercial team built the weekly forecast with old data. A source system changed its data format without notice; the data engineering team added automatic format checks and alerts.
+Owner: Data Engineering team (ENTER_OWNER)
+```
+
+---
+
+</details>
+
+<details>
+<summary><b>📊 Data analyst / BI → 🟢 HIGHLIGHT (en español)</b></summary>
+
+**You write:**
+
+> *"Soy analista de BI. El 2 de octubre publicamos el tablero automático de cierre mensual para Finanzas. Antes armaban el reporte a mano en 5 días, en el cierre de septiembre les tomó 1 día."*
+
+**You get:**
+
+```
+🟢 [HIGHLIGHT] Cierre mensual más rápido para Finanzas: El 2 de octubre, el equipo de BI publicó un tablero automático de cierre mensual para Finanzas, que antes armaba el reporte a mano. En el cierre de septiembre, el reporte pasó de 5 días a 1 (−80%), liberando 4 días de trabajo del equipo de Finanzas cada mes.
+Responsable: Equipo de BI (INGRESA_RESPONSABLE)
+```
+
+</details>
+
 ### 🚀 Use it
 
 Start a new chat and **begin with your role** ("I'm a…" / "My role is…"):
@@ -250,6 +323,112 @@ It didn't know the target platform, the number of flows, the dates or **why** th
 > 3. ✅ **Validation:** customer-reported incidents below 20% of all incidents, by Sep 25.
 >
 > SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ✓
+
+### 👀 More examples by role
+
+<details>
+<summary><b>👩‍💻 Frontend developer</b></summary>
+
+**You write:**
+
+> *"I'm a frontend developer. Q2. The checkout page takes 6 seconds to load on mobile, and 70% of our traffic is mobile. Goal: under 3 seconds by June 15, with Design and Backend. We'll measure mobile checkout conversion."*
+
+**You get:**
+
+```
+🎯 Faster checkout for mobile customers · Q2
+
+Plan and implement performance improvements to our mobile checkout page, together with the Design and Backend teams, reducing its load time from 6 to under 3 seconds by June 15, because 70% of our traffic comes from mobile, and measuring the effect on mobile checkout conversion (today: ENTER_PERCENT).
+
+Owner: Frontend team (ENTER_OWNER)
+
+Specific objectives:
+1. 🗺️ Planning: deliver the improvement plan with priorities and dates, approved by Frontend, Design and Backend, by ENTER_DATE.
+2. 🛠️ Execution: mobile checkout page loads in under 3 seconds, by June 15.
+3. ✅ Validation: report mobile checkout conversion before vs. after the change, by ENTER_DATE.
+```
+
+SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ ENTER_DATE
+
+</details>
+
+<details>
+<summary><b>🛡️ Cybersecurity (en español)</b></summary>
+
+**You write:**
+
+> *"Soy analista de ciberseguridad. Q4. Hoy tenemos 120 vulnerabilidades críticas abiertas en servidores expuestos a internet, en promedio 45 días abiertas. Queremos que no quede ninguna crítica con más de 15 días antes del 15 de diciembre, junto a Infraestructura y Desarrollo, para llegar bien a la auditoría ISO 27001 de enero."*
+
+**You get:**
+
+```
+🎯 Fortalecimiento de la seguridad · Q4
+
+Planear e implementar la remediación de las 120 vulnerabilidades críticas abiertas en nuestros servidores expuestos a internet, junto a los equipos de Infraestructura y Desarrollo, pasando de 45 días promedio de exposición a ninguna crítica con más de 15 días abierta antes del 15 de diciembre, para llegar preparados a la auditoría ISO 27001 (certificación de seguridad) de enero.
+
+Responsable: Equipo de Ciberseguridad (INGRESA_RESPONSABLE)
+
+Objetivos específicos:
+1. 🗺️ Planificación: entregar el plan de remediación con prioridades, responsables y ventanas de mantenimiento, aprobado por Ciberseguridad, Infraestructura y Desarrollo, antes del INGRESA_FECHA.
+2. 🛠️ Ejecución: remediar las 120 vulnerabilidades críticas, sin ninguna con más de 15 días abierta, antes del 15 de diciembre.
+3. ✅ Validación: entregar la evidencia de remediación para la auditoría ISO 27001 antes del INGRESA_FECHA.
+```
+
+SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ INGRESA_FECHA
+
+</details>
+
+<details>
+<summary><b>📊 BI analyst</b></summary>
+
+**You write:**
+
+> *"I'm a BI analyst. Q1 2027. Finance builds the monthly close report by hand in spreadsheets and it takes 5 days. I want an automated dashboard so it takes 1 day, by March 20, with Finance and Data Engineering."*
+
+**You get:**
+
+```
+🎯 Faster monthly close for Finance · Q1 2027
+
+Plan and implement an automated monthly close dashboard for the Finance team, together with Finance and Data Engineering, reducing the time to prepare the monthly close report from 5 days to 1 by March 20, 2027, freeing 4 days of Finance's work every month.
+
+Owner: BI team (ENTER_OWNER)
+
+Specific objectives:
+1. 🗺️ Planning: agree the report's metrics, data sources and delivery dates, approved by Finance and Data Engineering, by ENTER_DATE.
+2. 🛠️ Execution: publish the automated monthly close dashboard, by ENTER_DATE.
+3. ✅ Validation: Finance closes one month using the dashboard in 1 day, by March 20, 2027.
+```
+
+SMART: S ✓ · M ✓ · A ✓ · R ✓ · T ⚠️ ENTER_DATE
+
+</details>
+
+<details>
+<summary><b>🧠 Machine learning engineer</b></summary>
+
+**You write:**
+
+> *"My role is ML engineer. Q3. Our fraud model catches 70% of fraudulent payments; we want 85% without blocking more than 1% of legitimate payments. With Payments and Risk teams."*
+
+**You get:**
+
+```
+🎯 Fraud prevention · Q3
+
+Plan and implement improvements to our payments fraud detection model, together with the Payments and Risk teams, increasing detected fraudulent payments from 70% to 85% while keeping wrongly blocked legitimate payments at or below 1%, by ENTER_DATE, to ENTER_BUSINESS_REASON.
+
+Owner: ML team (ENTER_OWNER)
+
+Specific objectives:
+1. 🗺️ Planning: deliver the model improvement plan, data needed and success thresholds, approved by Payments and Risk, by ENTER_DATE.
+2. 🛠️ Execution: put the improved model in production, by ENTER_DATE.
+3. ✅ Validation: 85% of fraudulent payments detected with at most 1% of legitimate payments blocked, by ENTER_DATE.
+```
+
+SMART: S ✓ · M ✓ · A ✓ · R ⚠️ ENTER_BUSINESS_REASON (e.g. fraud losses in USD) · T ⚠️ ENTER_DATE
+
+</details>
 
 ### 🚀 Use it
 
