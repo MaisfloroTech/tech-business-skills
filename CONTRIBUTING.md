@@ -41,7 +41,7 @@ python .github/scripts/skills.py validate
    python .github/scripts/skills.py sync --from tech-to-business-report
    ```
 
-4. Add the skill's own `references/template.md` and `references/example.md`.
+4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews.
 5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
 
    ```json

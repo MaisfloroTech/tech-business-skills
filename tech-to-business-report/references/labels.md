@@ -1,6 +1,6 @@
 # Labels
 
-Every item in a report carries exactly one label. The label tells the reader, in two seconds, whether to keep reading and what to do about it.
+Every item in a report carries exactly one label, and is 3–4 lines max. The label tells the reader, in two seconds, whether to keep reading and what to do about it.
 
 There are only three. Fewer labels means less arguing about which one to use.
 
@@ -34,7 +34,7 @@ There are only three. Fewer labels means less arguing about which one to use.
 
 7. **The label must match the content.** A lowlight that describes good news is a mislabel. A highlight with no number is an opinion. Check both before sending.
 
-8. **The writer confirms the label, not the assistant.** The assistant proposes a label and asks: *"What do you want the reader to do after reading this?"* If the writer cannot answer, the item is not ready.
+8. **The assistant picks the label; the writer can change it.** Don't stop to ask about labels.
 
 ## Risk severity
 
