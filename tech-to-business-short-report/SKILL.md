@@ -64,7 +64,7 @@ Each item:
 | **What?** | The business action or event, and its result with numbers | "optimized the infrastructure… savings of USD 1,200/month" |
 | **Why?** | The business reason or cause | "to reduce operating costs" / "an update overloaded the database" |
 | **When?** | The date, or the deadline for risks | "On Oct 11" / "before Oct 30" |
-| **Where?** | Which system, product, area or customers, in plain words | "our main database", "checkout", "customers in Chile" |
+| **Where?** | Which system, product, area or customers, in plain words | "our main database", "checkout", "customers in segment A" |
 | **Who?** | The team that did it, and who was or could be affected | "the SRE team", "customers paying in checkout" |
 | **How?** | How it was done, and how customers are protected next | "in a planned 2-hour maintenance window… monitoring to ensure availability" |
 
