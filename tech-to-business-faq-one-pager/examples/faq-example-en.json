@@ -1,0 +1,41 @@
+{
+  "language": "en",
+  "title": "One-click deploy pipeline",
+  "subtitle": "How product teams ship to production on their own, safely.",
+  "version": "1.0",
+  "updated": "Oct 13, 2026",
+  "owner": "Platform team",
+  "at_a_glance": [
+    {"label": "Available from", "value": "November 10"},
+    {"label": "For", "value": "All product teams"},
+    {"label": "Where", "value": "deploy.company.internal"},
+    {"label": "Support", "value": "#platform-help"}
+  ],
+  "faqs": [
+    {"w": "what", "q": "What is the one-click deploy pipeline?", "a": "A button in your repository that tests, approves and ships your change to production, with automatic rollback if something fails."},
+    {"w": "why", "q": "Why are we changing how we deploy?", "a": "Today a release takes 2 days and needs the Platform team. With the pipeline, teams ship in under 30 minutes, on their own."},
+    {"w": "who", "q": "Who can use it?", "a": "Any engineer in a product team. Production deploys need one approval from someone else on your team."},
+    {"w": "when", "q": "When can I start?", "a": "From November 10 for web services. Mobile apps join on ENTER_DATE."},
+    {"w": "where", "q": "Where do I find it?", "a": "In the Actions tab of your repository, and the deploy history at deploy.company.internal."},
+    {"w": "how", "q": "How do I deploy for the first time?", "a": "Merge to main, open Actions and press Deploy. The first time, follow the 10-minute guide linked in the repo."},
+    {"w": "limits", "q": "Are there times I can't deploy?", "a": "Yes: no deploys on Fridays after 3 pm or during announced freeze periods, like Black Friday week."},
+    {"w": "help", "q": "What if my deploy fails?", "a": "It rolls back on its own. If it doesn't, post in #platform-help with the link to the failed run."}
+  ],
+  "can": [
+    "Deploy web services to production on your own.",
+    "Roll back to the previous version in one click.",
+    "See who deployed what and when."
+  ],
+  "cannot": [
+    "Deploy without one approval from your team.",
+    "Deploy on Fridays after 3 pm or during freezes.",
+    "Change production databases from the pipeline."
+  ],
+  "help": {
+    "contact": "Platform team (ENTER_OWNER)",
+    "channel": "Slack #platform-help",
+    "hours": "Mon–Fri, 9 am to 6 pm",
+    "response_time": "Under 2 business hours",
+    "escalation": "Page the on-call engineer: ENTER_PAGER_LINK"
+  }
+}

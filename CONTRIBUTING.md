@@ -59,3 +59,7 @@ Push a version tag and GitHub Actions publishes a release with one zip per skill
 git tag v1.0.0
 git push origin v1.0.0
 ```
+
+## Images
+
+Images are blocked by CI so nothing private gets committed by accident. The only exceptions are listed by exact path in `ALLOWED_IMAGES` in `.github/scripts/skills.py` (and in `.gitignore`): the Build to Lead logo and the generated FAQ previews, which use fictional data. Adding a new image means adding its exact path to both lists, on purpose.

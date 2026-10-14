@@ -37,6 +37,12 @@ MAX_NAME = 64
 MAX_DESCRIPTION = 1024
 BLOCKED_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".heic", ".heif", ".bmp", ".tiff"}
 IGNORED_DIRS = {".git", "dist", "node_modules", "__pycache__"}
+# The ONLY images allowed in the repo: brand assets and generated previews with fictional data.
+ALLOWED_IMAGES = {
+    "tech-to-business-faq-one-pager/assets/build-to-lead-logo.png",
+    ".github/assets/faq-example-es.png",
+    ".github/assets/faq-example-en.png",
+}
 
 
 def skills() -> list[Path]:
@@ -137,7 +143,8 @@ def validate() -> int:
     for path in ROOT.rglob("*"):
         if any(part in IGNORED_DIRS for part in path.relative_to(ROOT).parts):
             continue
-        if path.is_file() and path.suffix.lower() in BLOCKED_EXTENSIONS:
+        if path.is_file() and path.suffix.lower() in BLOCKED_EXTENSIONS \
+                and path.relative_to(ROOT).as_posix() not in ALLOWED_IMAGES:
             errors.append(f"{path.relative_to(ROOT)}: images are not allowed in this repo")
 
     for error in errors:

@@ -9,17 +9,21 @@
   "homepage": "https://github.com/MaisfloroTech/tech-business-skills",
   "repository": "https://github.com/MaisfloroTech/tech-business-skills",
   "keywords": [
-    "engineering-leadership",
-    "tech-lead",
     "business-communication",
+    "documentation",
+    "engineering-leadership",
+    "faq",
+    "okr",
+    "one-pager",
+    "quarterly-planning",
     "reporting",
     "risk-management",
-    "okr",
     "smart-goals",
-    "quarterly-planning"
+    "tech-lead"
   ],
   "skills": [
     "./tech-to-business-short-report",
-    "./tech-to-business-smart-objectives"
+    "./tech-to-business-smart-objectives",
+    "./tech-to-business-faq-one-pager"
   ]
 }

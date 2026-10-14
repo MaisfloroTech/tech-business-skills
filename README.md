@@ -10,7 +10,7 @@ A growing collection of Claude Skills that help tech leads explain technical wor
 
 👋 **Start every message with your role:** *"I'm a…"* / *"Soy…"*
 
-[🧰 The skills](#-the-skills) · [⚡ Install](#-install-once-get-every-skill) · [📄 Skill 1: Short report](#-skill-1--tech-to-business-short-report) · [🎯 Skill 2: SMART objectives](#-skill-2--tech-to-business-smart-objectives) · [🇪🇸 Español](#-hablas-español)
+[🧰 The skills](#-the-skills) · [⚡ Install](#-install-once-get-every-skill) · [📄 Skill 1: Short report](#-skill-1--tech-to-business-short-report) · [🎯 Skill 2: SMART objectives](#-skill-2--tech-to-business-smart-objectives) · [📘 Skill 3: FAQ one-pager](#-skill-3--tech-to-business-faq-one-pager) · [🇪🇸 Español](#-hablas-español)
 
 </div>
 
@@ -43,6 +43,7 @@ Nobody teaches technical people to answer those questions. New leaders usually l
 |:-:|---|---|:-:|
 | 1 | 📄 [**Tech-to-business short report**](#-skill-1--tech-to-business-short-report)<br>`tech-to-business-short-report` | Turns a technical change, incident or risk into a 3–4 line business update with a traffic light, numbers and an owner | ✅ Available |
 | 2 | 🎯 [**Tech-to-business SMART objectives**](#-skill-2--tech-to-business-smart-objectives)<br>`tech-to-business-smart-objectives` | Turns a technical initiative into one quarterly SMART objective, starting with planning, with 1–3 specific objectives and an owner | ✅ Available |
+| 3 | 📘 [**Tech-to-business FAQ one-pager**](#-skill-3--tech-to-business-faq-one-pager)<br>`tech-to-business-faq-one-pager` | Turns something new you built into a friendly one-page FAQ (the rules of the game), delivered as a branded PDF | ✅ Available |
 
 More skills are on the way. Install once and every new skill arrives automatically.
 Need one that isn't here? [Open an issue](../../issues) 💬
@@ -455,6 +456,51 @@ To call it explicitly, type `/` and pick **tech-to-business-smart-objectives** (
 
 ---
 
+<div align="center">
+
+# 📘 Skill 3 · Tech-to-business FAQ one-pager
+
+**`tech-to-business-faq-one-pager`**
+
+*Something new you built in → one friendly page of FAQs out, as a PDF.*
+
+</div>
+
+You launched a new tool, platform or process. Now people ask the same things over and over: *since when does it work? what can I do with it? what can't I? who do I call when it breaks?* Technical people rarely write that down. This skill does it for you:
+
+- ❓ **The 6 questions answered:** what it is, why it exists, who it's for, when it's available, where to find it and how to start.
+- 🎮 **The rules of the game:** what you **can** do, what you **can't**, and the limits.
+- 🆘 **Help, clearly:** who to contact, which channel, what hours, how fast they answer, and what to do if it's urgent.
+- 👀 **At a glance:** four boxes with the key facts at the top.
+- 📄 **One page, always.** The text adjusts to fit; if it's too long, Claude trims it instead of adding a second page.
+- 🎨 **A branded PDF** with the Build to Lead logo in the corner and *"Made with ♥ by Build to Lead"* in the footer, in **Spanish or English**.
+- 🕳️ **Missing data is highlighted** in the PDF (`INGRESA_FECHA`, `ENTER_OWNER`), so you see at a glance what to fill in.
+
+### 👀 What you get
+
+<table>
+<tr>
+<td width="50%"><a href=".github/assets/faq-example-es.pdf"><img src=".github/assets/faq-example-es.png" alt="FAQ one-pager example in Spanish"></a><p align="center"><b>🇪🇸 Español</b> · <a href=".github/assets/faq-example-es.pdf">PDF</a></p></td>
+<td width="50%"><a href=".github/assets/faq-example-en.pdf"><img src=".github/assets/faq-example-en.png" alt="FAQ one-pager example in English"></a><p align="center"><b>🇬🇧 English</b> · <a href=".github/assets/faq-example-en.pdf">PDF</a></p></td>
+</tr>
+</table>
+
+*Fictional examples.*
+
+### 🚀 Use it
+
+Start a new chat and **begin with your role** ("I'm a…" / "My role is…"):
+
+> *"**I'm a platform engineer.** We're launching a one-click deploy pipeline on Nov 10 for all product teams. Make me the FAQ PDF: …"*
+
+Or in Spanish: *"**Soy ingeniera de datos.** Vamos a lanzar un portal de autoservicio de datos el 3 de noviembre. Hazme el PDF de preguntas frecuentes: …"*
+
+Add whatever you know: dates, who it's for, limits, support channel. Claude asks once for what's missing and gives you the PDF. To call it explicitly, type `/` and pick **tech-to-business-faq-one-pager** (in Claude Code: `/tech-business-skills:tech-to-business-faq-one-pager`).
+
+> 📝 The PDF is created with code, so **code execution must be on** in Claude (it's needed for skills anyway). Without it, you get the same FAQ as text.
+
+---
+
 ## 🧭 How every skill thinks
 
 These rules are shared by every skill in the repo, current and future.
@@ -534,6 +580,12 @@ tech-business-skills/
 │       └── roles/                  role cards in 8 families
 ├── tech-to-business-smart-objectives/  🎯 Skill 2
 │   ├── SKILL.md
+│   └── references/                 same shared method files
+├── tech-to-business-faq-one-pager/     📘 Skill 3
+│   ├── SKILL.md
+│   ├── scripts/build_faq_pdf.py    builds the branded one-page PDF
+│   ├── assets/                     Build to Lead logo
+│   ├── examples/                   example FAQs in Spanish and English
 │   └── references/                 same shared method files
 ├── .claude-plugin/                 makes the repo installable in one step
 └── .github/                        CI and releases

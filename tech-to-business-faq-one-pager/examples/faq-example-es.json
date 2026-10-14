@@ -1,0 +1,41 @@
+{
+  "language": "es",
+  "title": "Portal de autoservicio de datos",
+  "subtitle": "Todo lo que necesitas saber para pedir y usar datos sin esperar al equipo de Datos.",
+  "version": "1.0",
+  "updated": "13 oct 2026",
+  "owner": "Equipo de Datos",
+  "at_a_glance": [
+    {"label": "Disponible desde", "value": "3 de noviembre"},
+    {"label": "Para quién", "value": "Áreas de negocio y analistas"},
+    {"label": "Dónde", "value": "datos.miempresa.com"},
+    {"label": "Soporte", "value": "#ayuda-datos"}
+  ],
+  "faqs": [
+    {"w": "what", "q": "¿Qué es el portal de autoservicio?", "a": "Un sitio web donde puedes buscar tableros, descargar reportes y pedir acceso a datos de ventas, clientes y operaciones, sin abrir un ticket."},
+    {"w": "why", "q": "¿Por qué lo creamos?", "a": "Hoy una solicitud de datos tarda en promedio 5 días. Con el portal, la mayoría de los pedidos se resuelven el mismo día."},
+    {"w": "who", "q": "¿Quién puede usarlo?", "a": "Cualquier persona de las áreas de negocio con cuenta corporativa. Los datos sensibles (sueldos, datos personales) requieren aprobación de tu jefatura."},
+    {"w": "when", "q": "¿Desde cuándo está disponible?", "a": "Desde el 3 de noviembre para Comercial y Finanzas, y desde INGRESA_FECHA para el resto de la empresa."},
+    {"w": "where", "q": "¿Dónde entro?", "a": "En datos.miempresa.com, con tu usuario y contraseña de siempre. No necesitas instalar nada."},
+    {"w": "how", "q": "¿Cómo pido acceso a un dato nuevo?", "a": "Entra al portal, busca el dato y presiona \"Solicitar acceso\". Tu jefatura recibe un correo para aprobarlo."},
+    {"w": "limits", "q": "¿Hay algún límite de descargas?", "a": "Sí: hasta 100.000 filas por descarga. Para volúmenes mayores, pide una extracción al equipo de Datos."},
+    {"w": "help", "q": "¿Qué pasa con mis reportes actuales?", "a": "Siguen funcionando hasta INGRESA_FECHA. Te avisaremos con 30 días de anticipación antes de apagarlos."}
+  ],
+  "can": [
+    "Buscar y ver tableros publicados.",
+    "Descargar reportes en Excel o CSV.",
+    "Pedir acceso a datos con aprobación de tu jefatura."
+  ],
+  "cannot": [
+    "Modificar los datos de origen.",
+    "Compartir datos sensibles fuera de la empresa.",
+    "Descargar más de 100.000 filas de una vez."
+  ],
+  "help": {
+    "contact": "Equipo de Datos (INGRESA_RESPONSABLE)",
+    "channel": "Slack #ayuda-datos o datos@miempresa.com",
+    "hours": "Lunes a viernes, 9:00 a 18:00",
+    "response_time": "Menos de 4 horas hábiles",
+    "escalation": "Llama a la mesa de ayuda: INGRESA_TELEFONO"
+  }
+}

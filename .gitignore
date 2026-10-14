@@ -12,6 +12,11 @@ dist/
 *.bmp
 *.tiff
 
+# Only exceptions: brand logo and generated previews (fictional data)
+!tech-to-business-faq-one-pager/assets/build-to-lead-logo.png
+!.github/assets/faq-example-es.png
+!.github/assets/faq-example-en.png
+
 # OS / editor
 .DS_Store
 __pycache__/
