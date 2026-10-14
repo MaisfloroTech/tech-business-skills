@@ -164,7 +164,7 @@ def build() -> int:
         target = DIST / f"{skill.name}.zip"
         with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as zf:
             for file in sorted(skill.rglob("*")):
-                if file.is_file() and not file.name.startswith("."):
+                if file.is_file() and not file.name.startswith(".") and "__pycache__" not in file.parts:
                     zf.write(file, Path(skill.name) / file.relative_to(skill))
         print(f"built {target.relative_to(ROOT)}")
     return 0

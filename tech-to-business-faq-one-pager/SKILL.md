@@ -1,17 +1,17 @@
 ---
 name: tech-to-business-faq-one-pager
-description: Turns a new technical project, tool, platform or change into a friendly one-page FAQ for the people who will use it, delivered as a branded Build to Lead PDF. Answers the 6 questions (what, why, who, when, where, how), sets the rules of the game (what you can and can't do, limits), and says who to contact for help and how. Use this whenever someone technical launches or changes something and needs to explain it, write basic documentation, FAQs, a one-pager, a launch note, onboarding guide, user guide or "how this works" doc for other teams or customers, even if they never say "FAQ". Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents dates, limits or contacts.
+description: Turns a new technical project, tool, platform or change into a friendly one-page FAQ for the people who will use it, delivered as an editable, branded Build to Lead Word document (.docx). Answers the 6 questions (what, why, who, when, where, how), sets the rules of the game (what you can and can't do, limits), and says who to contact for help and how. Use this whenever someone technical launches or changes something and needs to explain it, write basic documentation, FAQs, a one-pager, a launch note, onboarding guide, user guide or "how this works" doc for other teams or customers, even if they never say "FAQ". Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents dates, limits or contacts.
 ---
 
 # Tech-to-business FAQ one-pager
 
-When technical people build something new, they struggle to explain it: since when it works, what it is and isn't for, the limits, and who to call when something goes wrong. This skill turns that into **one friendly page of FAQs** — the rules of the game — and delivers it as a **PDF with Build to Lead branding**.
+When technical people build something new, they struggle to explain it: since when it works, what it is and isn't for, the limits, and who to call when something goes wrong. This skill turns that into **one friendly page of FAQs** — the rules of the game — and delivers it as an **editable Word document (.docx) with Build to Lead branding**, so the team can adjust it before sharing.
 
 **One project, one page, done well.**
 
 ## Language
 
-Answer and write the FAQ in the language the user writes in. The PDF supports **Spanish (`"es"`) and English (`"en"`)** for its fixed labels; for any other language, write the content in that language and use `"en"` labels. Missing data goes in as UPPERCASE placeholders in the user's language.
+Answer and write the FAQ in the language the user writes in. The document supports **Spanish (`"es"`) and English (`"en"`)** for its fixed labels; for any other language, write the content in that language and use `"en"` labels. Missing data goes in as UPPERCASE placeholders in the user's language.
 
 ## Flow
 
@@ -30,7 +30,7 @@ If the user already gave enough, **build the FAQ right away**. Otherwise ask, in
 5. **The rules**: what they can do, what they can't, and any limits (volumes, schedules, permissions, costs).
 6. **Help**: who to contact, through which channel, in what hours, how fast you answer, and what to do if it's urgent.
 
-Never ask a second round. **Anything still missing goes in as an UPPERCASE placeholder**, never as a guess: `ENTER_DATE`, `ENTER_OWNER`, `ENTER_CHANNEL`, `ENTER_LIMIT` (Spanish: `INGRESA_FECHA`, `INGRESA_RESPONSABLE`, `INGRESA_CANAL`, `INGRESA_LIMITE`). The PDF highlights them so they're easy to spot and replace. If you're about to write a date, limit, contact, URL or schedule the user didn't give you, it's a placeholder.
+Never ask a second round. **Anything still missing goes in as an UPPERCASE placeholder**, never as a guess: `ENTER_DATE`, `ENTER_OWNER`, `ENTER_CHANNEL`, `ENTER_LIMIT` (Spanish: `INGRESA_FECHA`, `INGRESA_RESPONSABLE`, `INGRESA_CANAL`, `INGRESA_LIMITE`). The Word document highlights them so they're easy to spot and replace. If you're about to write a date, limit, contact, URL or schedule the user didn't give you, it's a placeholder.
 
 ### 2. Write the FAQ content
 
@@ -44,20 +44,22 @@ Read `references/business-language.md`. The readers are **users and business peo
 - **Help**: contact, channel, hours, response time, what to do if urgent.
 - **Owner, version and last updated date** for the footer (use today's date for "updated" if the user doesn't give one).
 
-### 3. Build the PDF
+### 3. Build the Word document
 
 Write the content to a JSON file and run the bundled script. Its path is relative to the folder that contains this SKILL.md:
 
 ```bash
-pip install reportlab   # only if it's missing
-python <this-skill-folder>/scripts/build_faq_pdf.py faq.json <output-folder>/faq-<short-name>.pdf --page a4
+python <this-skill-folder>/scripts/build_faq.py faq.json <output-folder>/faq-<short-name>.docx --page a4
 ```
 
-- Save the PDF where the user can download it (for example `/mnt/user-data/outputs/` if it exists) and share it.
+- The script installs `python-docx` if it's missing.
+- Save the file where the user can download it (for example `/mnt/user-data/outputs/` if it exists) and share it.
 - Use `--page letter` if the user is in the US or Canada or asks for Letter; otherwise A4.
-- **It must be one page.** If the script says the content doesn't fit, shorten answers or remove the least important question and run it again. Never split into two pages and never drop the 6 W's, the rules or the help block.
-- The script always adds the **Build to Lead logo** in the top-right corner, the brand colors and the footer **"Made with ♥ by Build to Lead" / "Hecho con ♥ por Build to Lead"**. Never remove or replace them.
-- If you can't run code in this environment, give the FAQ in Markdown in the same order and say the PDF needs code execution turned on.
+- **Deliver Word only** (`.docx`): the team will edit it. Don't make a PDF unless the user explicitly asks for one.
+- **Keep it to one page.** If you notice the content is long (more than ~10 questions or answers longer than 3 sentences), shorten it before building. Never drop the 6 W's, the rules or the help block.
+- The document always has a logo in the top-right corner (**Build to Lead's by default**), the Build to Lead colors and the footer **"Made with ♥ by Build to Lead" / "Hecho con ♥ por Build to Lead"**. Never remove the footer.
+- **Custom logo:** if the user gives you their own logo (PNG or JPG), pass it with `--logo path/to/logo.png`. It replaces the Build to Lead logo in the corner, keeping its proportions; colors and footer stay. If they send another format (SVG, WEBP…), ask for a PNG or JPG.
+- If you can't run code in this environment, give the FAQ in Markdown in the same order and say the Word file needs code execution turned on.
 
 JSON format:
 
@@ -91,7 +93,13 @@ Complete examples: `examples/faq-example-es.json` and `examples/faq-example-en.j
 
 ### 4. Close
 
-After sharing the PDF, at most **one line**: if there are placeholders, which ones to replace (they're highlighted in the PDF); if they want changes, they can just say so and you'll regenerate it.
+After sharing the Word file, keep it short:
+
+1. If there are placeholders, one line saying which ones to replace (they're highlighted in the document).
+2. **Always offer to replace the logo**, once, in the user's language:
+   *"Want your company's logo instead of Build to Lead's? Send it as PNG or JPG and I'll regenerate the document."*
+   (Spanish: *"¿Quieres usar el logo de tu empresa en vez del de Build to Lead? Envíamelo en PNG o JPG y regenero el documento."*)
+   If they send one, rebuild with `--logo` and deliver the new file.
 
 If the user didn't state their role up front, add one line, in their language: *"Tip: start your next message with "I'm a…" / "My role is…" and you'll get it in one shot."* (Spanish: *"Tip: empieza tu próximo mensaje con "Soy…" / "Mi rol es…" y lo tendrás a la primera."*)
 
@@ -101,5 +109,5 @@ The first time in a conversation, add once, in the user's language: a short invi
 
 - **Never invent** dates, limits, URLs, channels, schedules, response times or contact names (see `references/honesty-rules.md`).
 - **Friendly, not legal.** It's a guide for people, not terms and conditions.
-- **One project per PDF.** If the user brings several, do the most important one and offer the next.
+- **One project per document.** If the user brings several, do the most important one and offer the next.
 - Don't reuse a user's real names, systems or figures in anything meant for others.
