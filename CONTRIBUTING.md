@@ -51,7 +51,31 @@ python .github/scripts/skills.py validate
    ```
 
 6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
-7. In `README.md`, mark it ✅ Available in **The skills** table and add its own big section (`# <emoji> Skill N · <Name>`) after the previous skill, following the same layout: what it does, an example, how to use it.
+7. Add a `README.md` inside the skill folder (what it does, examples, how to use it; copy the layout of the existing ones) and a card for it in **Pick a skill** in the main `README.md`. Keep the main README short: details live in each skill's README.
+
+## What's inside
+
+```
+tech-business-skills/
+├── README.md                           short landing page: install, role, language
+├── tech-to-business-short-report/      📄 Skill 1 (one folder per skill)
+│   ├── README.md                       docs and examples for people (not loaded by Claude)
+│   ├── SKILL.md                        the method Claude follows
+│   └── references/
+│       ├── labels.md                   HIGHLIGHT / LOWLIGHT / RISK (this skill only)
+│       ├── translation-ladder.md       output → outcome → impact
+│       ├── honesty-rules.md            no invented numbers or facts
+│       ├── business-language.md        technical → business titles and words
+│       └── roles/                      role cards in 8 families
+├── tech-to-business-smart-objectives/  🎯 Skill 2: same shared files as Skill 1, no labels
+├── tech-to-business-faq-one-pager/     📘 Skill 3
+│   ├── scripts/build_faq.py            builds the branded one-page Word document
+│   ├── assets/                         Build to Lead logo
+│   ├── examples/                       example FAQs in Spanish and English
+│   └── references/                     its own: plain language, honesty rules, diagram example
+├── .claude-plugin/                     makes the repo installable in one step
+└── .github/                            CI, releases and README assets
+```
 
 ## Releases (maintainers)
 
