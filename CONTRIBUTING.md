@@ -25,33 +25,52 @@ python .github/scripts/skills.py validate
 
 ## Add a new skill
 
-1. Create a top-level folder named in `kebab-case` (lowercase, hyphens), e.g. `my-new-skill/`.
-2. Add a `SKILL.md` with frontmatter:
+Every skill follows the same structure. Use this checklist and copy from the existing skills; don't invent a new layout.
 
-   ```yaml
-   ---
-   name: my-new-skill     # must match the folder name
-   description: What it does AND when Claude should use it (max 1024 characters, no angle brackets).
-   ---
-   ```
+### 1. The skill itself
 
-3. Decide what method it needs. If it translates work into business impact (like the report and the objectives), add it to `SHARED_SKILLS` in `.github/scripts/skills.py` and copy the shared files into it:
+- [ ] **Folder** at the top level, named `tech-to-business-<what-it-makes>` in `kebab-case`.
+- [ ] **`SKILL.md`** with frontmatter:
 
-   ```bash
-   python .github/scripts/skills.py sync --from tech-to-business-short-report
-   ```
+  ```yaml
+  ---
+  name: tech-to-business-<what-it-makes>   # must match the folder name
+  description: What it does AND when Claude should use it, ending with "Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents …" (max 1024 characters, no angle brackets).
+  ---
+  ```
 
-   If it does something different (like the FAQ one-pager), give it its own `references/` and leave it out of `SHARED_SKILLS`. Don't copy the traffic-light labels into a skill that doesn't write reports.
+- [ ] **Same sections as the others:** a one-paragraph intro and a bold one-liner (*"One X, one Y, done well."*), `## Language`, `## Flow` (1. ask once · 2. write · 3. deliver), rules, and examples in English and Spanish.
+- [ ] **The role comes first.** If the message doesn't start with "I'm a…" / "Soy…", the one question round opens with the role, and the answer ends with the tip to start with it next time.
+- [ ] **One round of questions, at most.** If the user gave enough, answer right away.
+- [ ] **Nothing invented.** Anything missing becomes an UPPERCASE placeholder in the user's language (`ENTER_DATE` / `INGRESA_FECHA`).
+- [ ] **Language:** answers in the language the user writes in; English and Spanish are first-class.
+- [ ] **One input, one output.** If the user brings several, do the most important and offer the next.
+- [ ] **Method files:** if it translates work into business impact (like the report and the objectives), add it to `SHARED_SKILLS` in `.github/scripts/skills.py` and run `python .github/scripts/skills.py sync --from tech-to-business-short-report`. Otherwise give it its own `references/` (like the FAQ). The traffic-light labels belong only to the short report.
+- [ ] **Files it builds** (Word, etc.) come from a script in `scripts/`, carry the Build to Lead branding and work from the extracted zip.
 
-4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews. Every skill **asks for the role first** ("I'm a…" / "My role is…"), and every example input starts with the role.
-5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
+### 2. Its README (for people, not for Claude)
 
-   ```json
-   "skills": ["./tech-to-business-short-report", "./my-new-skill"]
-   ```
+- [ ] **`README.md` inside the skill folder**, same layout as the other three:
+  1. `[← All skills · Todos los skills](../README.md)` and the language switch: **[🇺🇸 English 🇬🇧](#english)** · **[🇪🇸 Español 🌎](#espanol)**
+  2. `<a id="english"></a>`, `# 🇺🇸 English 🇬🇧`, the English banner, `## <emoji> Skill N · <Name>`, the skill id, a one-line *in → out*, and "Not installed yet? Install in 1 minute" (`../README.md#install-en`).
+  3. What it does (emoji bullets), examples by role (extra ones in `<details>`), and **🚀 Use it**, starting with the role.
+  4. `<a id="espanol"></a>`, `# 🇪🇸 Español 🌎`, the line of Spanish-speaking LATAM flags, the Spanish banner and **the same content fully in Spanish**, examples included (inputs and outputs), with `Responsable:` and `INGRESA_…` placeholders. Link to `../README.md#install-es`.
+- [ ] **Each language shows only its own examples and files.**
+- [ ] **Banners:** add the skill to `JOBS` in `.github/banner/skills.py` (English and Spanish texts: left = the painful "before", right = the result, footer = `Skill N · <Name>` + one line), run `python3 .github/banner/skills.py`, look at both images, and add `.github/assets/skill-N-en.png` and `skill-N-es.png` to `ALLOWED_IMAGES` and `.gitignore`.
 
-6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
-7. Add a `README.md` inside the skill folder (what it does, examples, how to use it), English first (🇺🇸 English 🇬🇧) and then the same in Spanish (🇪🇸 Español 🌎), each with its banner from `.github/banner/skills.py`; copy the layout of the existing ones, and a card for it in **Pick a skill** in the main `README.md`. Keep the main README short: details live in each skill's README.
+### 3. Wire it into the repo
+
+- [ ] Add the folder to `skills` in `.claude-plugin/plugin.json`, and mention it in the plugin description in `.claude-plugin/marketplace.json`.
+- [ ] Add its **card in "Pick a skill"** in the main `README.md`, in **both** the English and Spanish sections (title, one line, when to use it, "See it in action →" / "Míralo en acción →"). Keep the main README short.
+- [ ] Update the tree in **What's inside** below.
+
+### 4. Check before publishing
+
+- [ ] `python .github/scripts/skills.py build` and `claude plugin validate .` pass.
+- [ ] The skill works from its extracted zip, and a clean install works:
+  `claude plugin marketplace add MaisfloroTech/tech-business-skills` then `claude plugin install tech-business-skills@tech-business-skills`.
+- [ ] Test it in Claude with one English and one Spanish message that start with the role, and one that doesn't.
+- [ ] Fictional data only, in examples and banners.
 
 ## What's inside
 
