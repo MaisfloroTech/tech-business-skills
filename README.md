@@ -2,33 +2,22 @@
 
 # 🌉 tech-business-skills
 
-### Your translator between engineering and business
+## You did great work.<br>Leadership asked: *"so what?"*
 
-Claude Skills that turn technical work into the language leadership reads, and acts on.<br>
-Built for new tech leads. **No made-up numbers.**
+Claude Skills that translate engineering into what the business cares about:<br>
+**money, customers and risk.** In English or Spanish. No made-up numbers.
 
-![Skills](https://img.shields.io/badge/skills-3-204B4C?style=for-the-badge)
-![Claude plugin](https://img.shields.io/badge/Claude-plugin-A97F6A?style=for-the-badge)
-![English · Español](https://img.shields.io/badge/English_·_Español-171A30?style=for-the-badge)
-
-[⚡ Install](#-install-in-claude) · [🧰 Skills](#-pick-a-skill) · [👋 How to ask](#-always-start-with-your-role) · [🇪🇸 Español](#-english-or-spanish)
+**[⚡ Install in 1 minute](#-install-in-claude)** · [🧰 See the skills](#-pick-a-skill)
 
 </div>
 
----
+<br>
 
-## 😩 From changelog to "so what?"
+| 😬 What you wrote | 🎯 What leadership reads |
+|---|---|
+| *Downsized main DB from 32 to 24 vCPU on Oct 11. 2h maintenance window. Saves ~USD 1,200/month.* | 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team reduced our main database by 25%, saving USD 1,200/month (≈ USD 14,400/year) in a planned 2-hour maintenance window.<br>**Owner:** SRE team |
 
-You write:
-
-> *Downsized the main database from 32 to 24 vCPU. Fixed 14 bugs. Worked on performance.*
-
-Leadership reads:
-
-> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team reduced the size of our main database by 25%, saving USD 1,200/month (≈ USD 14,400/year) in a planned 2-hour maintenance window.
-> **Owner:** SRE team
-
-Same work. Now everyone knows why it matters.
+<p align="center"><b>Same work. Now the CFO gets it.</b></p>
 
 ---
 
