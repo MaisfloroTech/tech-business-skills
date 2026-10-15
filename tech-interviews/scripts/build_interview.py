@@ -26,8 +26,9 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_LOGO = HERE.parent / "assets" / "build-to-lead-logo.png"
-# Build to Lead on Instagram, shown in the footer of every page
-INSTAGRAM = {"label": "Instagram", "handle": "@build2lead.club", "url": "https://www.instagram.com/build2lead.club/"}
+# Footer of every page: "Made with ♥ by @build2lead.club and @maisfloro.tech", both linked to Instagram
+INSTAGRAM = [("@build2lead.club", "https://www.instagram.com/build2lead.club/"),
+             ("@maisfloro.tech", "https://www.instagram.com/maisfloro.tech/")]
 
 
 def ensure(module: str, package: str) -> None:
@@ -70,7 +71,7 @@ LABELS = {
         "final": "FINAL ASSESSMENT", "strengths": "Strengths", "concerns": "Concerns",
         "avg": "Average score (1-4)", "next": "Next step",
         "rec": "Recommendation", "recs": ["Strong yes", "Yes", "No", "Strong no"],
-        "made": "Made with", "by": "by Build to Lead", "page": "Page",
+        "made": "Made with", "by": "by", "and": "and", "page": "Page",
     },
     "es": {
         "eyebrow": "GUÍA DE ENTREVISTA  ·  PROFUNDIZACIÓN STAR",
@@ -94,7 +95,7 @@ LABELS = {
         "final": "EVALUACIÓN FINAL", "strengths": "Fortalezas", "concerns": "Dudas o alertas",
         "avg": "Puntaje promedio (1-4)", "next": "Siguiente paso",
         "rec": "Recomendación", "recs": ["Sí, sin duda", "Sí", "No", "No, sin duda"],
-        "made": "Hecho con", "by": "por Build to Lead", "page": "Página",
+        "made": "Hecho con", "by": "por", "and": "y", "page": "Página",
     },
 }
 
@@ -239,26 +240,28 @@ class Doc:
         c.setFont("Helvetica", 7.5)
         c.setFillColor(self.C["gray"])
         c.drawString(self.M, 24, clean(f"{self.spec.get('role', '')}  ·  {L['page']} {self.page_no}"))
-        made, by = clean(L["made"]) + " ", " " + clean(L["by"])
-        ig = f'{INSTAGRAM["label"]} {INSTAGRAM["handle"]}'
-        sep = "  ·  "
+        made, by, conj = clean(L["made"]) + " ", " " + clean(L["by"]) + " ", " " + clean(L["and"]) + " "
+        (h1, u1), (h2, u2) = INSTAGRAM
+        f, fb, size = "Helvetica", "Helvetica-Bold", 7.5
         heart_w = 7
-        w = (self.sw(made, "Helvetica", 7.5) + heart_w + self.sw(by + sep, "Helvetica", 7.5)
-             + self.sw(ig, "Helvetica-Bold", 7.5))
+        w = (self.sw(made, f, size) + heart_w + self.sw(by, f, size) + self.sw(h1, fb, size)
+             + self.sw(conj, f, size) + self.sw(h2, fb, size))
         x = self.W - self.M - w
+        c.setFillColor(self.C["gray"])
+        c.setFont(f, size)
         c.drawString(x, 24, made)
-        x += self.sw(made, "Helvetica", 7.5)
+        x += self.sw(made, f, size)
         self.heart(x + heart_w / 2, 26.6, 2.9)
         x += heart_w
-        c.setFillColor(self.C["gray"])
-        c.setFont("Helvetica", 7.5)
-        c.drawString(x, 24, by + sep)
-        x += self.sw(by + sep, "Helvetica", 7.5)
-        c.setFillColor(self.C["terra"])
-        c.setFont("Helvetica-Bold", 7.5)
-        c.drawString(x, 24, ig)
-        iw = self.sw(ig, "Helvetica-Bold", 7.5)
-        c.linkURL(INSTAGRAM["url"], (x, 21, x + iw, 32), relative=0, thickness=0)
+        for text, url in ((by, None), (h1, u1), (conj, None), (h2, u2)):
+            font = fb if url else f
+            c.setFont(font, size)
+            c.setFillColor(self.C["terra" if url else "gray"])
+            c.drawString(x, 24, text)
+            tw = self.sw(text, font, size)
+            if url:
+                c.linkURL(url, (x, 21, x + tw, 32), relative=0, thickness=0)
+            x += tw
 
     def heart(self, cx: float, cy: float, r: float):
         c = self.c

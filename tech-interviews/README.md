@@ -35,7 +35,7 @@ A technical interview has to answer one question: **how deep does this person re
 - 🔍 **Deep dive on every question:** a follow-up that goes one level down (how it works, what breaks, how you'd measure it).
 - ✅ **What a strong answer includes:** one short line per question, so any interviewer scores it the same way.
 - 📝 **A fillable PDF of about 3 pages:** answers, letters heard, a 1–4 score per question and a final recommendation.
-- 🎨 **Build to Lead design**, in **English or Spanish**, with the option to use your company's logo.
+- 🎨 **Build to Lead design**, in **English or Spanish**, with the option to use your company's logo, and *"Made with ♥ by [@build2lead.club](https://www.instagram.com/build2lead.club/) and [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* in the footer.
 
 For an interview focused on **business thinking**, use [Skill 4 · Interviews](../tech-to-business-interviews/README.md).
 
@@ -127,7 +127,7 @@ Una entrevista técnica tiene que responder una pregunta: **¿qué tan profundo 
 - 🔍 **Profundización en cada pregunta:** una repregunta que baja un nivel (cómo funciona, qué se rompe, cómo lo medirías).
 - ✅ **Qué incluye una respuesta fuerte:** una línea corta por pregunta, para que cualquier entrevistador puntúe igual.
 - 📝 **Un PDF editable de unas 3 páginas:** respuestas, letras que escuchaste, puntaje de 1 a 4 por pregunta y una recomendación final.
-- 🎨 **Diseño Build to Lead**, en **español o inglés**, con la opción de usar el logo de tu empresa.
+- 🎨 **Diseño Build to Lead**, en **español o inglés**, con la opción de usar el logo de tu empresa, y *"Hecho con ♥ por [@build2lead.club](https://www.instagram.com/build2lead.club/) y [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* en el pie.
 
 Para una entrevista enfocada en **cómo piensa en el negocio**, usa el [Skill 4 · Entrevistas](../tech-to-business-interviews/README.md#espanol).
 

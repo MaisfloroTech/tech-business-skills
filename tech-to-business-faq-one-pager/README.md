@@ -33,7 +33,7 @@ You launched a new tool, platform or process. Now people ask the same things ove
 - 🆘 **Help, clearly:** who to contact, which channel, what hours, how fast they answer, and what to do if it's urgent.
 - 👀 **At a glance:** four boxes with the key facts at the top.
 - 📝 **An editable Word document (.docx)** on one page, so your team can adjust it before sharing.
-- 🎨 **Build to Lead design:** brand colors, the logo in the corner and *"Made with ♥ by Build to Lead"* in the footer with our Instagram, [@build2lead.club](https://www.instagram.com/build2lead.club/), in **English or Spanish**.
+- 🎨 **Build to Lead design:** brand colors, the logo in the corner and *"Made with ♥ by [@build2lead.club](https://www.instagram.com/build2lead.club/) and [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* in the footer, in **English or Spanish**.
 - 🗺️ **Attach your architecture diagram** if you have one: Claude uses it to understand the project, keeps internal components (Lambda, queues, secrets…) out of the FAQ, and warns you if the diagram and your message don't match.
 - 🔄 **Your logo, if you want:** at the end, Claude offers to swap the Build to Lead logo for your company's (PNG or JPG).
 - 🖍️ **Missing data is highlighted** (`ENTER_DATE`, `ENTER_OWNER`), so you see at a glance what to fill in.
@@ -87,7 +87,7 @@ Lanzaste una herramienta, plataforma o proceso nuevo. Ahora la gente pregunta lo
 - 🆘 **La ayuda, clarita:** a quién contactar, por qué canal, en qué horario, en cuánto responden y qué hacer si es urgente.
 - 👀 **De un vistazo:** cuatro cajas arriba con los datos clave.
 - 📝 **Un Word editable (.docx)** de una página, para que tu equipo lo ajuste antes de compartirlo.
-- 🎨 **Diseño Build to Lead:** colores de marca, el logo en la esquina y *"Hecho con ♥ por Build to Lead"* en el pie con nuestro Instagram, [@build2lead.club](https://www.instagram.com/build2lead.club/), en **español o inglés**.
+- 🎨 **Diseño Build to Lead:** colores de marca, el logo en la esquina y *"Hecho con ♥ por [@build2lead.club](https://www.instagram.com/build2lead.club/) y [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* en el pie, en **español o inglés**.
 - 🗺️ **Adjunta tu diagrama de arquitectura** si lo tienes: Claude lo usa para entender el proyecto, deja fuera del FAQ los componentes internos (Lambda, colas, secretos…) y te avisa si el diagrama y tu mensaje no coinciden.
 - 🔄 **Tu logo, si quieres:** al final, Claude te ofrece cambiar el logo de Build to Lead por el de tu empresa (PNG o JPG).
 - 🖍️ **Lo que falta queda resaltado** (`INGRESA_FECHA`, `INGRESA_RESPONSABLE`), para que veas de una qué completar.

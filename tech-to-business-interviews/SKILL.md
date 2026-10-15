@@ -68,7 +68,7 @@ python <this-skill-folder>/scripts/build_interview.py interview.json <output-fol
 - Use `--page letter` if the user is in the US or Canada or asks for Letter; otherwise A4.
 - **Deliver the PDF.** It's the editable format: the interviewer types the candidate's answers in the note boxes, ticks the STAR letters heard, scores each question 1–4 and fills in the final recommendation, in any PDF reader (Acrobat, Preview, Chrome, Edge).
 - The PDF runs about **3 pages**: the cover block (candidate, interviewer, date, the case and the STAR scale), the 20 questions, and the final assessment.
-- The document always has a logo in the top-right corner (**Build to Lead's by default**), the Build to Lead colors and the footer **"Made with ♥ by Build to Lead · Instagram @build2lead.club" / "Hecho con ♥ por Build to Lead · Instagram @build2lead.club"** (the handle links to https://www.instagram.com/build2lead.club/). Never remove the footer.
+- The document always has a logo in the top-right corner (**Build to Lead's by default**), the Build to Lead colors and the footer **"Made with ♥ by @build2lead.club and @maisfloro.tech" / "Hecho con ♥ por @build2lead.club y @maisfloro.tech"** (both handles link to their Instagram: https://www.instagram.com/build2lead.club/ and https://www.instagram.com/maisfloro.tech/). Never remove the footer.
 - **Custom logo:** if the user gives you their own logo (PNG or JPG), pass it with `--logo path/to/logo.png`. If they send another format, ask for a PNG or JPG.
 - If you can't run code in this environment, give the guide in Markdown in the same order and say the fillable PDF needs code execution turned on.
 

@@ -34,7 +34,7 @@ Interviewing someone new isn't simple: it takes preparation, and most technical 
 - 🔍 **STAR deep dive:** a follow-up for each question, aimed at the letter people usually skip.
 - ✅ **What a strong answer includes:** one short line per question, so any interviewer scores it the same way.
 - 📝 **A fillable PDF of about 3 pages:** type the candidate's answers, tick the STAR letters you heard, score each question 1–4 and close with a recommendation.
-- 🎨 **Build to Lead design**, in **English or Spanish**, with the option to use your company's logo.
+- 🎨 **Build to Lead design**, in **English or Spanish**, with the option to use your company's logo, and *"Made with ♥ by [@build2lead.club](https://www.instagram.com/build2lead.club/) and [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* in the footer.
 - ⚖️ **Fair by design:** questions only about the job, the same guide and scale for every candidate.
 
 For a **mostly technical** interview (fundamentals, troubleshooting, an architecture exercise), use [Skill 5 · Tech interviews](../tech-interviews/README.md).
@@ -122,7 +122,7 @@ Entrevistar a alguien nuevo no es simple: requiere preparación, y la mayoría d
 - 🔍 **Profundización STAR:** una repregunta por pregunta, apuntada a la letra que la gente suele saltarse.
 - ✅ **Qué incluye una respuesta fuerte:** una línea corta por pregunta, para que cualquier entrevistador puntúe igual.
 - 📝 **Un PDF editable de unas 3 páginas:** escribe las respuestas del candidato o candidata, marca las letras STAR que escuchaste, puntúa cada pregunta de 1 a 4 y cierra con una recomendación.
-- 🎨 **Diseño Build to Lead**, en **español o inglés**, con la opción de usar el logo de tu empresa.
+- 🎨 **Diseño Build to Lead**, en **español o inglés**, con la opción de usar el logo de tu empresa, y *"Hecho con ♥ por [@build2lead.club](https://www.instagram.com/build2lead.club/) y [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)"* en el pie.
 - ⚖️ **Justa desde el diseño:** solo preguntas sobre el trabajo, la misma guía y la misma escala para todas las personas candidatas.
 
 Para una entrevista **principalmente técnica** (fundamentos, resolución de problemas, un ejercicio de arquitectura), usa el [Skill 5 · Entrevistas técnicas](../tech-interviews/README.md#espanol).

@@ -17,8 +17,9 @@ BRAND = {
     "placeholder_fg": "7A4A35",
 }
 
-# Build to Lead on Instagram, shown in the footer of every document
-INSTAGRAM = {"label": "Instagram", "handle": "@build2lead.club", "url": "https://www.instagram.com/build2lead.club/"}
+# Footer: "Made with ♥ by @build2lead.club and @maisfloro.tech", both linked to Instagram
+INSTAGRAM = [("@build2lead.club", "https://www.instagram.com/build2lead.club/"),
+             ("@maisfloro.tech", "https://www.instagram.com/maisfloro.tech/")]
 
 DEFAULT_LOGO = Path(__file__).resolve().parent.parent / "assets" / "build-to-lead-logo.png"
 LOGO_MAX_H = 70   # points
@@ -38,7 +39,8 @@ LABELS = {
         "response_time": "Tiempo de respuesta",
         "escalation": "Si es urgente",
         "made": "Hecho con",
-        "by": "por Build to Lead",
+        "by": "por",
+        "and": "y",
         "version": "Versión",
         "updated": "Actualizado",
         "owner": "Responsable",
@@ -58,7 +60,8 @@ LABELS = {
         "response_time": "Response time",
         "escalation": "If it's urgent",
         "made": "Made with",
-        "by": "by Build to Lead",
+        "by": "by",
+        "and": "and",
         "version": "Version",
         "updated": "Updated",
         "owner": "Owner",

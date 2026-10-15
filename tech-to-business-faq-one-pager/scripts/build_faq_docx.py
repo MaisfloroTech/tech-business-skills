@@ -265,16 +265,18 @@ def build(spec: dict, out: Path, page: str = "a4", logo: str | None = None, scal
                 first = False
         set_widths(t, [100, (inner - 100) / 2, (inner - 100) / 2])
 
-    # footer: "Made with ♥ by Build to Lead · Instagram @build2lead.club" + meta, on every page
+    # footer: "Made with ♥ by @build2lead.club and @maisfloro.tech" + meta, on every page
     ft = sec.footer.add_table(rows=1, cols=2, width=Pt(inner)); no_borders(ft); cell_margins(ft, 60, 0, 0, 0)
     for c in ft.rows[0].cells:
         cell_border(c, "top", BRAND["rule"], 6)
     fp = ft.rows[0].cells[0].paragraphs[0]; tight(fp)
     add_text(fp, L["made"] + " ", 8, "navy", bold=True)
     r = fp.add_run("♥"); r.font.size = Pt(9); r.font.color.rgb = rgb("terracotta"); r.font.name = "Segoe UI Symbol"
-    add_text(fp, " " + L["by"], 8, "teal", bold=True)
-    add_text(fp, "  ·  ", 8, "gray")
-    add_link(fp, INSTAGRAM["url"], f'{INSTAGRAM["label"]} {INSTAGRAM["handle"]}', 8, "terracotta", bold=True)
+    (h1, u1), (h2, u2) = INSTAGRAM
+    add_text(fp, " " + L["by"] + " ", 8, "navy", bold=True)
+    add_link(fp, u1, h1, 8, "terracotta", bold=True)
+    add_text(fp, " " + L["and"] + " ", 8, "navy", bold=True)
+    add_link(fp, u2, h2, 8, "terracotta", bold=True)
     mp = ft.rows[0].cells[1].paragraphs[0]; tight(mp); mp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     meta = "  ·  ".join(f"{L[k]}: {spec[k]}" for k in ["owner", "version", "updated"] if spec.get(k))
     add_text(mp, meta, 7.5, "gray")

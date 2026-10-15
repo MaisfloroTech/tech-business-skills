@@ -338,7 +338,7 @@ Si le escribes en español, te responde en español; si le escribes en inglés, 
 ⭐ If this helped you sound more like business and less like a changelog, give it a star.<br>
 ⭐ Si te ayudó a sonar más a negocio y menos a changelog, déjale una estrella.
 
-Made with ♥ by [@build2lead.club](https://www.instagram.com/build2lead.club/) and [@maisfloro.tech](https://www.maisfloro.com/)<br>
-Hecho con ♥ por [@build2lead.club](https://www.instagram.com/build2lead.club/) y [@maisfloro.tech](https://www.maisfloro.com/)
+Made with ♥ by [@build2lead.club](https://www.instagram.com/build2lead.club/) and [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)<br>
+Hecho con ♥ por [@build2lead.club](https://www.instagram.com/build2lead.club/) y [@maisfloro.tech](https://www.instagram.com/maisfloro.tech/)
 
 </div>
