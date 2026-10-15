@@ -50,6 +50,12 @@ ALLOWED_IMAGES = {
     ".github/assets/faq-example-es.png",
     ".github/assets/faq-example-en.png",
     ".github/assets/banner.png",  # README header, built from .github/banner/banner.html
+    ".github/assets/skill-1-en.png",  # skill README header, built by .github/banner/skills.py
+    ".github/assets/skill-1-es.png",  # skill README header, built by .github/banner/skills.py
+    ".github/assets/skill-2-en.png",  # skill README header, built by .github/banner/skills.py
+    ".github/assets/skill-2-es.png",  # skill README header, built by .github/banner/skills.py
+    ".github/assets/skill-3-en.png",  # skill README header, built by .github/banner/skills.py
+    ".github/assets/skill-3-es.png",  # skill README header, built by .github/banner/skills.py
 }
 
 

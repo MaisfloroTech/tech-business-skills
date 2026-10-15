@@ -51,7 +51,7 @@ python .github/scripts/skills.py validate
    ```
 
 6. Run `python .github/scripts/skills.py build` (CI runs the same check) and `claude plugin validate .`, then test it in Claude before opening a PR.
-7. Add a `README.md` inside the skill folder (what it does, examples, how to use it; copy the layout of the existing ones) and a card for it in **Pick a skill** in the main `README.md`. Keep the main README short: details live in each skill's README.
+7. Add a `README.md` inside the skill folder (what it does, examples, how to use it), English first (🇺🇸 English 🇬🇧) and then the same in Spanish (🇪🇸 Español 🌎), each with its banner from `.github/banner/skills.py`; copy the layout of the existing ones, and a card for it in **Pick a skill** in the main `README.md`. Keep the main README short: details live in each skill's README.
 
 ## What's inside
 
@@ -88,4 +88,4 @@ git push origin v1.0.0
 
 ## Images
 
-Images are blocked by CI so nothing private gets committed by accident. The only exceptions are listed by exact path in `ALLOWED_IMAGES` in `.github/scripts/skills.py` (and in `.gitignore`): the Build to Lead logo, the README previews of the example FAQ documents (fictional data) and the README banner. The banner is built from `.github/banner/banner.html`: edit it and run `python3 .github/banner/render.py` (needs Playwright). Adding a new image means adding its exact path to both lists, on purpose.
+Images are blocked by CI so nothing private gets committed by accident. The only exceptions are listed by exact path in `ALLOWED_IMAGES` in `.github/scripts/skills.py` (and in `.gitignore`): the Build to Lead logo, the README previews of the example FAQ documents (fictional data) and the README banners. The main banner is built from `.github/banner/banner.html` (`python3 .github/banner/render.py`); the six skill banners (English and Spanish) from `.github/banner/skills.py` (`python3 .github/banner/skills.py`). Both need Playwright. Adding a new image means adding its exact path to both lists, on purpose.

@@ -17,6 +17,12 @@ dist/
 !.github/assets/faq-example-es.png
 !.github/assets/faq-example-en.png
 !.github/assets/banner.png
+!.github/assets/skill-1-en.png
+!.github/assets/skill-1-es.png
+!.github/assets/skill-2-en.png
+!.github/assets/skill-2-es.png
+!.github/assets/skill-3-en.png
+!.github/assets/skill-3-es.png
 
 # OS / editor
 .DS_Store

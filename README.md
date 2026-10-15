@@ -2,22 +2,24 @@
 
 <img src=".github/assets/banner.png" alt="What you say: 32 → 24 vCPU, p95 340 ms, CVE patched, 14 bugs fixed… What leadership hears: …so what?" width="100%">
 
-**[🇬🇧 English](#-english)** · **[🇪🇸 Español](#-español)**
+**[🇺🇸 English 🇬🇧](#english)** · **[🇪🇸 Español 🌎](#espanol)**
 
 </div>
 
 ---
 
+<a id="english"></a>
+
 <div align="center">
 
-# 🇬🇧 English
+# 🇺🇸 English 🇬🇧
 
 ## Turn your technical work into<br>the language leadership acts on.
 
 Claude Skills that translate engineering into what the business cares about:<br>
 **money, customers and risk.** In English or Spanish. No made-up numbers.
 
-**[⚡ Install in 1 minute](#-install-in-claude)** · [🧰 See the skills](#-pick-a-skill)
+**[⚡ Install in 1 minute](#install-en)** · [🧰 See the skills](#-pick-a-skill)
 
 </div>
 
@@ -80,6 +82,8 @@ More are on the way. Install once and every new skill arrives on its own. Missin
 
 Your role decides which numbers matter: adoption and bugs for a developer, availability and cost for SRE, exposure for security. Say it first and you get your answer in one shot. You don't need to name the skill; Claude picks the right one.
 
+<a id="install-en"></a>
+
 ## ⚡ Install in Claude
 
 Pick where you use Claude. **The app installs from the screen; commands are only for Claude Code.**
@@ -128,16 +132,20 @@ Write in English and you get English; write in Spanish and you get Spanish. You 
 
 ---
 
+<a id="espanol"></a>
+
 <div align="center">
 
-# 🇪🇸 Español
+# 🇪🇸 Español 🌎
+
+🇲🇽 🇨🇴 🇦🇷 🇨🇱 🇵🇪 🇻🇪 🇪🇨 🇧🇴 🇺🇾 🇵🇾 🇨🇷 🇵🇦 🇬🇹 🇭🇳 🇸🇻 🇳🇮 🇨🇺 🇩🇴 🇵🇷
 
 ## Convierte tu trabajo técnico en<br>el idioma con el que decide el liderazgo.
 
 Claude Skills que traducen ingeniería a lo que le importa al negocio:<br>
 **plata, clientes y riesgo.** En inglés o en español. Sin números inventados.
 
-**[⚡ Instálalo en 1 minuto](#-instálalo-en-claude)** · [🧰 Mira los skills](#-elige-un-skill)
+**[⚡ Instálalo en 1 minuto](#install-es)** · [🧰 Mira los skills](#-elige-un-skill)
 
 </div>
 
@@ -189,8 +197,6 @@ Algo nuevo que construiste → una **página amigable de preguntas frecuentes** 
 </tr>
 </table>
 
-*La documentación detallada de cada skill está en inglés; el skill te responde en español.*
-
 Vienen más. Lo instalas una vez y cada skill nuevo te llega solo. ¿Te falta uno? [Abre un issue](../../issues) 💬
 
 ## 👋 Empieza siempre con tu rol
@@ -201,6 +207,8 @@ Vienen más. Lo instalas una vez y cada skill nuevo te llega solo. ¿Te falta un
 > *"**Soy desarrolladora backend.** …"* · *"**Mi rol es líder de SRE.** …"* · *"**Soy líder de datos.** …"*
 
 Tu rol decide qué números importan: adopción y bugs para desarrollo, disponibilidad y costo para SRE, exposición para seguridad. Dilo de entrada y te responde de una, sin preguntas extra. No necesitas nombrar el skill; Claude escoge el correcto.
+
+<a id="install-es"></a>
 
 ## ⚡ Instálalo en Claude
 

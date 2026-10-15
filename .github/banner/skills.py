@@ -1,0 +1,219 @@
+"""Render one banner per skill, in English and Spanish, into .github/assets/.
+
+    python3 .github/banner/skills.py      # needs Playwright (pip install playwright && playwright install chromium)
+
+Same look as the main banner (banner.html): Build to Lead palette on cream, navy footer.
+"""
+import base64
+from pathlib import Path
+
+from playwright.sync_api import sync_playwright
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+ASSETS = HERE.parent / "assets"
+LOGO = base64.b64encode((ROOT / "tech-to-business-faq-one-pager/assets/build-to-lead-logo.png").read_bytes()).decode()
+
+CSS = """
+:root { --navy:#171A30; --teal:#204B4C; --terra:#A97F6A; --gray:#4E4F52; --cream:#F6F1EC; --sand:#EADFD5;
+        --green:#3F8A5C; --orange:#D3893B; --red:#B4503E; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { width:1280px; height:440px; background:transparent; font-family:Inter, sans-serif; color:var(--navy); }
+.card { position:relative; width:1280px; height:440px; background:var(--cream); border-radius:28px; overflow:hidden; }
+.label { position:absolute; top:36px; font-weight:700; font-size:14px; letter-spacing:.22em; color:var(--terra); }
+.footer { position:absolute; left:0; right:0; bottom:0; height:64px; background:var(--navy); display:flex;
+          align-items:center; padding:0 40px; color:var(--cream); font-size:19px; }
+.footer strong { font-weight:800; margin-right:16px; }
+.footer span { opacity:.78; }
+.footer .by { margin-left:auto; opacity:.6; font-size:15px; letter-spacing:.04em; }
+.arrow { position:absolute; left:0; top:0; }
+.mono { font-family:"DejaVu Sans Mono", monospace; }
+.serif { font-family:Lora, serif; }
+"""
+
+ARROW = """<svg class="arrow" width="1280" height="440"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5"
+markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A97F6A"/></marker></defs>
+<path d="M{x1},{y} C{c1},{yc} {c2},{yc} {x2},{y}" stroke="#A97F6A" stroke-width="4" fill="none" stroke-linecap="round" marker-end="url(#ah)"/></svg>"""
+
+
+def arrow(x1, x2, y):
+    return ARROW.format(x1=x1, x2=x2, y=y, c1=x1 + 40, c2=x2 - 40, yc=y - 46)
+
+
+def page(body, footer_title, footer_text, by):
+    return f"""<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">
+{body}
+<div class="footer"><strong>{footer_title}</strong><span>{footer_text}</span><span class="by">{by}</span></div>
+</div></body></html>"""
+
+
+# ---------------------------------------------------------------- Skill 1: short report
+def report(t):
+    rows = ""
+    for i, (color, label, title, line) in enumerate(t["rows"]):
+        rows += f"""<div style="position:absolute; left:640px; top:{86 + i * 92}px; width:600px; height:78px; background:#fff;
+          border-radius:12px; box-shadow:0 2px 0 rgba(23,26,48,.07); border-left:8px solid var(--{color}); padding:12px 18px;">
+          <div style="font-size:19px"><b style="color:var(--{color}); letter-spacing:.02em">{label}</b>
+          <b style="margin-left:8px">{title}</b></div>
+          <div style="font-size:15px; color:var(--gray); margin-top:6px">{line}</div></div>"""
+    notes = "".join(f'<div style="margin-bottom:9px">{n}</div>' for n in t["notes"])
+    body = f"""
+<div class="label" style="left:56px">{t['left']}</div>
+<div class="label" style="left:640px">{t['right']}</div>
+<div class="mono" style="position:absolute; left:52px; top:82px; width:420px; height:236px; background:#fff;
+     border-radius:12px; padding:20px 22px; font-size:16px; color:var(--teal); transform:rotate(-1.5deg);
+     box-shadow:0 2px 0 rgba(23,26,48,.07); background-image:repeating-linear-gradient(#fff 0 33px, #EADFD5 33px 34px);
+     line-height:24px">{notes}</div>
+{arrow(492, 616, 220)}
+{rows}"""
+    return page(body, t["ft"], t["fx"], t["by"])
+
+
+REPORT = {
+    "en": dict(left="YOUR NOTES", right="WHAT LEADERSHIP READS",
+               notes=["- db 32→24 vCPU oct 11, ~1.2k/mo", "- 2h maint window, all good",
+                      "- checkout down 25m oct 7", "  ~1,100 failed pmts, rolled back",
+                      "- BF nov 27, only tested 2x", "  (last yr peak 3x) 😬"],
+               rows=[("orange", "🟠 RISK – HIGH", "Black Friday readiness", "Checkout may fail on our biggest day · ASK: what you need, by when"),
+                     ("red", "🔴 LOWLIGHT", "Service interruption", "Customers couldn't pay for 25 min · ~1,100 failed payments"),
+                     ("green", "🟢 HIGHLIGHT", "Infrastructure optimization", "USD 1,200/month saved (≈ USD 14,400/year) · Owner: SRE team")],
+               ft="Skill 1 · Short report", fx="One topic → one 3–4 line update · traffic light · number · owner", by="BUILD TO LEAD"),
+    "es": dict(left="TUS NOTAS", right="LO QUE LEE EL LIDERAZGO",
+               notes=["- bd 32→24 vCPU 11 oct, ~1,2k/mes", "- ventana 2h, todo ok",
+                      "- checkout caído 25m 7 oct", "  ~1.100 pagos fallidos, rollback",
+                      "- BF 27 nov, solo probado 2x", "  (peak año pasado 3x) 😬"],
+               rows=[("orange", "🟠 RISK – HIGH", "Preparación para Black Friday", "El checkout puede caer el día de más ventas · ASK: qué y para cuándo"),
+                     ("red", "🔴 LOWLIGHT", "Interrupción del servicio", "Clientes sin poder pagar 25 min · ~1.100 pagos fallidos"),
+                     ("green", "🟢 HIGHLIGHT", "Optimización de infraestructura", "USD 1.200/mes de ahorro (≈ USD 14.400/año) · Responsable: SRE")],
+               ft="Skill 1 · Reporte corto", fx="Un tema → una actualización de 3–4 líneas · semáforo · número · responsable", by="BUILD TO LEAD"),
+}
+
+
+# ---------------------------------------------------------------- Skill 2: SMART objectives
+def smart(t):
+    steps = ""
+    for i, (icon, name, date) in enumerate(t["steps"]):
+        x = 664 + i * 186
+        steps += f"""<div style="position:absolute; left:{x}px; top:200px; width:168px; height:58px; background:var(--cream);
+            border-radius:10px; padding:8px 12px"><div style="font-size:15px; font-weight:700">{icon} {name}</div>
+            <div style="font-size:14px; color:var(--gray); margin-top:3px">{date}</div></div>"""
+        if i < 2:
+            steps += f'<div style="position:absolute; left:{x + 170}px; top:216px; color:var(--terra); font-size:18px">→</div>'
+    badges = "".join(
+        f"""<div style="position:absolute; left:{664 + i * 46}px; top:282px; width:38px; height:38px; border-radius:50%;
+        background:var(--teal); color:var(--cream); font-weight:800; font-size:17px; display:flex; align-items:center;
+        justify-content:center">{c}</div>""" for i, c in enumerate("SMART"))
+    body = f"""
+<div class="label" style="left:56px">{t['left']}</div>
+<div class="label" style="left:648px">{t['right']}</div>
+<div class="serif" style="position:absolute; left:56px; top:120px; font-size:52px; font-style:italic; font-weight:700;
+     color:var(--gray); white-space:nowrap">{t['vague']}</div>
+<div style="position:absolute; left:48px; top:156px; width:{t['strike']}px; height:6px; background:var(--terra);
+     border-radius:3px; transform:rotate(-3deg)"></div>
+<div style="position:absolute; left:58px; top:212px; width:400px; font-size:18px; line-height:32px; color:var(--gray)">{t['missing']}</div>
+{arrow(500, 624, 262)}
+<div style="position:absolute; left:648px; top:74px; width:596px; height:258px; background:#fff; border-radius:14px;
+     box-shadow:0 2px 0 rgba(23,26,48,.07); padding:18px 20px">
+  <div style="font-size:21px; font-weight:800">{t['title']}</div>
+  <div style="font-size:16px; color:var(--gray); margin-top:8px; line-height:23px">{t['goal']}</div>
+</div>
+{steps}{badges}
+<div style="position:absolute; left:906px; top:290px; font-size:15px; color:var(--gray)">{t['owner']}</div>"""
+    return page(body, t["ft"], t["fx"], t["by"])
+
+
+SMART = {
+    "en": dict(left="WHAT MOST OBJECTIVES LOOK LIKE", right="WHAT LEADERSHIP CAN APPROVE",
+               vague="Improve monitoring.", strike=500,
+               missing="✕ no number<br>✕ no date<br>✕ no owner<br>✕ no business reason",
+               title="🎯 Early problem detection · Q3",
+               goal="<b style='color:var(--navy)'>Plan and implement</b> on-call paging for our 40 services, cutting customer-reported incidents from <b style='color:var(--navy)'>60% to under 20%</b> by Sep 25.",
+               steps=[("🗺️", "Planning", "Jul 17"), ("🛠️", "Execution", "Aug 28"), ("✅", "Validation", "Sep 25")],
+               owner="Owner: SRE team",
+               ft="Skill 2 · SMART objectives", fx="One initiative → one quarterly objective · plan first · numbers · dates · owner", by="BUILD TO LEAD"),
+    "es": dict(left="CÓMO SE VEN LA MAYORÍA", right="LO QUE EL LIDERAZGO PUEDE APROBAR",
+               vague="Mejorar el monitoreo.", strike=540,
+               missing="✕ sin número<br>✕ sin fecha<br>✕ sin responsable<br>✕ sin motivo de negocio",
+               title="🎯 Detección temprana de problemas · Q3",
+               goal="<b style='color:var(--navy)'>Planear e implementar</b> alertas de guardia para nuestros 40 servicios, bajando los incidentes reportados por clientes del <b style='color:var(--navy)'>60% a menos del 20%</b> antes del 25 de sept.",
+               steps=[("🗺️", "Planificación", "17 jul"), ("🛠️", "Ejecución", "28 ago"), ("✅", "Validación", "25 sept")],
+               owner="Responsable: Equipo SRE",
+               ft="Skill 2 · Objetivos SMART", fx="Una iniciativa → un objetivo trimestral · primero el plan · números · fechas · responsable", by="BUILD TO LEAD"),
+}
+
+
+# ---------------------------------------------------------------- Skill 3: FAQ one-pager
+def faq(t):
+    bubbles = ""
+    for (x, y, r, txt, dim) in t["bubbles"]:
+        bubbles += f"""<div style="position:absolute; left:{x}px; top:{y}px; transform:rotate({r}deg); background:#fff;
+          border:1.5px solid rgba(32,75,76,.3); border-radius:18px 18px 18px 4px; padding:9px 15px; font-size:17px;
+          color:var(--teal); white-space:nowrap; opacity:{.45 if dim else 1}">{txt}</div>"""
+    glance = "".join(f"""<div style="flex:1; background:var(--cream); border-radius:6px; padding:5px 7px">
+        <div style="font-size:8px; font-weight:800; color:var(--terra); letter-spacing:.06em">{k}</div>
+        <div style="font-size:10px; font-weight:600">{v}</div></div>""" for k, v in t["glance"])
+    qa = "".join(f"""<div style="margin-top:8px"><div style="font-size:11px; font-weight:800; color:var(--teal)">{q}</div>
+        <div style="height:5px; width:{w}%; background:var(--sand); border-radius:3px; margin-top:4px"></div>
+        <div style="height:5px; width:{w - 18}%; background:var(--sand); border-radius:3px; margin-top:3px"></div></div>"""
+                 for q, w in t["qa"])
+    body = f"""
+<div class="label" style="left:56px">{t['left']}</div>
+<div class="label" style="left:700px">{t['right']}</div>
+{bubbles}
+{arrow(540, 676, 220)}
+<div style="position:absolute; left:740px; top:70px; width:250px; height:300px; background:#fff; border-radius:6px;
+     box-shadow:0 10px 30px rgba(23,26,48,.14); transform:rotate(-2deg); padding:16px 16px; overflow:hidden">
+  <img src="data:image/png;base64,{LOGO}" style="position:absolute; right:12px; top:10px; width:34px">
+  <div style="font-size:15px; font-weight:800; width:170px; line-height:18px">{t['doc']}</div>
+  <div style="display:flex; gap:5px; margin-top:10px">{glance}</div>
+  {qa}
+  <div style="position:absolute; left:0; right:0; bottom:0; height:22px; background:var(--navy); color:var(--cream);
+       font-size:8px; display:flex; align-items:center; justify-content:center">{t['made']}</div>
+</div>
+<div style="position:absolute; left:1024px; top:110px; font-size:17px; line-height:40px; color:var(--gray)">{t['feats']}</div>
+<div style="position:absolute; left:1028px; top:290px; background:var(--terra); color:#fff; font-weight:800; font-size:16px;
+     padding:7px 14px; border-radius:8px">.docx · {t['page']}</div>"""
+    return page(body, t["ft"], t["fx"], t["by"])
+
+
+FAQ = {
+    "en": dict(left="WHAT PEOPLE KEEP ASKING YOU", right="ONE PAGE THAT ANSWERS IT",
+               bubbles=[(56, 86, -2, "Since when does it work?", 0), (300, 96, 3, "Can I use it?", 0),
+                        (70, 146, 1, "What can't I do with it?", 0), (330, 160, -3, "Where is it?", 1),
+                        (48, 208, -1, "Who do I call if it breaks?", 0), (150, 264, 2, "Is there a limit?", 0),
+                        (360, 268, -2, "Since when…?", 1), (60, 316, -3, "Can I use it…?", 1), (260, 320, 1, "Who do I call…?", 1)],
+               doc="Self-service data portal · FAQ",
+               glance=[("FROM", "Nov 3"), ("FOR", "Business"), ("WHERE", "data.co"), ("HELP", "#data")],
+               qa=[("What is it?", 92), ("Who can use it?", 86), ("What can't I do?", 90), ("Who do I call?", 80)],
+               made="Made with ♥ by Build to Lead",
+               feats="❓ The 6 questions<br>🎮 Rules of the game<br>🆘 Who helps, and how<br>🖍️ Gaps highlighted",
+               page="1 page",
+               ft="Skill 3 · FAQ one-pager", fx="Something new you built → one friendly page of FAQs, as Word", by="BUILD TO LEAD"),
+    "es": dict(left="LO QUE TODOS TE PREGUNTAN", right="UNA PÁGINA QUE LO RESPONDE",
+               bubbles=[(56, 86, -2, "¿Desde cuándo funciona?", 0), (316, 96, 3, "¿Lo puedo usar?", 0),
+                        (70, 146, 1, "¿Qué no puedo hacer?", 0), (310, 160, -3, "¿Dónde está?", 1),
+                        (48, 208, -1, "¿A quién llamo si falla?", 0), (150, 264, 2, "¿Hay algún límite?", 0),
+                        (370, 268, -2, "¿Desde cuándo…?", 1), (60, 316, -3, "¿Lo puedo usar…?", 1), (270, 320, 1, "¿A quién llamo…?", 1)],
+               doc="Portal de datos de autoservicio · FAQ",
+               glance=[("DESDE", "3 nov"), ("PARA", "Negocio"), ("DÓNDE", "datos.co"), ("AYUDA", "#datos")],
+               qa=[("¿Qué es?", 92), ("¿Quién lo puede usar?", 86), ("¿Qué no puedo hacer?", 90), ("¿A quién llamo?", 80)],
+               made="Hecho con ♥ por Build to Lead",
+               feats="❓ Las 6 preguntas<br>🎮 Las reglas del juego<br>🆘 Quién ayuda y cómo<br>🖍️ Vacíos resaltados",
+               page="1 página",
+               ft="Skill 3 · FAQ de una página", fx="Algo nuevo que construiste → una página amigable de FAQ, en Word", by="BUILD TO LEAD"),
+}
+
+JOBS = [("skill-1", report, REPORT), ("skill-2", smart, SMART), ("skill-3", faq, FAQ)]
+
+if __name__ == "__main__":
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        pg = browser.new_page(viewport={"width": 1280, "height": 440}, device_scale_factor=2)
+        for name, fn, texts in JOBS:
+            for lang, t in texts.items():
+                pg.set_content(fn(t))
+                pg.wait_for_timeout(250)
+                out = ASSETS / f"{name}-{lang}.png"
+                pg.screenshot(path=str(out), omit_background=True)
+                print(f"wrote {out.relative_to(ROOT)}")
+        browser.close()
