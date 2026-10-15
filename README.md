@@ -78,16 +78,21 @@ Your role decides which numbers matter: adoption and bugs for a developer, avail
 
 ## ⚡ Install in Claude
 
-**💻 Web or desktop app (no code)**
+Pick where you use Claude. **The app installs from the screen; commands are only for Claude Code.**
+
+### 💻 Claude app (web or desktop) · no commands
 
 1. Open **[Customize → Plugins](https://claude.ai/customize/plugins)** and click **Add → Add marketplace**.
 2. Paste `MaisfloroTech/tech-business-skills`.
 3. Find **Tech Business Skills** and click **Add**. ✅
 
-**⌨️ Claude Code**
+Done. Open a new chat and start with your role. Don't type `/plugin …` in the chat: the app doesn't run install commands.
+
+### ⌨️ Claude Code (terminal) only
 
 ```
-/plugin install tech-business-skills --marketplace MaisfloroTech/tech-business-skills
+/plugin marketplace add MaisfloroTech/tech-business-skills
+/plugin install tech-business-skills@tech-business-skills
 ```
 
 <details>
@@ -95,7 +100,7 @@ Your role decides which numbers matter: adoption and bugs for a developer, avail
 
 <br>
 
-**New skill not in the `/` menu?** Reload the app (Cmd/Ctrl + R) or open a new chat. Still missing? Turn the plugin off and on in **Customize → Plugins**. In Claude Code, run `claude update` if the command isn't recognized.
+**New skill not in the `/` menu?** Reload the app (Cmd/Ctrl + R) or open a new chat. Still missing? Turn the plugin off and on in **Customize → Plugins**. In Claude Code, run `claude update` if `/plugin` isn't recognized.
 
 **One skill as a zip (web or desktop):** download it from the [latest release](../../releases/latest) without unzipping, then **Customize → Skills → Upload skill**. You'll repeat this for every update.
 
