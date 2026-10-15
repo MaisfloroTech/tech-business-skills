@@ -2,6 +2,16 @@
 
 <img src=".github/assets/banner.png" alt="What you say: 32 → 24 vCPU, p95 340 ms, CVE patched, 14 bugs fixed… What leadership hears: …so what?" width="100%">
 
+**[🇬🇧 English](#-english)** · **[🇪🇸 Español](#-español)**
+
+</div>
+
+---
+
+<div align="center">
+
+# 🇬🇧 English
+
 ## Turn your technical work into<br>the language leadership acts on.
 
 Claude Skills that translate engineering into what the business cares about:<br>
@@ -18,8 +28,6 @@ Claude Skills that translate engineering into what the business cares about:<br>
 | *Downsized main DB from 32 to 24 vCPU on Oct 11. 2h maintenance window. Saves ~USD 1,200/month.* | 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11, the SRE team reduced our main database by 25%, saving USD 1,200/month (≈ USD 14,400/year) in a planned 2-hour maintenance window.<br>**Owner:** SRE team |
 
 <p align="center"><b>Same work. Now the CFO gets it.</b></p>
-
----
 
 ## 🧰 Pick a skill
 
@@ -63,18 +71,14 @@ Something new you built → one **friendly page of FAQs** as an editable Word do
 
 More are on the way. Install once and every new skill arrives on its own. Missing one? [Open an issue](../../issues) 💬
 
----
-
 ## 👋 Always start with your role
 
 > [!IMPORTANT]
-> Begin every message with **"I'm a…"** / **"My role is…"**, or in Spanish **"Soy…"** / **"Mi rol es…"**
+> Begin every message with **"I'm a…"** or **"My role is…"**
 >
-> *"**I'm a backend developer.** …"* · *"**My role is SRE lead.** …"* · *"**Soy líder de datos.** …"*
+> *"**I'm a backend developer.** …"* · *"**My role is SRE lead.** …"* · *"**I'm a data engineer.** …"*
 
 Your role decides which numbers matter: adoption and bugs for a developer, availability and cost for SRE, exposure for security. Say it first and you get your answer in one shot. You don't need to name the skill; Claude picks the right one.
-
----
 
 ## ⚡ Install in Claude
 
@@ -116,29 +120,159 @@ cp -r tech-business-skills/tech-to-business-short-report ~/.claude/skills/
 
 </details>
 
----
+## 🗣️ English or Spanish
 
-## 🇪🇸 English or Spanish
-
-Write in English, get English. Escríbele en español y te responde en español. You can also mix: *"háblame en español pero el reporte en inglés para mi jefe"*.
-
----
+Write in English and you get English; write in Spanish and you get Spanish. You can also mix: *"talk to me in Spanish but write the report in English for my global manager"*.
 
 ## 🛡️ The honesty promise
 
 - 🚫 **Nothing invented.** No numbers, dates, limits or contacts you didn't give.
-- 🕳️ **Gaps stay visible** as UPPERCASE placeholders (`ENTER_DATE`, `INGRESA_MONTO`) for you to fill in before sending.
+- 🕳️ **Gaps stay visible** as UPPERCASE placeholders (`ENTER_DATE`, `ENTER_AMOUNT`) for you to fill in before sending.
 - 🧮 **Math shown** for anything calculated.
 
 An honest gap beats a polished answer that falls apart at the first question.
+
+<br>
 
 ---
 
 <div align="center">
 
-**Teams:** click **Use this template** for a private copy with your own examples · **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md)
+# 🇪🇸 Español
 
-⭐ If this helped you sound more like business and less like a changelog, give it a star.
+## Convierte tu trabajo técnico en<br>el idioma con el que decide el liderazgo.
+
+Claude Skills que traducen ingeniería a lo que le importa al negocio:<br>
+**plata, clientes y riesgo.** En inglés o en español. Sin números inventados.
+
+**[⚡ Instálalo en 1 minuto](#-instálalo-en-claude)** · [🧰 Mira los skills](#-elige-un-skill)
+
+</div>
+
+<br>
+
+| 😬 Lo que escribiste | 🎯 Lo que lee el liderazgo |
+|---|---|
+| *Bajamos la base de datos principal de 32 a 24 vCPU el 11 de octubre. Ventana de mantenimiento de 2 h. Ahorra ~USD 1.200/mes.* | 🟢 **[HIGHLIGHT] Optimización de infraestructura:** El 11 de octubre, el equipo SRE redujo el tamaño de nuestra base de datos principal en 25%, con un ahorro de USD 1.200/mes (≈ USD 14.400/año), en una ventana de mantenimiento planificada de 2 horas.<br>**Responsable:** Equipo SRE |
+
+<p align="center"><b>El mismo trabajo. Ahora el CFO lo entiende.</b></p>
+
+## 🧰 Elige un skill
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 📄 Reporte corto
+
+Un tema técnico → una **actualización de negocio de 3–4 líneas** con semáforo, un número y un responsable.
+
+*Reportes de estado, incidentes, riesgos.*
+
+**[Míralo en acción →](tech-to-business-short-report/README.md)**
+
+</td>
+<td width="33%" valign="top">
+
+### 🎯 Objetivos SMART
+
+Una iniciativa técnica → un **objetivo trimestral** que el liderazgo puede aprobar y seguir.
+
+*OKRs, planificación del Q, metas.*
+
+**[Míralo en acción →](tech-to-business-smart-objectives/README.md)**
+
+</td>
+<td width="33%" valign="top">
+
+### 📘 FAQ de una página
+
+Algo nuevo que construiste → una **página amigable de preguntas frecuentes** en un Word editable.
+
+*Lanzamientos, onboarding, "cómo funciona esto".*
+
+**[Míralo en acción →](tech-to-business-faq-one-pager/README.md)**
+
+</td>
+</tr>
+</table>
+
+*La documentación detallada de cada skill está en inglés; el skill te responde en español.*
+
+Vienen más. Lo instalas una vez y cada skill nuevo te llega solo. ¿Te falta uno? [Abre un issue](../../issues) 💬
+
+## 👋 Empieza siempre con tu rol
+
+> [!IMPORTANT]
+> Empieza cada mensaje con **"Soy…"** o **"Mi rol es…"**
+>
+> *"**Soy desarrolladora backend.** …"* · *"**Mi rol es líder de SRE.** …"* · *"**Soy líder de datos.** …"*
+
+Tu rol decide qué números importan: adopción y bugs para desarrollo, disponibilidad y costo para SRE, exposición para seguridad. Dilo de entrada y te responde de una, sin preguntas extra. No necesitas nombrar el skill; Claude escoge el correcto.
+
+## ⚡ Instálalo en Claude
+
+Elige dónde usas Claude. **En la app se instala desde la pantalla; los comandos son solo para Claude Code.**
+
+### 💻 App de Claude (web o escritorio) · sin comandos
+
+1. Abre **[Customize → Plugins](https://claude.ai/customize/plugins)** y haz clic en **Add → Add marketplace**.
+2. Pega `MaisfloroTech/tech-business-skills`.
+3. Busca **Tech Business Skills** y haz clic en **Add**. ✅
+
+Listo. Abre un chat nuevo y empieza con tu rol. No escribas `/plugin …` en el chat: la app no ejecuta comandos de instalación.
+
+### ⌨️ Solo Claude Code (terminal)
+
+```
+/plugin marketplace add MaisfloroTech/tech-business-skills
+/plugin install tech-business-skills@tech-business-skills
+```
+
+<details>
+<summary>Otras formas de instalar y solución de problemas</summary>
+
+<br>
+
+**¿El skill nuevo no aparece en el menú `/`?** Recarga la app (Cmd/Ctrl + R) o abre un chat nuevo. ¿Sigue sin aparecer? Apaga y vuelve a prender el plugin en **Customize → Plugins**. En Claude Code, corre `claude update` si no reconoce `/plugin`.
+
+**Un skill como zip (web o escritorio):** descárgalo del [último release](../../releases/latest) sin descomprimirlo y ve a **Customize → Skills → Upload skill**. Tendrás que repetirlo en cada actualización.
+
+**Una carpeta de skill (Claude Code):**
+
+```bash
+git clone https://github.com/MaisfloroTech/tech-business-skills.git
+mkdir -p ~/.claude/skills
+cp -r tech-business-skills/tech-to-business-short-report ~/.claude/skills/
+```
+
+**Planes:** necesitas Pro, Max, Team o Enterprise. En Team y Enterprise puede que un admin tenga que permitir marketplaces, y puede instalarlo para toda la organización.
+
+</details>
+
+## 🗣️ Inglés o español
+
+Si le escribes en español, te responde en español; si le escribes en inglés, en inglés. También puedes mezclar: *"háblame en español pero el reporte en inglés para mi jefe global"*. Las etiquetas del semáforo (HIGHLIGHT, LOWLIGHT, RISK) quedan en inglés por defecto porque son vocabulario común entre equipos; si las quieres traducidas, pídelo.
+
+## 🛡️ La promesa de honestidad
+
+- 🚫 **Nada inventado.** Ni números, ni fechas, ni límites, ni contactos que no hayas dado.
+- 🕳️ **Los vacíos quedan a la vista** como marcadores en MAYÚSCULAS (`INGRESA_FECHA`, `INGRESA_MONTO`) para que los completes antes de enviar.
+- 🧮 **Cálculos a la vista** en todo lo que se calcula.
+
+Un vacío honesto vale más que una respuesta pulida que se cae a la primera pregunta.
+
+<br>
+
+---
+
+<div align="center">
+
+**Teams:** click **Use this template** for a private copy with your own examples · **Contribute:** [CONTRIBUTING.md](CONTRIBUTING.md)<br>
+**Equipos:** usa **Use this template** para una copia privada con tus propios ejemplos · **Contribuye:** [CONTRIBUTING.md](CONTRIBUTING.md)
+
+⭐ If this helped you sound more like business and less like a changelog, give it a star.<br>
+⭐ Si te ayudó a sonar más a negocio y menos a changelog, déjale una estrella.
 
 Made with ☕ by [@maisfloro.tech](https://www.maisfloro.com/)
 
