@@ -474,6 +474,7 @@ You launched a new tool, platform or process. Now people ask the same things ove
 - 👀 **At a glance:** four boxes with the key facts at the top.
 - 📝 **An editable Word document (.docx)** on one page, so your team can adjust it before sharing.
 - 🎨 **Build to Lead design**: brand colors, the logo in the corner and *"Made with ♥ by Build to Lead"* in the footer, in **Spanish or English**.
+- 🗺️ **Attach your architecture diagram** if you have one: Claude uses it to understand the project, keeps internal components (Lambda, queues, secrets…) out of the FAQ, and warns you if the diagram and your message don't match.
 - 🔄 **Your logo, if you want:** at the end, Claude offers to swap the Build to Lead logo for your company's (PNG or JPG).
 - 🕳️ **Missing data is highlighted** (`INGRESA_FECHA`, `ENTER_OWNER`), so you see at a glance what to fill in.
 

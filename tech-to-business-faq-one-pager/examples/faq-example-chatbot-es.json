@@ -1,0 +1,40 @@
+{
+  "language": "es",
+  "title": "Asistente de horarios por WhatsApp",
+  "subtitle": "Consulta tus horarios y salones de clase escribiendo por WhatsApp.",
+  "version": "1.0",
+  "updated": "15 oct 2026",
+  "owner": "Equipo de Ingeniería (INGRESA_RESPONSABLE)",
+  "at_a_glance": [
+    {"label": "Disponible desde", "value": "30 de octubre de 2026"},
+    {"label": "Para quién", "value": "Todos los estudiantes"},
+    {"label": "Dónde", "value": "WhatsApp: INGRESA_NUMERO"},
+    {"label": "Soporte", "value": "Equipo de Operaciones"}
+  ],
+  "faqs": [
+    {"w": "what", "q": "¿Qué es el asistente de horarios?", "a": "Un chat en WhatsApp que responde tus preguntas sobre tus horarios de clase y en qué salón te toca, con la información del campus virtual de la universidad."},
+    {"w": "why", "q": "¿Para qué sirve?", "a": "Para que encuentres rápido la información de tus horarios y salones, desde WhatsApp."},
+    {"w": "who", "q": "¿Quién puede usarlo?", "a": "Todos los estudiantes de la universidad. Para identificarte: INGRESA_IDENTIFICACION."},
+    {"w": "when", "q": "¿Desde cuándo funciona?", "a": "Desde el 30 de octubre de 2026. La primera semana es de marcha blanca: el equipo técnico estará monitoreando que todo funcione bien."},
+    {"w": "where", "q": "¿Dónde lo encuentro?", "a": "En WhatsApp, escribiendo al número INGRESA_NUMERO."},
+    {"w": "how", "q": "¿Cómo lo uso?", "a": "Escríbele por WhatsApp y pregunta por tu horario o por el salón de una clase. El asistente te responde en el mismo chat."},
+    {"w": "limits", "q": "¿Qué no puede responder?", "a": "Solo responde consultas sobre horarios y salones de clase. Para cualquier otro tema, usa los canales habituales de la universidad."},
+    {"w": "help", "q": "¿Qué hago si algo no funciona o la respuesta está mal?", "a": "Abre un ticket al equipo de Operaciones en INGRESA_ENLACE_TICKETS. Si hace falta, Operaciones lo escala al equipo técnico."}
+  ],
+  "can": [
+    "Consultar tu horario de clases.",
+    "Consultar en qué salón es cada clase.",
+    "Hacerlo desde WhatsApp, INGRESA_HORARIO_BOT."
+  ],
+  "cannot": [
+    "Consultar temas distintos a horarios y salones.",
+    "INGRESA_OTRO_LIMITE."
+  ],
+  "help": {
+    "contact": "Equipo de Operaciones",
+    "channel": "Sistema de tickets: INGRESA_ENLACE_TICKETS",
+    "hours": "INGRESA_HORARIO",
+    "response_time": "INGRESA_TIEMPO_RESPUESTA",
+    "escalation": "Operaciones escala los casos al equipo técnico."
+  }
+}

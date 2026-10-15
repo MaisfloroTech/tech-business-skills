@@ -30,7 +30,13 @@ If the user already gave enough, **build the FAQ right away**. Otherwise ask, in
 5. **The rules**: what they can do, what they can't, and any limits (volumes, schedules, permissions, costs).
 6. **Help**: who to contact, through which channel, in what hours, how fast you answer, and what to do if it's urgent.
 
-Never ask a second round. **Anything still missing goes in as an UPPERCASE placeholder**, never as a guess: `ENTER_DATE`, `ENTER_OWNER`, `ENTER_CHANNEL`, `ENTER_LIMIT` (Spanish: `INGRESA_FECHA`, `INGRESA_RESPONSABLE`, `INGRESA_CANAL`, `INGRESA_LIMITE`). The Word document highlights them so they're easy to spot and replace. If you're about to write a date, limit, contact, URL or schedule the user didn't give you, it's a placeholder.
+Never ask a second round. **Anything still missing goes in as an UPPERCASE placeholder**, never as a guess: `ENTER_DATE`, `ENTER_OWNER`, `ENTER_CHANNEL`, `ENTER_LIMIT` (Spanish: `INGRESA_FECHA`, `INGRESA_RESPONSABLE`, `INGRESA_CANAL`, `INGRESA_LIMITE`). The Word document highlights them so they're easy to spot and replace. **Keep placeholders short** (prefix + 1–2 words, e.g. `INGRESA_ENLACE_TICKETS`), so they don't break across lines. If you're about to write a date, limit, contact, URL or schedule the user didn't give you, it's a placeholder.
+
+**If the user attaches an architecture diagram** (or describes components), use it only to **understand** the project: what the user touches, where the data comes from, what's in and out of scope. Then:
+
+- **Never put internal components in the FAQ** (Lambda, Lex, API Gateway, Secrets Manager, CloudWatch, Kubernetes, queues, databases, vendor APIs…). Mention only what the reader sees or uses ("WhatsApp", "the virtual campus", "the portal").
+- **Check the diagram against the text.** If they don't match (e.g. the diagram says "grades bot" but the text says "schedules and classrooms"), follow the text and flag the mismatch in the closing line.
+- **Check the help channel is reachable by the readers.** If support goes through an internal tool (a corporate ticket system, an internal Slack) but the readers are external (students, customers), flag it in the closing line.
 
 ### 2. Write the FAQ content
 
@@ -43,6 +49,8 @@ Read `references/business-language.md`. The readers are **users and business peo
 - **Rules of the game**: 3–5 things you **can** do and 3–5 things you **can't** / limits. Short, one line each.
 - **Help**: contact, channel, hours, response time, what to do if urgent.
 - **Owner, version and last updated date** for the footer (use today's date for "updated" if the user doesn't give one).
+
+Worked example from a real-world kind of input (architecture diagram + short message): `references/example-from-architecture.md`. Read it when the user attaches a diagram.
 
 ### 3. Build the Word document
 
