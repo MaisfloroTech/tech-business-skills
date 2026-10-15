@@ -92,6 +92,11 @@ tech-business-skills/
 │   ├── assets/                         Build to Lead logo
 │   ├── examples/                       example FAQs in Spanish and English
 │   └── references/                     its own: plain language, honesty rules, diagram example
+├── tech-to-business-interviews/        🎤 Skill 4
+│   ├── scripts/build_interview.py      builds the branded, fillable interview PDF
+│   ├── assets/                         Build to Lead logo
+│   ├── examples/                       example interviews in English and Spanish
+│   └── references/                     STAR method, question design, honesty rules + shared roles and ladder
 ├── .claude-plugin/                     makes the repo installable in one step
 └── .github/                            CI, releases and README assets
 ```

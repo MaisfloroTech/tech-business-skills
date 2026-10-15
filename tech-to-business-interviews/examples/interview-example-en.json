@@ -1,0 +1,95 @@
+{
+  "language": "en",
+  "role": "Senior SRE",
+  "team": "Platform team",
+  "duration": "60 min",
+  "case": "Our online store makes most of its revenue through checkout. Last month checkout went down for 25 minutes during a campaign, and Black Friday is in six weeks with up to 3 times normal traffic. Leadership wants to know whether we're ready, what it will cost to be ready, and how we'll know in real time if something breaks.",
+  "focus": ["Availability customers feel", "Revenue protected on peak days", "Cloud cost"],
+  "blocks": [
+    {
+      "title": "Understand the business",
+      "questions": [
+        {"q": "Tell me about a system you kept running that made money directly. How did you find out what an hour of downtime cost the business?",
+         "deep": "Who gave you that number, and how did it change your priorities?",
+         "expect": "Knows revenue per minute or a proxy, got it from finance or product, and used it to prioritize."},
+        {"q": "Before touching anything for Black Friday, what would you ask product and finance about our checkout?",
+         "deep": "Which of those answers would change your plan the most?",
+         "expect": "Asks peak traffic, revenue per hour, campaigns and acceptable degradation: why before how."},
+        {"q": "Tell me about an SLO you defined with a business owner. How did you choose the target?",
+         "deep": "What happened the first time you burned the error budget?",
+         "expect": "Target tied to customer experience and the cost of each extra nine; business owner involved."},
+        {"q": "In our case, which parts of checkout can degrade on Black Friday and which can never fail? How do you decide?",
+         "deep": "Who signs off on that list?",
+         "expect": "Separates the payment path from nice-to-haves, decides with product, plans graceful degradation."}
+      ]
+    },
+    {
+      "title": "Design and trade-offs",
+      "questions": [
+        {"q": "Leadership gives you budget for one thing before Black Friday: more capacity, a load test or better alerts. Which one and why?",
+         "deep": "What do we lose with the options you didn't choose?",
+         "expect": "Compares cost against revenue at risk per hour; picks with data; names what stays uncovered."},
+        {"q": "Tell me about a time you chose between scaling up and fixing the root cause under time pressure. What did each option cost?",
+         "deep": "Looking back, was it the right call? What would you change?",
+         "expect": "Weighs cost, time and risk explicitly, decides consciously and follows up on the debt."},
+        {"q": "Our database is the bottleneck at 2 times traffic. How would you reach 3 times in six weeks, and how would you explain the cost to leadership?",
+         "deep": "What's the cheapest option that still protects revenue?",
+         "expect": "Options with cost and risk (replicas, cache, queues, limits), picks with data, one-line business case."},
+        {"q": "Tell me about a cloud cost you reduced without hurting customers. How did you prove it didn't?",
+         "deep": "What was the saving per month and what did you watch after the change?",
+         "expect": "Saving in money, before/after metrics, guardrails and evidence that customers weren't affected."}
+      ]
+    },
+    {
+      "title": "Execution and incidents",
+      "questions": [
+        {"q": "Tell me about the worst incident you handled. What did it cost the business, and what did you do in the first 15 minutes?",
+         "deep": "What did you tell leadership and customers, and when?",
+         "expect": "Real case, own actions, stops the bleeding first, communicates early, impact quantified."},
+        {"q": "It's Black Friday, 9 pm, and checkout errors are at 8%. Walk me through your next 30 minutes.",
+         "deep": "When do you roll back without knowing the cause?",
+         "expect": "Mitigates before diagnosing, clear rollback criteria, roles and comms cadence; protects revenue."},
+        {"q": "Tell me about a postmortem that changed how the company works, not only the code.",
+         "deep": "How did you make sure the action items actually happened?",
+         "expect": "Blameless, business impact stated, a systemic change, owners and dates followed up."},
+        {"q": "How would you load-test checkout at 3 times traffic without risking real customers or real payments?",
+         "deep": "What result would make you tell leadership we're not ready?",
+         "expect": "Production-like test, payment sandbox, ramp plan and a go/no-go threshold tied to the business."}
+      ]
+    },
+    {
+      "title": "Impact and metrics",
+      "questions": [
+        {"q": "Tell me about reliability work whose value you had to prove. What number did you show, and to whom?",
+         "deep": "How did you turn minutes saved into money or customers?",
+         "expect": "Climbs from output to outcome to impact: incidents and MTTR into downtime avoided and revenue."},
+        {"q": "After Black Friday, which three numbers would you report to show the preparation was worth it?",
+         "deep": "Which of them would the CFO care about most?",
+         "expect": "Availability at peak, failed orders or revenue protected, cost of preparing; compared with last year."},
+        {"q": "Tell me about toil you automated. How many hours did it free, and what did the team do with them?",
+         "deep": "How did you measure those hours?",
+         "expect": "Hours measured before and after and reinvested in valuable work, not just 'I automated X'."},
+        {"q": "How would you know in real time that Black Friday is going well for the business, not only for the servers?",
+         "deep": "Which alert would wake you up?",
+         "expect": "Business metrics on screen (orders per minute, payment success); alerts on customer impact, not CPU."}
+      ]
+    },
+    {
+      "title": "Stakeholders and communication",
+      "questions": [
+        {"q": "Tell me about a time you asked for budget or people for reliability. How did you make the case?",
+         "deep": "What did you say the business would lose without it?",
+         "expect": "Risk of not doing it in money or customers, a clear ask, alternatives and the real outcome."},
+        {"q": "Leadership asks 'Are we ready for Black Friday?' and you're not sure. What do you answer?",
+         "deep": "How do you say 'not yet' without sounding like a blocker?",
+         "expect": "Honest status with risks, what's needed and by when, options; no false confidence."},
+        {"q": "Tell me about a time you said no to a launch or a change for reliability reasons. How did it end?",
+         "deep": "What did you offer instead?",
+         "expect": "Explains the risk in business terms, offers conditions or an alternative, keeps the relationship."},
+        {"q": "How would you explain a 25-minute checkout outage to the sales team in two sentences?",
+         "deep": "What would you never say to them?",
+         "expect": "Plain words: what happened, the impact, what changed. No jargon, no blame, no excuses."}
+      ]
+    }
+  ]
+}

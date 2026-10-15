@@ -6,7 +6,7 @@ Every top-level folder that contains a SKILL.md is a skill.
 Usage:
   python .github/scripts/skills.py validate          # checks used by CI
   python .github/scripts/skills.py build             # zips each skill into dist/<name>.zip
-  python .github/scripts/skills.py sync --from NAME  # copy the shared method files to the other skills in SHARED_SKILLS
+  python .github/scripts/skills.py sync --from NAME  # copy the shared method files to the other skills that share them
 """
 from __future__ import annotations
 
@@ -22,22 +22,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DIST = ROOT / "dist"
 
-# Method files shared by the skills that translate work into business impact
-# (reports and objectives). Each of those skills carries its own copy so it stays
-# self-contained. Edit them in one skill, then run `sync --from <that-skill>`.
-# Skills not listed in SHARED_SKILLS (like the FAQ one-pager) keep their own
-# references and are never overwritten by sync. The traffic-light labels
-# (references/labels.md) belong only to the short report and are not shared.
-SHARED = [
-    "references/translation-ladder.md",
-    "references/honesty-rules.md",
-    "references/business-language.md",
-    "references/roles",
-]
-SHARED_SKILLS = {
-    "tech-to-business-short-report",
-    "tech-to-business-smart-objectives",
+# Method files shared between skills. Each skill carries its own copy so it stays
+# self-contained (a zip works alone). Edit a file in one skill, then run
+# `sync --from <that-skill>` to copy it to the other skills that share it.
+# A skill only gets the files it actually uses:
+#   - role cards and the output → outcome → impact ladder: every skill that needs
+#     to know what matters for a role (report, objectives, interviews);
+#   - honesty and business-language rules written for reports: report and objectives.
+# The traffic-light labels (references/labels.md) belong only to the short report.
+# The FAQ one-pager and the interviews keep their own honesty/language rules.
+REPORT = "tech-to-business-short-report"
+OBJECTIVES = "tech-to-business-smart-objectives"
+INTERVIEWS = "tech-to-business-interviews"
+SHARED = {
+    "references/roles": {REPORT, OBJECTIVES, INTERVIEWS},
+    "references/translation-ladder.md": {REPORT, OBJECTIVES, INTERVIEWS},
+    "references/honesty-rules.md": {REPORT, OBJECTIVES},
+    "references/business-language.md": {REPORT, OBJECTIVES},
 }
+SHARED_SKILLS = set().union(*SHARED.values())
 
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 MAX_NAME = 64
@@ -50,6 +53,11 @@ ALLOWED_IMAGES = {
     ".github/assets/faq-example-es.png",
     ".github/assets/faq-example-en.png",
     ".github/assets/banner.png",  # README header, built from .github/banner/banner.html
+    "tech-to-business-interviews/assets/build-to-lead-logo.png",
+    ".github/assets/skill-4-en.png",
+    ".github/assets/skill-4-es.png",
+    ".github/assets/interview-example-en.png",
+    ".github/assets/interview-example-es.png",
     ".github/assets/skill-1-en.png",  # skill README header, built by .github/banner/skills.py
     ".github/assets/skill-1-es.png",  # skill README header, built by .github/banner/skills.py
     ".github/assets/skill-2-en.png",  # skill README header, built by .github/banner/skills.py
@@ -79,15 +87,11 @@ def frontmatter(skill_md: Path) -> dict[str, str]:
     return fields
 
 
-def shared_files(skill: Path) -> list[Path]:
-    files: list[Path] = []
-    for rel in SHARED:
-        path = skill / rel
-        if path.is_dir():
-            files += sorted(f.relative_to(skill) for f in path.rglob("*") if f.is_file())
-        else:
-            files.append(Path(rel))
-    return files
+def expand(skill: Path, rel: str) -> list[Path]:
+    path = skill / rel
+    if path.is_dir():
+        return sorted(f.relative_to(skill) for f in path.rglob("*") if f.is_file())
+    return [Path(rel)]
 
 
 def validate() -> int:
@@ -129,22 +133,24 @@ def validate() -> int:
             if not (skill / ref).exists():
                 errors.append(f"{where}: SKILL.md points to {ref}, which does not exist")
 
-        if skill.name in SHARED_SKILLS:
-            for rel in SHARED:
-                if not (skill / rel).exists():
-                    errors.append(f"{where}: missing shared file {rel} (run sync)")
+        for rel, owners in SHARED.items():
+            if skill.name in owners and not (skill / rel).exists():
+                errors.append(f"{where}: missing shared file {rel} (run sync)")
 
-    # Shared method files must be identical in every skill that shares them.
-    sharing = [s for s in found if s.name in SHARED_SKILLS]
-    for name in sorted(SHARED_SKILLS - {s.name for s in found}):
-        errors.append(f"SHARED_SKILLS lists '{name}', which is not a skill folder")
-    if len(sharing) > 1:
+    # Each shared file must be identical in every skill that shares it.
+    names = {s.name for s in found}
+    for name in sorted(SHARED_SKILLS - names):
+        errors.append(f"SHARED lists '{name}', which is not a skill folder")
+    for rel, owners in SHARED.items():
+        sharing = [ROOT / n for n in sorted(owners & names)]
+        if len(sharing) < 2:
+            continue
         base = sharing[0]
         for other in sharing[1:]:
-            for rel in set(shared_files(base)) | set(shared_files(other)):
-                a, b = base / rel, other / rel
+            for f in set(expand(base, rel)) | set(expand(other, rel)):
+                a, b = base / f, other / f
                 if not a.exists() or not b.exists() or not filecmp.cmp(a, b, shallow=False):
-                    errors.append(f"{rel} differs between {base.name} and {other.name} (run sync)")
+                    errors.append(f"{f} differs between {base.name} and {other.name} (run sync)")
 
     # Every skill must be listed in the plugin manifest so plugin installs pick it up.
     manifest = ROOT / ".claude-plugin" / "plugin.json"
@@ -195,18 +201,20 @@ def sync(source_name: str) -> int:
         print(f"ERROR: '{source_name}' is not a skill folder")
         return 1
     if source.name not in SHARED_SKILLS:
-        print(f"ERROR: '{source_name}' does not use the shared method files (see SHARED_SKILLS)")
+        print(f"ERROR: '{source_name}' does not use any shared method file (see SHARED)")
         return 1
-    for skill in skills():
-        if skill == source or skill.name not in SHARED_SKILLS:
+    for rel, owners in SHARED.items():
+        if source.name not in owners:
             continue
-        for rel in SHARED:
+        for skill in skills():
+            if skill == source or skill.name not in owners:
+                continue
             src, dst = source / rel, skill / rel
             if dst.exists():
                 shutil.rmtree(dst) if dst.is_dir() else dst.unlink()
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copytree(src, dst) if src.is_dir() else shutil.copy2(src, dst)
-        print(f"synced shared files {source.name} -> {skill.name}")
+            print(f"synced {rel}: {source.name} -> {skill.name}")
     return 0
 
 

@@ -1,0 +1,95 @@
+{
+  "language": "es",
+  "role": "Backend semi senior",
+  "team": "Equipo de Pagos",
+  "duration": "60 min",
+  "case": "Nuestra app de pagos procesa transferencias entre usuarios y pagos en comercios. En 2 meses lanzamos transferencias programadas, y hoy el 3% de las transferencias se revisa a mano por errores de conciliación. Negocio quiere lanzar a tiempo, sin aumentar los reclamos y sin sumar gente a operaciones.",
+  "focus": ["Que la plata llegue bien", "Menos revisión manual", "Lanzar a tiempo"],
+  "blocks": [
+    {
+      "title": "Entender el negocio",
+      "questions": [
+        {"q": "Cuéntame de una funcionalidad que construiste que movía plata de usuarios. ¿Qué pasaba para el negocio si fallaba?",
+         "deep": "¿Cómo supiste ese impacto: te lo contaron o lo mediste?",
+         "expect": "Conoce el impacto en clientes y dinero (reclamos, pérdidas, regulación) y lo averiguó con producto u operaciones."},
+        {"q": "Antes de diseñar las transferencias programadas, ¿qué le preguntarías a producto y a operaciones?",
+         "deep": "¿Qué respuesta cambiaría más tu diseño?",
+         "expect": "Pregunta volumen, montos, horarios, qué pasa si falla y cómo se concilia hoy: el por qué antes del cómo."},
+        {"q": "Cuéntame de un bug en producción que afectó a clientes. ¿A cuántos y qué les costó?",
+         "deep": "¿Qué cambiaste para que no volviera a pasar?",
+         "expect": "Caso real, impacto cuantificado (clientes, montos, reclamos), causa entendida y prevención."},
+        {"q": "En nuestro caso, ¿qué errores de una transferencia programada son aceptables y cuáles nunca pueden pasar?",
+         "deep": "¿Quién debería validar esa lista contigo?",
+         "expect": "Separa cobro duplicado o perdido (nunca) de demoras avisadas (tolerables) y lo valida con negocio y riesgo."}
+      ]
+    },
+    {
+      "title": "Diseño y trade-offs",
+      "questions": [
+        {"q": "¿Cómo diseñarías la ejecución de transferencias programadas para que un reintento nunca cobre dos veces?",
+         "deep": "¿Qué pasa si el banco responde tarde o no responde?",
+         "expect": "Idempotencia, estados claros, reintentos seguros y conciliación, explicados como riesgo para el cliente."},
+        {"q": "Cuéntame de una vez que elegiste entre una solución rápida y una más sólida. ¿Qué ganó y qué perdió el negocio?",
+         "deep": "¿Volverías a decidir lo mismo?",
+         "expect": "Compara tiempo de salida contra riesgo y deuda con datos; decisión consciente y deuda con seguimiento."},
+        {"q": "Negocio quiere lanzar en 2 meses y tú estimas 3. ¿Qué propones?",
+         "deep": "¿Qué dejarías fuera de la primera versión y por qué?",
+         "expect": "Propone un alcance mínimo seguro, explica el riesgo de apurar y negocia con opciones, no solo 'no se puede'."},
+        {"q": "Cuéntame de una vez que mejoraste el rendimiento o el costo de un servicio. ¿Cómo lo tradujiste a algo que le importara al negocio?",
+         "deep": "¿Qué número mostraste antes y después?",
+         "expect": "Antes y después medidos y traducidos a clientes, costo o tiempo; no solo milisegundos."}
+      ]
+    },
+    {
+      "title": "Ejecución e incidentes",
+      "questions": [
+        {"q": "Cuéntame de un incidente en el que participaste directamente. ¿Qué hiciste tú en la primera hora?",
+         "deep": "¿Qué le comunicaste a soporte o a negocio, y cuándo?",
+         "expect": "Acciones propias claras, prioriza contener el impacto, comunica a tiempo y saca aprendizajes."},
+        {"q": "Es día de pago y 500 transferencias programadas fallaron a las 9 am. ¿Qué haces?",
+         "deep": "¿Cómo decides si reintentar todo o detenerte?",
+         "expect": "Contiene, entiende el alcance, evita cobros dobles, avisa a soporte y reintenta de forma controlada."},
+        {"q": "Cuéntame de un cambio de base de datos o de API que hiciste en producción sin afectar a los clientes. ¿Cómo lo planeaste?",
+         "deep": "¿Cuál era tu plan si algo salía mal?",
+         "expect": "Cambio compatible hacia atrás, despliegue gradual y rollback definido; cero impacto demostrado."},
+        {"q": "¿Cómo probarías las transferencias programadas antes del lanzamiento para estar seguro de que la plata llega bien?",
+         "deep": "¿Qué resultado te haría pedir que se postergue el lanzamiento?",
+         "expect": "Pruebas de punta a punta, casos borde (feriados, saldo insuficiente), conciliación y criterio claro de salida."}
+      ]
+    },
+    {
+      "title": "Impacto y métricas",
+      "questions": [
+        {"q": "Cuéntame de un trabajo tuyo cuyo valor tuviste que demostrar. ¿Qué número mostraste?",
+         "deep": "¿Cómo pasaste de lo técnico a algo que entendiera tu jefatura?",
+         "expect": "Sube de entregable a resultado y a impacto: reclamos, horas de operación o plata."},
+        {"q": "Tres meses después del lanzamiento, ¿qué números mirarías para saber si fue un éxito para el negocio?",
+         "deep": "¿Cuál le importaría más a la gerencia de operaciones?",
+         "expect": "Adopción, revisión manual (contra el 3% de hoy), reclamos y horas de operación, comparados con antes."},
+        {"q": "Cuéntame de una vez que tu trabajo redujo trabajo manual de otro equipo. ¿Cuántas horas liberó?",
+         "deep": "¿Cómo lo mediste?",
+         "expect": "Horas o casos manuales antes y después, medidos con el otro equipo; impacto en costo o tiempo."},
+        {"q": "Hoy el 3% de las transferencias se revisa a mano. ¿Cómo bajarías ese número y cómo sabrías que lo lograste?",
+         "deep": "¿Qué parte de ese 3% atacarías primero?",
+         "expect": "Analiza causas con datos, prioriza por volumen e impacto, define y mide la meta; habla de horas y reclamos."}
+      ]
+    },
+    {
+      "title": "Stakeholders y comunicación",
+      "questions": [
+        {"q": "Cuéntame de una vez que tuviste que explicarle un problema técnico a alguien de negocio. ¿Cómo lo hiciste?",
+         "deep": "¿Cómo supiste que te entendió?",
+         "expect": "Palabras simples, foco en impacto y en la decisión, verifica que le entendieron; caso real."},
+        {"q": "Soporte te pregunta qué decirle a un cliente al que se le cobró dos veces. ¿Qué le respondes?",
+         "deep": "¿Qué necesitas saber antes de prometer una fecha de devolución?",
+         "expect": "Mensaje claro y honesto: qué pasó, qué se hace y un plazo realista. No promete lo que no controla."},
+        {"q": "Cuéntame de una vez que no estuviste de acuerdo con una decisión de producto. ¿Qué hiciste?",
+         "deep": "¿Cómo terminó y qué aprendiste?",
+         "expect": "Argumenta con datos e impacto, propone alternativas y se compromete con la decisión final."},
+        {"q": "Si tuvieras que contarle al gerente general en dos frases por qué las transferencias programadas son seguras, ¿qué le dirías?",
+         "deep": "¿Qué palabra técnica evitarías?",
+         "expect": "Dos frases simples centradas en el cliente y el dinero, sin jerga y sin prometer riesgo cero."}
+      ]
+    }
+  ]
+}

@@ -35,7 +35,7 @@ Claude Skills that translate engineering into what the business cares about:<br>
 
 <table>
 <tr>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 📄 Short report
 
@@ -46,7 +46,7 @@ One technical topic → one **3–4 line business update** with a traffic light,
 **[See it in action →](tech-to-business-short-report/README.md)**
 
 </td>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 🎯 SMART objectives
 
@@ -57,7 +57,9 @@ One technical initiative → one **quarterly objective** leadership can approve 
 **[See it in action →](tech-to-business-smart-objectives/README.md)**
 
 </td>
-<td width="33%" valign="top">
+</tr>
+<tr>
+<td width="50%" valign="top">
 
 ### 📘 FAQ one-pager
 
@@ -66,6 +68,17 @@ Something new you built → one **friendly page of FAQs** as an editable Word do
 *Launches, onboarding, "how this works".*
 
 **[See it in action →](tech-to-business-faq-one-pager/README.md)**
+
+</td>
+<td width="50%" valign="top">
+
+### 🎤 Interviews
+
+One role to hire → **20 technical questions** that reveal business thinking, with STAR, as a fillable PDF.
+
+*Hiring, technical screens, scorecards.*
+
+**[See it in action →](tech-to-business-interviews/README.md)**
 
 </td>
 </tr>
@@ -161,7 +174,7 @@ Claude Skills que traducen ingeniería a lo que le importa al negocio:<br>
 
 <table>
 <tr>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 📄 Reporte corto
 
@@ -172,7 +185,7 @@ Un tema técnico → una **actualización de negocio de 3–4 líneas** con sem�
 **[Míralo en acción →](tech-to-business-short-report/README.md)**
 
 </td>
-<td width="33%" valign="top">
+<td width="50%" valign="top">
 
 ### 🎯 Objetivos SMART
 
@@ -183,7 +196,9 @@ Una iniciativa técnica → un **objetivo trimestral** que el liderazgo puede ap
 **[Míralo en acción →](tech-to-business-smart-objectives/README.md)**
 
 </td>
-<td width="33%" valign="top">
+</tr>
+<tr>
+<td width="50%" valign="top">
 
 ### 📘 FAQ de una página
 
@@ -192,6 +207,17 @@ Algo nuevo que construiste → una **página amigable de preguntas frecuentes** 
 *Lanzamientos, onboarding, "cómo funciona esto".*
 
 **[Míralo en acción →](tech-to-business-faq-one-pager/README.md)**
+
+</td>
+<td width="50%" valign="top">
+
+### 🎤 Entrevistas
+
+Un rol a contratar → **20 preguntas técnicas** que revelan si piensa en negocio, con STAR, en un PDF editable.
+
+*Contrataciones, entrevistas técnicas, scorecards.*
+
+**[Míralo en acción →](tech-to-business-interviews/README.md)**
 
 </td>
 </tr>

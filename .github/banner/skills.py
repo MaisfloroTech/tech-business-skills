@@ -203,7 +203,68 @@ FAQ = {
                ft="Skill 3 · FAQ de una página", fx="Algo nuevo que construiste → una página amigable de FAQ, en Word", by="BUILD TO LEAD"),
 }
 
-JOBS = [("skill-1", report, REPORT), ("skill-2", smart, SMART), ("skill-3", faq, FAQ)]
+# ---------------------------------------------------------------- Skill 4: interviews
+def interviews(t):
+    trivia = ""
+    for (x, y, r, txt) in t["trivia"]:
+        trivia += f"""<div style="position:absolute; left:{x}px; top:{y}px; transform:rotate({r}deg); background:#fff;
+          border:1.5px solid rgba(78,79,82,.25); border-radius:18px 18px 18px 4px; padding:9px 15px; font-size:17px;
+          color:var(--gray); white-space:nowrap; opacity:.8"><span style="text-decoration:line-through;
+          text-decoration-color:var(--terra); text-decoration-thickness:3px">{txt}</span></div>"""
+    star = "".join(f"""<div style="display:inline-flex; align-items:center; margin-right:12px; font-weight:800; font-size:15px;
+        color:var(--teal)"><span style="width:18px; height:18px; border:2px solid var(--teal); border-radius:4px;
+        display:inline-flex; align-items:center; justify-content:center; margin-right:5px; font-size:13px">{'✓' if on else ''}</span>{l}</div>"""
+                   for l, on in zip("STAR", (1, 1, 1, 0)))
+    score = "".join(f"""<span style="display:inline-block; width:16px; height:16px; border:2px solid var(--terra); border-radius:50%;
+        margin:0 3px -3px 8px; background:{'var(--terra)' if v == '3' else 'transparent'}"></span><b style="color:var(--terra)">{v}</b>"""
+                    for v in "1234")
+    body = f"""
+<div class="label" style="left:56px">{t['left']}</div>
+<div class="label" style="left:640px">{t['right']}</div>
+{trivia}
+{arrow(500, 618, 230)}
+<div style="position:absolute; left:640px; top:84px; width:604px; height:264px; background:#fff; border-radius:14px;
+     box-shadow:0 2px 0 rgba(23,26,48,.07); padding:18px 22px">
+  <div style="display:flex; align-items:center; gap:10px">
+    <div style="width:30px; height:30px; border-radius:50%; background:var(--terra); color:#fff; font-weight:800;
+         display:flex; align-items:center; justify-content:center; font-size:15px">9</div>
+    <div style="font-size:13px; font-weight:800; letter-spacing:.12em; color:var(--teal)">{t['block']}</div>
+  </div>
+  <div style="font-size:19px; font-weight:800; margin-top:12px; line-height:25px">{t['q']}</div>
+  <div style="font-size:15px; color:var(--gray); margin-top:10px"><b style="color:var(--terra)">{t['dig']}</b> {t['deep']}</div>
+  <div style="font-size:15px; color:var(--gray); margin-top:6px; font-style:italic"><b style="color:var(--teal); font-style:normal">{t['strong']}</b> {t['expect']}</div>
+  <div style="margin-top:16px; font-size:15px; display:flex; align-items:center">{star}<span style="margin-left:14px; font-weight:800; color:var(--gray)">{t['score']}</span>{score}</div>
+</div>
+<div style="position:absolute; right:36px; top:32px; background:var(--terra); color:#fff; font-weight:800; font-size:14px;
+     padding:5px 12px; border-radius:7px">{t['badge']}</div>"""
+    return page(body, t["ft"], t["fx"], t["by"])
+
+
+INTERVIEWS = {
+    "en": dict(left="WHAT MOST INTERVIEWS ASK", right="WHAT YOU'LL FIND OUT",
+               trivia=[(56, 92, -2, "What is Kubernetes?"), (250, 150, 3, "Explain the CAP theorem"),
+                       (60, 210, 1, "Which tools do you know?"), (230, 270, -3, "Reverse a linked list"),
+                       (70, 320, 2, "Years of experience?")],
+               block="EXECUTION AND INCIDENTS",
+               q="Tell me about the worst incident you handled. What did it cost the business, and what did you do in the first 15 minutes?",
+               dig="Dig deeper:", deep="What did you tell leadership, and when?",
+               strong="Strong answer:", expect="own actions, impact in numbers, communicates early",
+               score="Score", badge="20 questions · STAR · fillable PDF",
+               ft="Skill 4 · Interviews", fx="One role → 20 technical questions that reveal business thinking", by="BUILD TO LEAD"),
+    "es": dict(left="LO QUE PREGUNTAN LA MAYORÍA", right="LO QUE VAS A DESCUBRIR",
+               trivia=[(56, 92, -2, "¿Qué es Kubernetes?"), (250, 150, 3, "Explica el teorema CAP"),
+                       (60, 210, 1, "¿Qué herramientas manejas?"), (230, 270, -3, "Invierte una lista enlazada"),
+                       (70, 320, 2, "¿Años de experiencia?")],
+               block="EJECUCIÓN E INCIDENTES",
+               q="Cuéntame del peor incidente que manejaste. ¿Cuánto le costó al negocio y qué hiciste en los primeros 15 minutos?",
+               dig="Profundiza:", deep="¿Qué le dijiste a la gerencia, y cuándo?",
+               strong="Respuesta fuerte:", expect="acciones propias, impacto en números, comunica temprano",
+               score="Puntaje", badge="20 preguntas · STAR · PDF editable",
+               ft="Skill 4 · Entrevistas", fx="Un rol → 20 preguntas técnicas que revelan si piensa en negocio", by="BUILD TO LEAD"),
+}
+
+JOBS = [("skill-1", report, REPORT), ("skill-2", smart, SMART), ("skill-3", faq, FAQ),
+        ("skill-4", interviews, INTERVIEWS)]
 
 if __name__ == "__main__":
     with sync_playwright() as p:

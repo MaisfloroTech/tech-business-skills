@@ -1,7 +1,7 @@
 {
   "name": "tech-business-skills",
   "displayName": "Tech Business Skills",
-  "description": "Your translator between engineering and business: skills that help tech leads turn technical work into reports leadership acts on. No made-up numbers.",
+  "description": "Your translator between engineering and business: skills that help tech leads report, plan, explain and hire in the language leadership acts on. No made-up numbers.",
   "author": {
     "name": "@maisfloro.tech",
     "url": "https://www.maisfloro.com/"
@@ -13,17 +13,21 @@
     "documentation",
     "engineering-leadership",
     "faq",
+    "hiring",
+    "interviews",
     "okr",
     "one-pager",
     "quarterly-planning",
     "reporting",
     "risk-management",
     "smart-goals",
+    "star",
     "tech-lead"
   ],
   "skills": [
     "./tech-to-business-short-report",
     "./tech-to-business-smart-objectives",
-    "./tech-to-business-faq-one-pager"
+    "./tech-to-business-faq-one-pager",
+    "./tech-to-business-interviews"
   ]
 }
