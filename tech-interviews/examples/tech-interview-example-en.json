@@ -1,0 +1,101 @@
+{
+  "mode": "technical",
+  "language": "en",
+  "role": "Senior Backend Engineer",
+  "team": "Orders team",
+  "duration": "75 min",
+  "case": "Our food delivery app takes about 2,000 orders a minute at lunch peak. The order service is written in Python, uses PostgreSQL on AWS and calls an external payment provider. Last month, app retries during a slow payment period created duplicated orders and double charges. In the first months, this person will own the order placement flow and get it ready for twice today's peak.",
+  "focus": ["APIs and data consistency", "PostgreSQL under load", "Resilience to slow dependencies"],
+  "blocks": [
+    {
+      "title": "Fundamentals",
+      "questions": [
+        {"q": "An index made our order lookup fast, but inserts slowed down at peak. Explain why, and how you'd decide which indexes to keep.",
+         "deep": "How would you see this in PostgreSQL?",
+         "expect": "Write cost of each index, bloat, read vs write ratio; uses query stats and EXPLAIN to decide with data."},
+        {"q": "Two requests update the same order at the same time. What can go wrong, and how do transaction isolation levels help?",
+         "deep": "When would you lock the row instead of raising the isolation level?",
+         "expect": "Lost updates and anomalies per level; row locking vs optimistic locking with a version column."},
+        {"q": "What does it mean for an endpoint to be idempotent, and how would you make POST /orders idempotent?",
+         "deep": "Where do you store the idempotency key, and for how long?",
+         "expect": "Client key, unique constraint, stored response, TTL; handles two identical requests arriving at once."},
+        {"q": "When would you process something with a queue instead of inside the request, and what do you give up?",
+         "deep": "How do you avoid losing a message if the service crashes right after writing to the database?",
+         "expect": "Latency and decoupling vs consistency and complexity; at-least-once delivery, outbox pattern, deduplication."}
+      ]
+    },
+    {
+      "title": "Hands-on and troubleshooting",
+      "questions": [
+        {"q": "p95 latency of POST /orders went from 200 ms to 2 s at lunch and the database CPU is at 90%. Walk me through it.",
+         "deep": "What would make you change your first hypothesis?",
+         "expect": "Method: metrics, slow queries, locks, connections; narrows down with data; mitigates before the root cause."},
+        {"q": "Tell me about the hardest production bug you've chased. How did you find it?",
+         "deep": "What did you try first that didn't work?",
+         "expect": "Real case, hypotheses tested with data, reproduced it, verified the fix and added a test or an alert."},
+        {"q": "We see duplicated orders a few times a day. How would you find where they come from?",
+         "deep": "How would you prove your fix worked?",
+         "expect": "Correlates request IDs and logs, looks for retries and races, checks constraints; measures duplicates after."},
+        {"q": "Tell me about a time a deploy of yours broke production. What did you do, and what changed after?",
+         "deep": "How long until customers stopped being affected?",
+         "expect": "Fast rollback, clear communication, blameless follow-up with concrete prevention (tests, canary, flags)."}
+      ]
+    },
+    {
+      "title": "Architecture and design",
+      "questions": [
+        {"q": "Design the order placement flow for 2,000 orders a minute at peak, so a retry from the app or a slow payment provider never creates a duplicate order or a double charge. Draw it end to end.",
+         "deep": "Walk me through what happens if the payment provider times out after charging.",
+         "expect": "Idempotency keys, order state machine, outbox or queue, reconciliation with the provider; covers each failure path.",
+         "big": true},
+        {"q": "How would you model the orders and payments tables for your design?",
+         "deep": "Which database constraints protect you even if the code has a bug?",
+         "expect": "Clear states, unique keys for idempotency and provider IDs, foreign keys, audit trail; money stays consistent."},
+        {"q": "In your design, what happens when the payment provider is down for 10 minutes at peak?",
+         "deep": "What does the customer see in the app?",
+         "expect": "Timeouts, circuit breaker, pending state or queue, clear message to the user, retry and reconcile later."},
+        {"q": "If you had half the time to ship, what would you cut from your design, and what would you never cut?",
+         "deep": "What risk are you accepting with that cut?",
+         "expect": "Keeps idempotency and money consistency; defers nice-to-haves; names the accepted risk explicitly."}
+      ]
+    },
+    {
+      "title": "Scale, reliability and security",
+      "questions": [
+        {"q": "Traffic doubles next year. What breaks first in your design, and how would you know before it does?",
+         "deep": "Which load test would you run, and what result means we're ready?",
+         "expect": "Finds the bottleneck (writes, connections), load tests with a clear threshold, metrics and alerts, scaling steps."},
+        {"q": "How would you scale PostgreSQL writes for orders without losing consistency?",
+         "deep": "When would you split the database, and what would it cost?",
+         "expect": "Connection pooling, query tuning, partitioning, replicas for reads; sharding only with a clear need and its costs."},
+        {"q": "Which security risks worry you most in an order and payment API, and how would you handle them?",
+         "deep": "How do you keep card data out of your systems?",
+         "expect": "AuthN and AuthZ, validation, rate limiting, secrets, tokens from the provider instead of card data, audit logs."},
+        {"q": "Which metrics and alerts would you put on the order flow to catch problems before customers do?",
+         "deep": "Which one would wake you up at night?",
+         "expect": "Order and payment success rate, latency, duplicates, queue age; alerts on customer impact, not CPU."}
+      ]
+    },
+    {
+      "title": "Business and teamwork",
+      "questions": [
+        {"q": "Tell me about a technical decision of yours that saved or cost the business money. How do you know?",
+         "deep": "What number did you or someone else measure?",
+         "expect": "Real decision, impact in money, customers or time with a number, and what they learned.",
+         "type": "experience"},
+        {"q": "Product wants a new promotions feature next month, but you want to fix the duplicated orders first. How do you make the case?",
+         "deep": "What would you accept as a compromise?",
+         "expect": "Explains the cost of duplicates (refunds, support, trust), proposes sequencing or scope, decides together.",
+         "type": "business"},
+        {"q": "Tell me about a time you explained a technical trade-off to someone non-technical. How did it go?",
+         "deep": "How did you know they understood?",
+         "expect": "Plain words, focus on impact and options, checks understanding; a real outcome.",
+         "type": "experience"},
+        {"q": "How would you explain the duplicated orders to the support team in two sentences?",
+         "deep": "What would you ask them to tell customers?",
+         "expect": "Plain words: what happened, who's affected, what's being done and when. No jargon, no blame.",
+         "type": "business"}
+      ]
+    }
+  ]
+}

@@ -263,8 +263,77 @@ INTERVIEWS = {
                ft="Skill 4 · Entrevistas", fx="Un rol → 20 preguntas técnicas que revelan si piensa en negocio", by="BUILD TO LEAD"),
 }
 
+# ---------------------------------------------------------------- Skill 5: tech interviews
+def tech_interviews(t):
+    chips = ""
+    for (x, y, r, txt, strong) in t["chips"]:
+        chips += f"""<div class="mono" style="position:absolute; left:{x}px; top:{y}px; transform:rotate({r}deg); background:#fff;
+          border:1.5px solid rgba(32,75,76,{.45 if strong else .2}); border-radius:8px; padding:7px 12px; font-size:16px;
+          color:var(--teal); white-space:nowrap; opacity:{1 if strong else .55}">{txt}</div>"""
+    box = lambda x, y, w, label, color: f"""<div style="position:absolute; left:{x}px; top:{y}px; width:{w}px; height:34px;
+        border:2px solid var(--{color}); border-radius:7px; background:#fff; font-size:13px; font-weight:700;
+        color:var(--{color}); display:flex; align-items:center; justify-content:center">{label}</div>"""
+    checks = "".join(f"""<div style="display:inline-flex; align-items:center; margin-right:12px; font-weight:800; font-size:15px;
+        color:var(--teal)"><span style="width:18px; height:18px; border:2px solid var(--teal); border-radius:4px;
+        display:inline-flex; align-items:center; justify-content:center; margin-right:5px; font-size:13px">{'✓' if on else ''}</span>{l}</div>"""
+                     for l, on in zip(t["letters"], (1, 1, 1, 0)))
+    body = f"""
+<div class="label" style="left:56px">{t['left']}</div>
+<div class="label" style="left:640px">{t['right']}</div>
+{chips}
+{arrow(500, 618, 230)}
+<div style="position:absolute; left:640px; top:84px; width:604px; height:264px; background:#fff; border-radius:14px;
+     box-shadow:0 2px 0 rgba(23,26,48,.07)"></div>
+<div style="position:absolute; left:662px; top:100px; display:flex; align-items:center; gap:10px">
+  <div style="width:30px; height:30px; border-radius:50%; background:var(--terra); color:#fff; font-weight:800;
+       display:flex; align-items:center; justify-content:center; font-size:15px">9</div>
+  <div style="font-size:13px; font-weight:800; letter-spacing:.12em; color:var(--teal)">{t['block']}</div>
+</div>
+<div style="position:absolute; left:662px; top:142px; width:560px; font-size:18px; font-weight:800; line-height:24px">{t['q']}</div>
+<svg width="1280" height="440" style="position:absolute; left:0; top:0">
+  <g stroke="#A97F6A" stroke-width="2" fill="none">
+    <line x1="752" y1="235" x2="782" y2="235"/><line x1="872" y1="235" x2="902" y2="235"/>
+    <line x1="992" y1="235" x2="1022" y2="235"/><line x1="947" y1="252" x2="947" y2="268"/>
+  </g>
+</svg>
+{box(662, 218, 90, t['b1'], 'gray')}{box(782, 218, 90, 'API', 'teal')}{box(902, 218, 90, t['b3'], 'teal')}
+{box(1022, 218, 90, 'DB', 'teal')}{box(892, 268, 110, t['b5'], 'terra')}
+<div style="position:absolute; left:662px; top:318px; font-size:15px; display:flex; align-items:center">{checks}
+  <span style="margin-left:10px; color:var(--gray); font-size:14px">{t['legend']}</span></div>
+<div style="position:absolute; right:36px; top:32px; background:var(--terra); color:#fff; font-weight:800; font-size:14px;
+     padding:5px 12px; border-radius:7px">{t['badge']}</div>"""
+    return page(body, t["ft"], t["fx"], t["by"])
+
+
+TECH_INTERVIEWS = {
+    "en": dict(left="WHAT THE ROLE MUST MASTER", right="WHAT YOU'LL TEST",
+               chips=[(56, 92, -2, "API design", 1), (230, 86, 2, "Indexes", 0), (360, 100, -1, "Caching", 1),
+                      (70, 146, 1, "Transactions", 0), (250, 150, -3, "Queues", 1), (380, 158, 2, "Auth", 0),
+                      (50, 204, -1, "Kubernetes", 1), (220, 212, 2, "CI/CD", 0), (330, 214, -2, "Observability", 1),
+                      (80, 266, 2, "Idempotency", 1), (280, 272, -1, "Scaling", 0), (140, 322, -2, "Security", 1),
+                      (310, 322, 1, "Trade-offs", 0)],
+               block="ARCHITECTURE AND DESIGN",
+               q="Design the order flow for 2,000 orders a minute, so a retry never creates a duplicate charge.",
+               b1="App", b3="Queue", b5="Payments", letters="CREH",
+               legend="correct · reasoning · edge cases · hands-on",
+               badge="80% technical · 20% business",
+               ft="Skill 5 · Tech interviews", fx="One role → 20 questions from its roadmap · design exercise · fillable PDF", by="BUILD TO LEAD"),
+    "es": dict(left="LO QUE EL ROL DEBE DOMINAR", right="LO QUE VAS A PROBAR",
+               chips=[(56, 92, -2, "Diseño de APIs", 1), (250, 86, 2, "Índices", 0), (370, 100, -1, "Caché", 1),
+                      (70, 146, 1, "Transacciones", 0), (270, 150, -3, "Colas", 1), (390, 158, 2, "Auth", 0),
+                      (50, 204, -1, "Kubernetes", 1), (220, 212, 2, "CI/CD", 0), (330, 214, -2, "Observabilidad", 1),
+                      (80, 266, 2, "Idempotencia", 1), (290, 272, -1, "Escalar", 0), (140, 322, -2, "Seguridad", 1),
+                      (310, 322, 1, "Trade-offs", 0)],
+               block="ARQUITECTURA Y DISEÑO",
+               q="Diseña el flujo de pedidos para 2.000 por minuto, sin que un reintento cobre dos veces.",
+               b1="App", b3="Cola", b5="Pagos", letters="CRBP",
+               legend="correcto · razonamiento · bordes · práctica",
+               badge="80% técnico · 20% negocio",
+               ft="Skill 5 · Entrevistas técnicas", fx="Un rol → 20 preguntas de su roadmap · ejercicio de diseño · PDF editable", by="BUILD TO LEAD"),
+}
+
 JOBS = [("skill-1", report, REPORT), ("skill-2", smart, SMART), ("skill-3", faq, FAQ),
-        ("skill-4", interviews, INTERVIEWS)]
+        ("skill-4", interviews, INTERVIEWS), ("skill-5", tech_interviews, TECH_INTERVIEWS)]
 
 if __name__ == "__main__":
     with sync_playwright() as p:

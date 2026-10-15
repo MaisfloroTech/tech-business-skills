@@ -22,12 +22,15 @@
     "risk-management",
     "smart-goals",
     "star",
-    "tech-lead"
+    "system design",
+    "tech-lead",
+    "technical interview"
   ],
   "skills": [
     "./tech-to-business-short-report",
     "./tech-to-business-smart-objectives",
     "./tech-to-business-faq-one-pager",
-    "./tech-to-business-interviews"
+    "./tech-to-business-interviews",
+    "./tech-interviews"
   ]
 }

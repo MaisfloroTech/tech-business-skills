@@ -5,8 +5,15 @@ Usage:
   python build_interview.py interview.json OUTPUT.pdf [--page a4|letter] [--logo my-logo.png]
 
 The PDF has fields the interviewer fills in any PDF reader: candidate, interviewer and
-date; a note box, the STAR letters heard and a 1-4 score for each question; and a final
-assessment with a recommendation.
+date; a note box, the evaluation letters heard and a 1-4 score for each question; and a
+final assessment with a recommendation.
+
+Two modes, set with "mode" in the JSON (shared by tech-to-business-interviews and
+tech-interviews; keep both copies identical with `skills.py sync`):
+  "business"  (default) every question is evaluated with STAR.
+  "technical" technical questions use the C·R·E·H rubric (correct, reasoning, edge cases,
+              hands-on); questions with "type": "experience" or "business" use STAR.
+              A question with "big": true gets a tall answer box (architecture exercise).
 """
 from __future__ import annotations
 
@@ -49,6 +56,13 @@ LABELS = {
                  ("A", "Action", "what they did and why, options discarded"),
                  ("R", "Result", "what changed, in numbers, for the business")],
         "scale": "Score: 4 strong (full STAR + business impact)  ·  3 good  ·  2 partial  ·  1 weak",
+        "eyebrow_tech": "TECHNICAL INTERVIEW GUIDE  ·  DEEP DIVE",
+        "tech": [("C", "Correct", "accurate, no hand-waving"),
+                 ("R", "Reasoning", "explains why and weighs trade-offs"),
+                 ("E", "Edge cases", "failure modes, limits, scale"),
+                 ("H", "Hands-on", "has done it, with real details")],
+        "scale_tech": "Score: 4 expert (all four, holds up when you dig)  ·  3 solid  ·  2 basic  ·  1 gaps"
+                      "   |   Business questions (marked STAR): Situation, Task, Action, Result",
         "dig": "Dig deeper:", "expect": "Strong answer:",
         "notes": "Candidate's answer", "heard": "Heard", "score": "Score",
         "final": "FINAL ASSESSMENT", "strengths": "Strengths", "concerns": "Concerns",
@@ -66,6 +80,13 @@ LABELS = {
                  ("A", "Acción", "qué hizo y por qué, qué descartó"),
                  ("R", "Resultado", "qué cambió, en números, para el negocio")],
         "scale": "Puntaje: 4 fuerte (STAR completo + impacto en negocio)  ·  3 bueno  ·  2 parcial  ·  1 débil",
+        "eyebrow_tech": "GUÍA DE ENTREVISTA TÉCNICA  ·  PROFUNDIZACIÓN",
+        "tech": [("C", "Correcto", "preciso, sin vaguedades"),
+                 ("R", "Razonamiento", "explica el por qué y los trade-offs"),
+                 ("B", "Casos borde", "fallas, límites, escala"),
+                 ("P", "Práctica", "lo ha hecho, con detalles reales")],
+        "scale_tech": "Puntaje: 4 experto (las cuatro, resiste al profundizar)  ·  3 sólido  ·  2 básico  ·  1 brechas"
+                      "   |   Preguntas de negocio (marcadas STAR): Situación, Tarea, Acción, Resultado",
         "dig": "Profundiza:", "expect": "Respuesta fuerte:",
         "notes": "Respuesta del candidato/a", "heard": "Escuché", "score": "Puntaje",
         "final": "EVALUACIÓN FINAL", "strengths": "Fortalezas", "concerns": "Dudas o alertas",
@@ -87,8 +108,20 @@ def clean(text) -> str:
     return text.encode("cp1252", "replace").decode("cp1252")
 
 
+BUSINESS_TYPES = {"experience", "business"}
+
+
+def is_technical(spec: dict) -> bool:
+    return str(spec.get("mode", "business")).lower() == "technical"
+
+
 def check(spec: dict) -> list[str]:
     warnings = []
+    if is_technical(spec):
+        biz = sum(1 for b in spec.get("blocks", []) for q in b.get("questions", [])
+                  if str(q.get("type", "technical")).lower() in BUSINESS_TYPES)
+        if not 3 <= biz <= 5:
+            warnings.append(f"{biz} business questions; a technical interview is ~80/20, so use about 4.")
     blocks = spec.get("blocks", [])
     if len(blocks) != 5:
         warnings.append(f"{len(blocks)} blocks; use 5.")
@@ -102,7 +135,7 @@ def check(spec: dict) -> list[str]:
             for key in ("q", "deep", "expect"):
                 if not str(q.get(key, "")).strip():
                     warnings.append(f"a question in block {i} has no '{key}'.")
-            if len(str(q.get("q", ""))) > 230:
+            if len(str(q.get("q", ""))) > (320 if q.get("big") else 230):
                 warnings.append(f"a question in block {i} is long; keep it to 2 sentences.")
             if len(str(q.get("expect", "")).split()) > 24:
                 warnings.append(f"a strong-answer line in block {i} is long; keep it to ~20 words.")
@@ -135,6 +168,7 @@ class Doc:
         self.L = LABELS.get(str(spec.get("language", "en")).lower()[:2], LABELS["en"])
         self.logo = logo
         self.page_no = 1
+        self.tech = is_technical(spec)
         self.y = self.H - self.M
 
     # text ------------------------------------------------------------
@@ -255,7 +289,7 @@ class Doc:
         y = self.H - M - 8
         c.setFont("Helvetica-Bold", 8)
         c.setFillColor(self.C["terra"])
-        c.drawString(M, y, clean(L["eyebrow"]))
+        c.drawString(M, y, clean(L["eyebrow_tech" if self.tech else "eyebrow"]))
         y -= 24
         c.setFont("Helvetica-Bold", 21)
         c.setFillColor(self.C["navy"])
@@ -304,7 +338,7 @@ class Doc:
         c.drawString(M, y, clean(L["how"]))
         y -= 6
         colw = (self.W - 2 * M - 3 * 8) / 4
-        for i, (letter, name, desc) in enumerate(L["star"]):
+        for i, (letter, name, desc) in enumerate(L["tech" if self.tech else "star"]):
             x = M + i * (colw + 8)
             c.setFillColor(self.C["terra_tint"])
             c.roundRect(x, y - 40, colw, 36, 5, stroke=0, fill=1)
@@ -320,7 +354,10 @@ class Doc:
         y -= 50
         c.setFont("Helvetica", 7.4)
         c.setFillColor(self.C["gray"])
-        c.drawString(M, y, clean(L["scale"]))
+        for i, line in enumerate(clean(L["scale_tech" if self.tech else "scale"]).split("   |   ")):
+            c.drawString(M, y - i * 10, line.strip())
+            if i:
+                y -= 10
         self.y = y - 12
 
     def block_title(self, n: int, title: str):
@@ -346,14 +383,14 @@ class Doc:
                          borderWidth=0, borderColor=transparent, fillColor=transparent,
                          textColor=self.C[color], selected=False, tooltip=tooltip)
 
-    def checks_row(self, n: int, x: float, y: float):
+    def checks_row(self, n: int, x: float, y: float, letters: str = "STAR"):
         """'Heard S T A R · Score 1 2 3 4' on one line starting at x, baseline y."""
         c, L = self.c, self.L
         c.setFont("Helvetica-Bold", 6.6)
         c.setFillColor(self.C["gray"])
         c.drawString(x, y, clean(L["heard"]))
         x += self.sw(clean(L["heard"]) + "  ", "Helvetica-Bold", 6.6)
-        for letter in "STAR":
+        for letter in letters:
             c.acroForm.checkbox(name=f"q{n}_{letter}", x=x, y=y - 2.5, size=9, buttonStyle="check",
                                 borderColor=self.C["teal"], fillColor=self.white, textColor=self.C["teal"],
                                 borderWidth=0.8, forceBorder=True, tooltip=f"{n}. {letter}")
@@ -384,6 +421,10 @@ class Doc:
         h_e = self.height(q.get("expect"), "Helvetica-Oblique", 7.6, left_w, 9.2, prefix=L["expect"])
         left_h = h_q + 2 + h_d + 1 + h_e + 12
         row_h = max(left_h, 48) + 3
+        if q.get("big"):
+            row_h = max(row_h, 150)
+        star_q = (not self.tech) or str(q.get("type", "technical")).lower() in BUSINESS_TYPES
+        letters = "STAR" if star_q else "".join(t[0] for t in L["tech"])
         self.need(row_h + 6)
         y = self.y
 
@@ -398,7 +439,7 @@ class Doc:
                        prefix=L["dig"], prefix_color="terra")
         ty = self.text(q.get("expect"), left_x, ty - 1, left_w, font="Helvetica-Oblique", size=7.6, leading=9.2,
                        color="gray", prefix=L["expect"], prefix_color="teal")
-        self.checks_row(n, left_x, y - row_h + 6)
+        self.checks_row(n, left_x, y - row_h + 6, letters)
 
         # answer box, as tall as the question row
         c.setFont("Helvetica-Bold", 6)

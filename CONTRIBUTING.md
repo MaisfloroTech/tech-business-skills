@@ -29,12 +29,12 @@ Every skill follows the same structure. Use this checklist and copy from the exi
 
 ### 1. The skill itself
 
-- [ ] **Folder** at the top level, named `tech-to-business-<what-it-makes>` in `kebab-case`.
+- [ ] **Folder** at the top level, in `kebab-case`: `tech-to-business-<what-it-makes>` when it translates technical work into business terms, `tech-<what-it-makes>` when it's mainly technical (like `tech-interviews`).
 - [ ] **`SKILL.md`** with frontmatter:
 
   ```yaml
   ---
-  name: tech-to-business-<what-it-makes>   # must match the folder name
+  name: tech-to-business-<what-it-makes>   # must match the folder name (or tech-<…>)
   description: What it does AND when Claude should use it, ending with "Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents …" (max 1024 characters, no angle brackets).
   ---
   ```
@@ -61,7 +61,7 @@ Every skill follows the same structure. Use this checklist and copy from the exi
 ### 3. Wire it into the repo
 
 - [ ] Add the folder to `skills` in `.claude-plugin/plugin.json`, and mention it in the plugin description in `.claude-plugin/marketplace.json`.
-- [ ] Add its **card in "Pick a skill"** in the main `README.md`, in **both** the English and Spanish sections (title, one line, when to use it, "See it in action →" / "Míralo en acción →"). Keep the main README short.
+- [ ] Add its **card in "Pick a skill"** in the main `README.md`, in **both** the English and Spanish sections (title, one line, when to use it, "See it in action →" / "Míralo en acción →"), in a 2-column grid; keep a "Your idea" card filling the last empty cell. Keep the main README short.
 - [ ] Update the tree in **What's inside** below.
 
 ### 4. Check before publishing
@@ -97,6 +97,10 @@ tech-business-skills/
 │   ├── assets/                         Build to Lead logo
 │   ├── examples/                       example interviews in English and Spanish
 │   └── references/                     STAR method, question design, honesty rules + shared roles and ladder
+├── tech-interviews/                    🧪 Skill 5 (same PDF builder as Skill 4, "mode": "technical")
+│   ├── scripts/build_interview.py      shared with Skill 4: keep them identical with `skills.py sync`
+│   ├── examples/                       example technical interviews in English and Spanish
+│   └── references/                     technical topics by role, question design, evaluation (C·R·E·H + STAR), honesty rules
 ├── .claude-plugin/                     makes the repo installable in one step
 └── .github/                            CI, releases and README assets
 ```

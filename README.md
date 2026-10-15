@@ -76,15 +76,38 @@ Something new you built → one **friendly page of FAQs** as an editable Word do
 
 One role to hire → **20 technical questions** that reveal business thinking, with STAR, as a fillable PDF.
 
-*Hiring, technical screens, scorecards.*
+*Hiring for business sense, scorecards.*
 
 **[See it in action →](tech-to-business-interviews/README.md)**
 
 </td>
 </tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🧪 Tech interviews
+
+One role to hire → **20 questions, 80% technical**: fundamentals, troubleshooting, an architecture exercise. Fillable PDF.
+
+*Technical screens, system design.*
+
+**[See it in action →](tech-interviews/README.md)**
+
+</td>
+<td width="50%" valign="top">
+
+### 💡 Your idea
+
+Missing a skill? Tell us what you'd like to translate next.
+
+*Every new skill arrives on its own once installed.*
+
+**[Open an issue →](../../issues)**
+
+</td>
+</tr>
 </table>
 
-More are on the way. Install once and every new skill arrives on its own. Missing one? [Open an issue](../../issues) 💬
 
 ## 👋 Always start with your role
 
@@ -182,7 +205,7 @@ Un tema técnico → una **actualización de negocio de 3–4 líneas** con sem�
 
 *Reportes de estado, incidentes, riesgos.*
 
-**[Míralo en acción →](tech-to-business-short-report/README.md)**
+**[Míralo en acción →](tech-to-business-short-report/README.md#espanol)**
 
 </td>
 <td width="50%" valign="top">
@@ -193,7 +216,7 @@ Una iniciativa técnica → un **objetivo trimestral** que el liderazgo puede ap
 
 *OKRs, planificación del Q, metas.*
 
-**[Míralo en acción →](tech-to-business-smart-objectives/README.md)**
+**[Míralo en acción →](tech-to-business-smart-objectives/README.md#espanol)**
 
 </td>
 </tr>
@@ -206,7 +229,7 @@ Algo nuevo que construiste → una **página amigable de preguntas frecuentes** 
 
 *Lanzamientos, onboarding, "cómo funciona esto".*
 
-**[Míralo en acción →](tech-to-business-faq-one-pager/README.md)**
+**[Míralo en acción →](tech-to-business-faq-one-pager/README.md#espanol)**
 
 </td>
 <td width="50%" valign="top">
@@ -215,15 +238,38 @@ Algo nuevo que construiste → una **página amigable de preguntas frecuentes** 
 
 Un rol a contratar → **20 preguntas técnicas** que revelan si piensa en negocio, con STAR, en un PDF editable.
 
-*Contrataciones, entrevistas técnicas, scorecards.*
+*Contratar con foco en negocio, scorecards.*
 
-**[Míralo en acción →](tech-to-business-interviews/README.md)**
+**[Míralo en acción →](tech-to-business-interviews/README.md#espanol)**
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🧪 Entrevistas técnicas
+
+Un rol a contratar → **20 preguntas, 80% técnicas**: fundamentos, resolución de problemas, un ejercicio de arquitectura. PDF editable.
+
+*Entrevistas técnicas, diseño de sistemas.*
+
+**[Míralo en acción →](tech-interviews/README.md#espanol)**
+
+</td>
+<td width="50%" valign="top">
+
+### 💡 Tu idea
+
+¿Te falta un skill? Cuéntanos qué te gustaría traducir después.
+
+*Cada skill nuevo te llega solo una vez instalado.*
+
+**[Abre un issue →](../../issues)**
 
 </td>
 </tr>
 </table>
 
-Vienen más. Lo instalas una vez y cada skill nuevo te llega solo. ¿Te falta uno? [Abre un issue](../../issues) 💬
 
 ## 👋 Empieza siempre con tu rol
 

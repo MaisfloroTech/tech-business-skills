@@ -28,15 +28,20 @@ DIST = ROOT / "dist"
 # A skill only gets the files it actually uses:
 #   - role cards and the output → outcome → impact ladder: every skill that needs
 #     to know what matters for a role (report, objectives, interviews);
-#   - honesty and business-language rules written for reports: report and objectives.
+#   - honesty and business-language rules written for reports: report and objectives;
+#   - the interview PDF builder and its logo: both interview skills.
 # The traffic-light labels (references/labels.md) belong only to the short report.
 # The FAQ one-pager and the interviews keep their own honesty/language rules.
 REPORT = "tech-to-business-short-report"
 OBJECTIVES = "tech-to-business-smart-objectives"
 INTERVIEWS = "tech-to-business-interviews"
+TECH_INTERVIEWS = "tech-interviews"
 SHARED = {
-    "references/roles": {REPORT, OBJECTIVES, INTERVIEWS},
-    "references/translation-ladder.md": {REPORT, OBJECTIVES, INTERVIEWS},
+    "references/roles": {REPORT, OBJECTIVES, INTERVIEWS, TECH_INTERVIEWS},
+    "references/translation-ladder.md": {REPORT, OBJECTIVES, INTERVIEWS, TECH_INTERVIEWS},
+    # the interview PDF builder (business and technical modes) and its logo
+    "scripts/build_interview.py": {INTERVIEWS, TECH_INTERVIEWS},
+    "assets/build-to-lead-logo.png": {INTERVIEWS, TECH_INTERVIEWS},
     "references/honesty-rules.md": {REPORT, OBJECTIVES},
     "references/business-language.md": {REPORT, OBJECTIVES},
 }
@@ -53,7 +58,12 @@ ALLOWED_IMAGES = {
     ".github/assets/faq-example-es.png",
     ".github/assets/faq-example-en.png",
     ".github/assets/banner.png",  # README header, built from .github/banner/banner.html
+    ".github/assets/skill-5-en.png",
+    ".github/assets/skill-5-es.png",
+    ".github/assets/tech-interview-example-en.png",
+    ".github/assets/tech-interview-example-es.png",
     "tech-to-business-interviews/assets/build-to-lead-logo.png",
+    "tech-interviews/assets/build-to-lead-logo.png",
     ".github/assets/skill-4-en.png",
     ".github/assets/skill-4-es.png",
     ".github/assets/interview-example-en.png",

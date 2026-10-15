@@ -37,6 +37,8 @@ Interviewing someone new isn't simple: it takes preparation, and most technical 
 - 🎨 **Build to Lead design**, in **English or Spanish**, with the option to use your company's logo.
 - ⚖️ **Fair by design:** questions only about the job, the same guide and scale for every candidate.
 
+For a **mostly technical** interview (fundamentals, troubleshooting, an architecture exercise), use [Skill 5 · Tech interviews](../tech-interviews/README.md).
+
 ### 🧩 The 5 blocks
 
 | # | Block | What it reveals |
@@ -122,6 +124,8 @@ Entrevistar a alguien nuevo no es simple: requiere preparación, y la mayoría d
 - 📝 **Un PDF editable de unas 3 páginas:** escribe las respuestas del candidato o candidata, marca las letras STAR que escuchaste, puntúa cada pregunta de 1 a 4 y cierra con una recomendación.
 - 🎨 **Diseño Build to Lead**, en **español o inglés**, con la opción de usar el logo de tu empresa.
 - ⚖️ **Justa desde el diseño:** solo preguntas sobre el trabajo, la misma guía y la misma escala para todas las personas candidatas.
+
+Para una entrevista **principalmente técnica** (fundamentos, resolución de problemas, un ejercicio de arquitectura), usa el [Skill 5 · Entrevistas técnicas](../tech-interviews/README.md#espanol).
 
 ### 🧩 Los 5 bloques
 

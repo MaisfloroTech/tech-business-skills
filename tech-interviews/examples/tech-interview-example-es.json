@@ -1,0 +1,101 @@
+{
+  "mode": "technical",
+  "language": "es",
+  "role": "DevOps semi senior",
+  "team": "Equipo de Plataforma",
+  "duration": "75 min",
+  "case": "Somos un retail con tienda online. Hoy 30 microservicios corren en máquinas virtuales y se despliegan a mano los jueves en la noche, y 1 de cada 5 despliegues termina en una caída. En los primeros meses, esta persona va a ayudar a mover los servicios a Kubernetes con pipelines de CI/CD, infraestructura como código y despliegues sin interrupción, antes del Cyber Day.",
+  "focus": ["Kubernetes y contenedores", "CI/CD e infraestructura como código", "Despliegues seguros"],
+  "blocks": [
+    {
+      "title": "Fundamentos",
+      "questions": [
+        {"q": "Explícame qué pasa desde que aplicas un Deployment en Kubernetes hasta que el pod recibe tráfico.",
+         "deep": "¿Qué papel cumplen las readiness y liveness probes en eso?",
+         "expect": "API server, scheduler, kubelet, imagen, probes, Service y endpoints; distingue readiness de liveness."},
+        {"q": "¿Qué problema resuelve la infraestructura como código y qué puede salir mal con el estado de Terraform?",
+         "deep": "¿Cómo trabajan dos personas sobre la misma infraestructura sin pisarse?",
+         "expect": "Repetible y versionado; estado remoto con bloqueo, drift, plan antes de aplicar, módulos y revisiones."},
+        {"q": "¿Qué diferencia hay entre un despliegue rolling, blue-green y canary, y cuándo usarías cada uno?",
+         "deep": "¿Qué necesitas medir para que un canary sirva de algo?",
+         "expect": "Costo, riesgo y velocidad de rollback de cada uno; canary con métricas de error y latencia definidas."},
+        {"q": "¿Cómo manejarías los secretos de 30 servicios en Kubernetes?",
+         "deep": "¿Qué harías si un secreto se filtra?",
+         "expect": "Gestor de secretos o cifrado, nada en el repositorio, rotación, mínimo privilegio y auditoría."}
+      ]
+    },
+    {
+      "title": "Práctica y resolución de problemas",
+      "questions": [
+        {"q": "Un pod queda en CrashLoopBackOff justo después de un despliegue. Cuéntame paso a paso cómo lo investigas.",
+         "deep": "¿Y si los logs del contenedor están vacíos?",
+         "expect": "Eventos, logs anteriores, probes, recursos, configuración y secretos; método ordenado; rollback si urge."},
+        {"q": "Cuéntame del problema de infraestructura más difícil que te tocó resolver. ¿Cómo diste con la causa?",
+         "deep": "¿Qué probaste primero que no funcionó?",
+         "expect": "Caso real, hipótesis probadas con datos, lo reproduce, verifica el arreglo y agrega monitoreo o una prueba."},
+        {"q": "El pipeline está en verde, pero el servicio en producción responde con errores 502. ¿Dónde miras?",
+         "deep": "¿Cómo evitarías que vuelva a pasar sin que nadie lo note?",
+         "expect": "Ingress o balanceador, readiness, puertos y Service, versiones; agrega smoke tests después de desplegar."},
+        {"q": "Cuéntame de una vez que un cambio tuyo de infraestructura afectó a otros. ¿Qué hiciste?",
+         "deep": "¿Qué cambiaste en tu forma de trabajar después?",
+         "expect": "Asume el error, revierte rápido, comunica y mejora el proceso: plan revisado, ambientes, cambios graduales."}
+      ]
+    },
+    {
+      "title": "Arquitectura y diseño",
+      "questions": [
+        {"q": "Diseña cómo pasarías los 30 servicios de máquinas virtuales a Kubernetes con CI/CD, sin cortar la tienda. Dibújalo de punta a punta: repositorios, pipeline, ambientes y despliegue.",
+         "deep": "¿Qué servicio migrarías primero y por qué?",
+         "expect": "Migración gradual por servicio, pipeline estándar, ambientes, IaC, canary o blue-green y rollback probado.",
+         "big": true},
+        {"q": "¿Cómo organizarías los ambientes y la promoción de una versión de desarrollo a producción en tu diseño?",
+         "deep": "¿Qué impediría que algo no probado llegue a producción?",
+         "expect": "La misma imagen promovida entre ambientes, configuración separada, pruebas automáticas y aprobaciones como compuertas."},
+        {"q": "En tu diseño, ¿qué pasa si se cae un nodo o una zona completa en pleno Cyber Day?",
+         "deep": "¿Cómo lo probarías antes?",
+         "expect": "Réplicas en varias zonas, PodDisruptionBudgets, autoscaling, pruebas de falla controladas, tiempos de recuperación claros."},
+        {"q": "Si tuvieras la mitad del tiempo antes del Cyber Day, ¿qué dejarías fuera y qué nunca sacarías?",
+         "deep": "¿Qué riesgo estás aceptando con eso?",
+         "expect": "Mantiene rollback, monitoreo y despliegues seguros; posterga lo deseable; nombra el riesgo aceptado."}
+      ]
+    },
+    {
+      "title": "Escala, confiabilidad y seguridad",
+      "questions": [
+        {"q": "En Cyber Day el tráfico sube 4 veces. ¿Cómo prepararías el clúster y cómo sabrías que está listo?",
+         "deep": "¿Qué prueba de carga harías y con qué criterio de aprobación?",
+         "expect": "Autoscaling de pods y nodos, requests y limits correctos, pruebas de carga realistas y un criterio claro de listo."},
+        {"q": "¿Cómo controlarías el costo del clúster sin poner en riesgo la disponibilidad?",
+         "deep": "¿Qué número mirarías cada semana?",
+         "expect": "Requests ajustados, autoscaling, instancias spot donde se pueda, costo por servicio visible; nunca a costa de la tienda."},
+        {"q": "¿Qué riesgos de seguridad te preocupan más en un pipeline de CI/CD y cómo los cubrirías?",
+         "deep": "¿Qué pasa si se compromete una dependencia?",
+         "expect": "Credenciales con mínimo privilegio, escaneo de imágenes y dependencias, firma, ramas protegidas, revisión de cambios."},
+        {"q": "¿Qué métricas y alertas pondrías para saber que un despliegue salió mal antes de que lo noten los clientes?",
+         "deep": "¿Cuál te despertaría en la noche?",
+         "expect": "Errores, latencia y saturación por servicio, comparación con la versión anterior y rollback rápido o automático."}
+      ]
+    },
+    {
+      "title": "Negocio y trabajo en equipo",
+      "questions": [
+        {"q": "Cuéntame de una mejora de infraestructura tuya que tuvo impacto en el negocio. ¿Cómo lo sabes?",
+         "deep": "¿Qué número cambió?",
+         "expect": "Caso real con impacto medido: menos caídas, despliegues más rápidos, costo o tiempo ahorrado.",
+         "type": "experience"},
+        {"q": "Producto quiere seguir desplegando a mano los jueves hasta después del Cyber Day. ¿Cómo lo convences de migrar antes, o aceptas esperar?",
+         "deep": "¿Qué le dirías que arriesga el negocio en cada opción?",
+         "expect": "Compara el riesgo de caídas en ventas contra el de migrar; propone un plan gradual; decide con datos y en conjunto.",
+         "type": "business"},
+        {"q": "Cuéntame de una vez que tuviste que explicarle un problema técnico a alguien que no era técnico.",
+         "deep": "¿Cómo supiste que te entendió?",
+         "expect": "Palabras simples, foco en impacto y opciones, verifica que le entendieron; caso real.",
+         "type": "experience"},
+        {"q": "¿Cómo le explicarías en dos frases a la gerencia por qué vale la pena migrar a Kubernetes?",
+         "deep": "¿Qué palabra técnica evitarías?",
+         "expect": "Menos caídas al desplegar, entregas más rápidas, listos para Cyber Day; sin jerga y sin prometer cero riesgo.",
+         "type": "business"}
+      ]
+    }
+  ]
+}

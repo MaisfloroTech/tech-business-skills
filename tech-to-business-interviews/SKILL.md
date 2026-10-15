@@ -1,6 +1,6 @@
 ---
 name: tech-to-business-interviews
-description: Prepares a technical job interview that reveals how the candidate thinks about the business. For the role being hired (roadmap.sh roles, plus SRE and Tech Lead), it writes one realistic use case and 20 technical questions in 5 blocks, each designed to surface business information, with a STAR deep-dive follow-up and one line on what a strong answer includes. Delivers a branded Build to Lead PDF of 2–3 pages with fillable fields to record the candidate's answers, the STAR letters heard and a 1–4 score per question, plus a final recommendation. Use this whenever a leader or interviewer needs to prepare, structure or improve an interview, interview questions, a hiring loop, a technical screen or a scorecard for a technical role, even if they never say "STAR". Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents facts about the company.
+description: Prepares a technical job interview that reveals how the candidate thinks about the business. For the role being hired (roadmap.sh roles, plus SRE and Tech Lead), it writes one realistic use case and 20 technical questions in 5 blocks, each designed to surface business information, with a STAR deep-dive follow-up and one line on what a strong answer includes. Delivers a branded Build to Lead PDF of 2–3 pages with fillable fields to record the candidate's answers, the STAR letters heard and a 1–4 score per question, plus a final recommendation. Use this whenever a leader or interviewer needs to prepare, structure or improve an interview, interview questions, a hiring loop, a technical screen or a scorecard for a technical role, even if they never say "STAR". For a mostly technical interview (fundamentals, troubleshooting, architecture), use tech-interviews. Works best when the user starts with their role ("I'm a…" / "Soy…"). Never invents facts about the company.
 ---
 
 # Tech-to-business interviews
@@ -8,6 +8,8 @@ description: Prepares a technical job interview that reveals how the candidate t
 Interviewing someone new is hard: it takes preparation, and most technical interviews only check whether the candidate knows the tools. This skill prepares an interview that checks something harder to find: **whether the candidate connects technical work to the business**. It writes **one use case and 20 technical questions** for the role, each with a **STAR deep dive** and a short line on **what a strong answer includes**, and delivers it as a **branded, fillable PDF** where the interviewer records the answers and scores.
 
 **One role, one interview, done well.**
+
+For a **mostly technical** interview (80% technical: fundamentals, troubleshooting, an architecture exercise), use the sibling skill `tech-interviews`.
 
 ## Language
 
