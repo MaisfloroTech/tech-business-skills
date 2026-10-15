@@ -124,14 +124,6 @@ cp -r tech-business-skills/tech-to-business-short-report ~/.claude/skills/
 
 Write in English and you get English; write in Spanish and you get Spanish. You can also mix: *"talk to me in Spanish but write the report in English for my global manager"*.
 
-## 🛡️ The honesty promise
-
-- 🚫 **Nothing invented.** No numbers, dates, limits or contacts you didn't give.
-- 🕳️ **Gaps stay visible** as UPPERCASE placeholders (`ENTER_DATE`, `ENTER_AMOUNT`) for you to fill in before sending.
-- 🧮 **Math shown** for anything calculated.
-
-An honest gap beats a polished answer that falls apart at the first question.
-
 <br>
 
 ---
@@ -253,14 +245,6 @@ cp -r tech-business-skills/tech-to-business-short-report ~/.claude/skills/
 ## 🗣️ Inglés o español
 
 Si le escribes en español, te responde en español; si le escribes en inglés, en inglés. También puedes mezclar: *"háblame en español pero el reporte en inglés para mi jefe global"*. Las etiquetas del semáforo (HIGHLIGHT, LOWLIGHT, RISK) quedan en inglés por defecto porque son vocabulario común entre equipos; si las quieres traducidas, pídelo.
-
-## 🛡️ La promesa de honestidad
-
-- 🚫 **Nada inventado.** Ni números, ni fechas, ni límites, ni contactos que no hayas dado.
-- 🕳️ **Los vacíos quedan a la vista** como marcadores en MAYÚSCULAS (`INGRESA_FECHA`, `INGRESA_MONTO`) para que los completes antes de enviar.
-- 🧮 **Cálculos a la vista** en todo lo que se calcula.
-
-Un vacío honesto vale más que una respuesta pulida que se cae a la primera pregunta.
 
 <br>
 
