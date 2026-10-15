@@ -16,7 +16,7 @@ Role cards live in `<skill>/references/roles/`. Each role belongs to one family 
 1. Edit the family file in **one** skill folder (for example `tech-to-business-short-report/references/roles/security.md`).
 2. Follow the card format in `roles/README.md`: Produces / Serves / If it stops, the ladder, typical risks, red flag.
 3. Write definitions in your own words; link to roadmap.sh instead of copying it.
-4. Propagate the change to every skill and check it:
+4. Propagate the change to the other skills that use role cards (the short report and the SMART objectives) and check it:
 
 ```bash
 python .github/scripts/skills.py sync --from tech-to-business-short-report
@@ -35,13 +35,15 @@ python .github/scripts/skills.py validate
    ---
    ```
 
-3. Copy the shared method files into it:
+3. Decide what method it needs. If it translates work into business impact (like the report and the objectives), add it to `SHARED_SKILLS` in `.github/scripts/skills.py` and copy the shared files into it:
 
    ```bash
    python .github/scripts/skills.py sync --from tech-to-business-short-report
    ```
 
-4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews. Every skill **asks for the role first** ("I'm a…" / "My role is…") and uses the role cards, and every example input starts with the role.
+   If it does something different (like the FAQ one-pager), give it its own `references/` and leave it out of `SHARED_SKILLS`. Don't copy the traffic-light labels into a skill that doesn't write reports.
+
+4. Write the skill's method and a short example in its `SKILL.md`. Keep it short: people want results, not interviews. Every skill **asks for the role first** ("I'm a…" / "My role is…"), and every example input starts with the role.
 5. Add the folder to the `skills` list in `.claude-plugin/plugin.json`, so people who installed the plugin get it automatically:
 
    ```json

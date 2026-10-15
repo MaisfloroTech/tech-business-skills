@@ -1,57 +1,41 @@
-# Business language
+# Plain language for the FAQ
 
-Business readers don't always speak technical. The **title** of an item must be in business words; the **body** can mention the technical component in plain words, but leads with what it means for the business.
+The people reading this FAQ **use** the thing; they didn't build it. Write for them: what they see, what they can do, who helps them. Not how it works inside.
 
-## Titles: technical → business
+## Questions: the way a user asks them
 
-| Technical (don't use as title) | Business title |
+| Don't write | Write |
 |---|---|
-| Database downsize, rightsizing, instance change, reserved instances, cloud cost | **Infrastructure optimization** |
-| Migration to new cluster / cloud / version | **Platform modernization** |
-| Outage, downtime, incident, 5xx errors | **Service interruption** |
-| Latency, p95, performance tuning, caching | **Faster experience for customers** |
-| Load test, autoscaling, capacity planning | **Peak readiness** (e.g. "Black Friday readiness") |
-| Patching, vulnerabilities, CVEs, hardening | **Security strengthening** |
-| Security breach, data exposure | **Security incident** |
-| Backups, disaster recovery, failover | **Business continuity** |
-| CI/CD, pipelines, deploy automation | **Faster delivery** |
-| Monitoring, alerting, observability | **Early problem detection** |
-| Refactor, tech debt | **Platform maintainability** (say what it unblocks) |
-| Bug fixes | **Product quality** |
-| New feature shipped | the feature's name in customer words (e.g. "Search filters for customers") |
-| Data pipelines, ETL, warehouse | **Data availability for decisions** |
-| SSO, IAM, access control | **Access security** |
-| Audit, SOC 2, ISO, compliance work | **Compliance** |
-| Docs, talks, workshops, community | **Product adoption** |
+| Access provisioning process | How do I get access? |
+| Service availability window | When can I use it? |
+| Rate limits and quotas | How much can I use it? |
+| Incident escalation path | What do I do if it stops working? |
+| Scope and non-goals | What can't I do with it? |
+| Data retention policy | How long is my information kept? |
 
-If none fits, ask: *"What would the CFO or a customer call this?"*
-
-## Words to translate in the body
+## Words to translate in the answers
 
 | Instead of | Say |
 |---|---|
-| vCPU, cores, RAM, nodes, instances | "server size", "capacity" — and give the % change |
-| p95, latency, ms | "response time", "how fast pages load" |
-| 5xx, error rate | "failed requests", "customers who couldn't <action>" |
-| SLA / SLO / uptime | "availability for our customers" (keep the % if relevant) |
-| MTTR | "time to recover" |
-| CVE, critical vulnerability | "critical security gap" |
-| Deploy, release | "update", "change" |
-| Rollback | "we reverted the change" |
-| Maintenance window | "planned maintenance window" |
+| Deploy, release, rollout | "launch", "update", "it's available from…" |
+| Downtime, outage, 5xx errors | "when it's not working", "if you can't <action>" |
+| Maintenance window | "planned maintenance", with day and hours |
+| SLA / SLO / uptime | "available <hours/days>", "we answer within <time>" |
+| Latency, timeout | "it may take a few seconds", "if it doesn't respond" |
+| Authentication, SSO, IAM, credentials | "sign in with your <company> account", "who can use it" |
+| Endpoint, API, URL | "the link", "the page", "the address" |
+| Ticket, incident | "request", "report a problem" |
+| Quota, rate limit, throttling | "up to <number> per <day/month>" |
+| Deprecated, end-of-life | "will stop working on <date>", "use <new thing> instead" |
 
-Spell out any acronym a business reader may not know, once.
+Spell out any acronym the reader may not know, once. Keep the product's own name even if it's technical; that's what users will search for.
 
-## Sentence shape for a HIGHLIGHT
+## Keep internal components out
 
-> On **<date>**, we carried out **<business action>** on **<component, plain words>**, **<technical change as a % or simple number>**, generating **<business result with a number>** (**<% of current total, if known>**). **<Follow-up that reassures the business: monitoring, availability for customers, next step>.**
+Lambda, API Gateway, queues, databases, Kubernetes, Secrets Manager, vendor APIs… are how the team built it, not what the reader uses. Mention only what the reader sees or touches ("WhatsApp", "the portal", "the virtual campus").
 
-Example:
+## Tone
 
-> 🟢 **[HIGHLIGHT] Infrastructure optimization:** On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% and generating savings of USD 1,200/month (≈ USD 14,400/year, 12% of its current cost). We're monitoring closely after the change to ensure availability for our customers.
-
-## Percentages
-
-- **Size or capacity reduction**: compute it from before → after (32 → 24 = 25%).
-- **% of current cost**: only if the user gave the current total. Otherwise add a placeholder for it, e.g. `(current monthly cost: USD ENTER_AMOUNT)` / `(costo mensual actual: USD INGRESA_MONTO)`. Never invent a total.
-- Words like "significant" are fine **only next to the number**, never instead of it.
+- Second person ("you" / "tú"), friendly, short.
+- Answers of 1–3 sentences. If it needs more, it's a separate question.
+- Say what to do, not only what's forbidden: "You can't delete reports, but you can archive them."

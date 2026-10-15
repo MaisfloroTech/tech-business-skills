@@ -131,6 +131,18 @@ You tell it your **role** and what happened (notes, tickets, a few numbers). It 
 - 🙋 **Every risk ends with an ask:** what you need, from whom, by when.
 - 👤 **Every item has an owner:** the team or person the business can go to with questions.
 
+### 🚦 The three labels
+
+Every report item gets exactly one, picked by its **effect on the business**, not by how technical it was.
+
+| | Label | Meaning | Examples |
+|---|---|---|---|
+| 🟢 | **[HIGHLIGHT]** | Something **good for the business** already happened | Money saved or earned, happier customers, time saved, risk reduced, incidents avoided |
+| 🟠 | **[RISK – LOW / MEDIUM / HIGH]** | Something **could** hurt the business, or an opportunity could be lost | A peak the system may not hold, a deadline at risk, rising costs, someone key leaving |
+| 🔴 | **[LOWLIGHT]** | Something **bad for the business** already happened | Outage customers noticed, lost revenue, security incident, missed commitment |
+
+Need budget, people or a decision? Write the risk of **not** getting it, then the **ASK**. If it isn't good, bad or a risk for the business, it doesn't go in. No "FYI" padding.
+
 ### ❓ The 6 questions every item answers
 
 | | Question | In the first example below |
@@ -505,23 +517,13 @@ Add whatever you know: dates, who it's for, limits, support channel. Claude asks
 
 ---
 
-## 🧭 How every skill thinks
+## 🧭 How the skills think
 
-These rules are shared by every skill in the repo, current and future.
-
-### 🚦 Three labels, with a traffic light
-
-Every item gets exactly one, picked by its **effect on the business**, not by how technical it was.
-
-| | Label | Meaning | Examples |
-|---|---|---|---|
-| 🟢 | **[HIGHLIGHT]** | Something **good for the business** already happened | Money saved or earned, happier customers, time saved, risk reduced, incidents avoided |
-| 🟠 | **[RISK – LOW / MEDIUM / HIGH]** | Something **could** hurt the business, or an opportunity could be lost | A peak the system may not hold, a deadline at risk, rising costs, someone key leaving |
-| 🔴 | **[LOWLIGHT]** | Something **bad for the business** already happened | Outage customers noticed, lost revenue, security incident, missed commitment |
-
-Need budget, people or a decision? Write the risk of **not** getting it, then the **ASK**. If it isn't good, bad or a risk for the business, it doesn't go in. No "FYI" padding.
+Each skill has its own method: the traffic light is only for the short report (Skill 1), the FAQ one-pager has its own plain-language rules. What they have in common is below.
 
 ### 🪜 From "what I did" to "why it matters"
+
+*Used by the short report and the SMART objectives.*
 
 | | 🔧 Output<br>*what I did* | 📈 Outcome<br>*what changed* | 💼 Business impact<br>*why anyone cares* |
 |---|---|---|---|
@@ -537,12 +539,12 @@ The skills know **31+ roles** (based on the role-based roadmaps of [roadmap.sh](
 
 ### 🛡️ The honesty promise
 
-These skills make technical work *sound* like business. That's exactly why they have rules:
+*Every skill.* These skills make technical work *sound* like business. That's exactly why they have rules:
 
-- 🚫 **They never invent numbers** or facts. No "industry averages", no plausible guesses.
+- 🚫 **They never invent numbers** or facts: no "industry averages", no plausible guesses, no made-up dates, limits or contacts.
 - 🕳️ **Anything you didn't say becomes an UPPERCASE placeholder** (`USD ENTER_AMOUNT`, `INGRESA_FECHA`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`). You replace them before sending.
 - 🧮 **They show their math** for anything calculated.
-- 📉 **Bad news stays the size it was.** No turning lowlights into highlights.
+- 📉 **Bad news stays the size it was.** In reports, no turning lowlights into highlights.
 
 A report with an honest gap is better than a polished one that falls apart at the first question.
 
@@ -584,13 +586,13 @@ tech-business-skills/
 │       └── roles/                  role cards in 8 families
 ├── tech-to-business-smart-objectives/  🎯 Skill 2
 │   ├── SKILL.md
-│   └── references/                 same shared method files
+│   └── references/                 ladder, honesty, business language and roles (same as Skill 1, no labels)
 ├── tech-to-business-faq-one-pager/     📘 Skill 3
 │   ├── SKILL.md
 │   ├── scripts/build_faq.py        builds the branded one-page Word document
 │   ├── assets/                     Build to Lead logo
 │   ├── examples/                   example FAQs in Spanish and English
-│   └── references/                 same shared method files
+│   └── references/                 its own: plain language, honesty rules, diagram example
 ├── .claude-plugin/                 makes the repo installable in one step
 └── .github/                        CI and releases
 ```

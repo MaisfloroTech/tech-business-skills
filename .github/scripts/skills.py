@@ -6,7 +6,7 @@ Every top-level folder that contains a SKILL.md is a skill.
 Usage:
   python .github/scripts/skills.py validate          # checks used by CI
   python .github/scripts/skills.py build             # zips each skill into dist/<name>.zip
-  python .github/scripts/skills.py sync --from NAME  # copy the shared method files from one skill to all others
+  python .github/scripts/skills.py sync --from NAME  # copy the shared method files to the other skills in SHARED_SKILLS
 """
 from __future__ import annotations
 
@@ -22,15 +22,22 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 DIST = ROOT / "dist"
 
-# Files every skill carries so it stays self-contained. Edit them in one skill,
-# then run `sync --from <that-skill>` to propagate.
+# Method files shared by the skills that translate work into business impact
+# (reports and objectives). Each of those skills carries its own copy so it stays
+# self-contained. Edit them in one skill, then run `sync --from <that-skill>`.
+# Skills not listed in SHARED_SKILLS (like the FAQ one-pager) keep their own
+# references and are never overwritten by sync. The traffic-light labels
+# (references/labels.md) belong only to the short report and are not shared.
 SHARED = [
-    "references/labels.md",
     "references/translation-ladder.md",
     "references/honesty-rules.md",
     "references/business-language.md",
     "references/roles",
 ]
+SHARED_SKILLS = {
+    "tech-to-business-short-report",
+    "tech-to-business-smart-objectives",
+}
 
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 MAX_NAME = 64
@@ -115,14 +122,18 @@ def validate() -> int:
             if not (skill / ref).exists():
                 errors.append(f"{where}: SKILL.md points to {ref}, which does not exist")
 
-        for rel in SHARED:
-            if not (skill / rel).exists():
-                errors.append(f"{where}: missing shared file {rel} (run sync)")
+        if skill.name in SHARED_SKILLS:
+            for rel in SHARED:
+                if not (skill / rel).exists():
+                    errors.append(f"{where}: missing shared file {rel} (run sync)")
 
-    # Shared method files must be identical in every skill.
-    if len(found) > 1:
-        base = found[0]
-        for other in found[1:]:
+    # Shared method files must be identical in every skill that shares them.
+    sharing = [s for s in found if s.name in SHARED_SKILLS]
+    for name in sorted(SHARED_SKILLS - {s.name for s in found}):
+        errors.append(f"SHARED_SKILLS lists '{name}', which is not a skill folder")
+    if len(sharing) > 1:
+        base = sharing[0]
+        for other in sharing[1:]:
             for rel in set(shared_files(base)) | set(shared_files(other)):
                 a, b = base / rel, other / rel
                 if not a.exists() or not b.exists() or not filecmp.cmp(a, b, shallow=False):
@@ -175,8 +186,11 @@ def sync(source_name: str) -> int:
     if source not in skills():
         print(f"ERROR: '{source_name}' is not a skill folder")
         return 1
+    if source.name not in SHARED_SKILLS:
+        print(f"ERROR: '{source_name}' does not use the shared method files (see SHARED_SKILLS)")
+        return 1
     for skill in skills():
-        if skill == source:
+        if skill == source or skill.name not in SHARED_SKILLS:
             continue
         for rel in SHARED:
             src, dst = source / rel, skill / rel

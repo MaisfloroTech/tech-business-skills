@@ -1,46 +1,36 @@
-# Honesty rules
+# Honesty rules for the FAQ
 
-These skills make technical work *sound* like business. That is exactly why they can be dangerous: a polished report with an invented number can reach an executive committee and damage the person who sent it.
+A FAQ is a promise to its readers. If it says "we answer within 2 hours" or "available 24/7", people will plan around it. An invented date, limit or contact breaks that promise and lands on the team that owns the project.
 
 These rules are not optional.
 
-## 1. Never invent numbers
+## 1. Never invent what the user didn't say
 
-Every number in a report comes from the writer, from a file or tool they provided, or from arithmetic on those. Not from estimates the assistant makes, "industry averages", or plausible-sounding guesses.
+Dates, limits, volumes, schedules, response times, URLs, channels, contact names, costs and permissions come from the user, from a file they attached, or not at all. No "typical" values, no plausible guesses.
 
 ## 2. Leave a visible placeholder for what is missing
 
-When anything the report needs is not available — a number, a date, the reason, the team, the mitigation, the ask — write the sentence as if you had it and put an **UPPERCASE placeholder** where it goes, in the user's language, so they only have to replace it:
+Write the answer as if you had the fact and put a short **UPPERCASE placeholder** where it goes, in the user's language. The Word document highlights them so they're easy to spot:
 
-- English: `(current monthly cost: USD ENTER_AMOUNT)`, `ENTER_DATE`, `ENTER_NUMBER_OF_CUSTOMERS`, `ENTER_REASON`, `ENTER_MITIGATION`, `ENTER_WHAT_YOU_NEED_AND_BY_WHEN`, `ENTER_TEAM_OR_PERSON`
-- Spanish: `(costo mensual actual: USD INGRESA_MONTO)`, `INGRESA_FECHA`, `INGRESA_CANTIDAD_DE_CLIENTES`, `INGRESA_MOTIVO`, `INGRESA_MITIGACION`, `INGRESA_QUE_NECESITAS_Y_PARA_CUANDO`, `INGRESA_EQUIPO_O_PERSONA`
+- English: `ENTER_DATE`, `ENTER_OWNER`, `ENTER_CHANNEL`, `ENTER_LIMIT`, `ENTER_HOURS`, `ENTER_RESPONSE_TIME`, `ENTER_LINK`
+- Spanish: `INGRESA_FECHA`, `INGRESA_RESPONSABLE`, `INGRESA_CANAL`, `INGRESA_LIMITE`, `INGRESA_HORARIO`, `INGRESA_TIEMPO_RESPUESTA`, `INGRESA_ENLACE`
 
 Example:
 
-> 🟢 [HIGHLIGHT] Infrastructure optimization: On Oct 11 we optimized the infrastructure of our main database, reducing its size by 25% (current monthly cost: USD ENTER_AMOUNT) and generating savings of USD 1,200/month (≈ USD 14,400/year). We're monitoring closely after the change to ensure availability for our customers.
+> **What do I do if it stops working?** Write to ENTER_CHANNEL, ENTER_HOURS. The platform team answers within ENTER_RESPONSE_TIME.
 
-The placeholder is a feature: it shows exactly what to fill in, and it stops an invented figure from travelling upward. Never replace it with a guess. A report with placeholders is a draft; it should not be sent until they're filled.
+A FAQ with placeholders is a draft; it shouldn't be shared until they're filled.
 
-**Rule of thumb:** if you're about to write something the user didn't tell you (a plan, a date, a cause, a request, a team), it's a placeholder. The only things you may add yourself are arithmetic on the user's numbers and plain-language rewording.
+**Rule of thumb:** if you're about to write a date, limit, contact, link or schedule the user didn't give you, it's a placeholder.
 
-## 3. Show your arithmetic
+## 3. Don't promise more than the user did
 
-If a number in the report was calculated (savings, percentages, annualized values), keep the inputs and formula next to it or in a note. The reader must be able to check it in under a minute.
+"We try to answer the same day" is not "we answer within 4 hours". "Planned for November" is not "available from November 1". "Pilot with two teams" is not "available for everyone". Keep each statement at the level the user gave it.
 
-## 4. Separate fact from estimate from opinion
+## 4. Say what's not there yet
 
-- Fact: measured. Write it plainly.
-- Estimate: say so and say how: "≈ 40 h/month (estimated from 3 sample weeks)".
-- Opinion / expectation: attribute it: "The team expects...", "Customer said...".
+If something is planned but not live, say so ("Coming soon: …", "Not available yet"). Don't describe future features as if they already work.
 
-## 5. Don't upgrade the evidence
+## 5. Confidential data stays out of examples
 
-"One customer mentioned it" is not "customers want it". "Latency improved in staging" is not "latency improved". "Should reduce incidents" is not "reduced incidents". Keep claims at the level the evidence supports.
-
-## 6. Bad news is reported at the same size as it happened
-
-Do not soften a lowlight into a highlight, or shrink a High risk to Medium because it feels uncomfortable. Leaders lose trust in reports that are always green.
-
-## 7. Confidential data stays out of examples
-
-When the writer shares real data to build a report, use it only for that report. Do not reuse names of customers, people or figures in examples, templates or anything meant to be shared.
+When the user shares real names, systems or figures to build their FAQ, use them only for that FAQ. Never reuse them in examples, templates or anything meant to be shared.
