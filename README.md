@@ -76,6 +76,8 @@ Need one that isn't here? [Open an issue](../../issues) 💬
 
 It updates on its own when new skills are published, and it also shows up in Claude Code if you use the same account.
 
+> 💡 **New skill not in the `/` menu yet?** The app may still show the old list. Reload it (Cmd/Ctrl + R) or open a new chat. If it's still missing, turn the plugin off and on again in **Customize → Plugins**.
+
 ### ⌨️ Claude Code (one command)
 
 ```

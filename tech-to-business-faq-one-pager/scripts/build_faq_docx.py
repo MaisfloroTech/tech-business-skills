@@ -30,7 +30,7 @@ except ImportError:  # pragma: no cover
     sys.exit("python-docx is required: pip install python-docx")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from faq_common import BRAND, labels, logo_box, resolve_logo, split_placeholders  # noqa: E402
+from faq_common import BRAND, check_spec, labels, logo_box, resolve_logo, split_placeholders  # noqa: E402
 
 FONT = "Arial"
 PT_PER_INCH = 72
@@ -284,7 +284,12 @@ def page_count(docx_path: Path) -> int | None:
 
 
 def build_fitted(spec: dict, out: Path, page: str = "a4", logo: str | None = None) -> None:
+    for w in check_spec(spec):
+        print(f"WARNING: {w}", file=sys.stderr)
     can_measure = bool(shutil.which("soffice") or shutil.which("libreoffice"))
+    if not can_measure:
+        print("NOTE: LibreOffice not found, so the one-page fit wasn't checked; "
+              "fix any warning above before sharing.", file=sys.stderr)
     scales = (1.3, 1.25, 1.2, 1.15, 1.1, 1.05, 1.0, 0.95, 0.9, 0.85, 0.8) if can_measure else (1.0,)
     for scale in scales:
         build(spec, out, page, logo, scale)

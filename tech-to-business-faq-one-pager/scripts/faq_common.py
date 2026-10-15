@@ -89,6 +89,33 @@ def logo_box(width_px: int, height_px: int) -> tuple[float, float]:
     return width_px * scale, height_px * scale
 
 
+W_TAGS = ("what", "why", "who", "when", "where", "how", "limits", "help")
+SENTENCE_RE = re.compile(r"[.!?](?:\s|$)")
+
+
+def check_spec(spec: dict) -> list[str]:
+    """Content checks that don't need LibreOffice: catch a page that will run long or miss a W."""
+    warnings = []
+    faqs = spec.get("faqs", [])
+    if not 6 <= len(faqs) <= 10:
+        warnings.append(f"{len(faqs)} questions; use 6-10.")
+    missing = [w for w in W_TAGS[:6] if w not in {f.get("w") for f in faqs}]
+    if missing:
+        warnings.append(f"no question tagged: {', '.join(missing)}.")
+    for i, f in enumerate(faqs, 1):
+        n = len(SENTENCE_RE.findall(str(f.get("a", "")).strip() + " "))
+        if n > 3:
+            warnings.append(f"answer {i} has {n} sentences; keep it to 1-3.")
+    if len(spec.get("at_a_glance", [])) != 4:
+        warnings.append("'at_a_glance' needs exactly 4 facts.")
+    for key in ("can", "cannot"):
+        if len(spec.get(key, [])) > 5:
+            warnings.append(f"'{key}' has more than 5 items.")
+    if not spec.get("help"):
+        warnings.append("the help block is empty.")
+    return warnings
+
+
 def split_placeholders(text: str):
     """Yield (chunk, is_placeholder) pieces of text."""
     pos = 0
