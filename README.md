@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🌉 tech-business-skills
+<img src=".github/assets/banner.png" alt="What you say: 32 → 24 vCPU, p95 340 ms, CVE patched, 14 bugs fixed… What leadership hears: …so what?" width="100%">
 
-## You did great work.<br>Leadership asked: *"so what?"*
+## Turn your technical work into<br>the language leadership acts on.
 
 Claude Skills that translate engineering into what the business cares about:<br>
 **money, customers and risk.** In English or Spanish. No made-up numbers.

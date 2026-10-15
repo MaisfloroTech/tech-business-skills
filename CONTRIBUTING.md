@@ -88,4 +88,4 @@ git push origin v1.0.0
 
 ## Images
 
-Images are blocked by CI so nothing private gets committed by accident. The only exceptions are listed by exact path in `ALLOWED_IMAGES` in `.github/scripts/skills.py` (and in `.gitignore`): the Build to Lead logo and the README previews of the example FAQ documents, which use fictional data. Adding a new image means adding its exact path to both lists, on purpose.
+Images are blocked by CI so nothing private gets committed by accident. The only exceptions are listed by exact path in `ALLOWED_IMAGES` in `.github/scripts/skills.py` (and in `.gitignore`): the Build to Lead logo, the README previews of the example FAQ documents (fictional data) and the README banner. The banner is built from `.github/banner/banner.html`: edit it and run `python3 .github/banner/render.py` (needs Playwright). Adding a new image means adding its exact path to both lists, on purpose.

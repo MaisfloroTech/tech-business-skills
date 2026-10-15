@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Source of .github/assets/banner.png. Rebuild: python3 .github/banner/render.py -->
+<style>
+  :root { --navy:#171A30; --teal:#204B4C; --terra:#A97F6A; --gray:#4E4F52; --cream:#F6F1EC; --sand:#EADFD5; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { width:1280px; height:440px; background:transparent; font-family:Inter, sans-serif; }
+  .card { position:relative; width:1280px; height:440px; background:var(--cream); border-radius:28px; overflow:hidden; }
+  .label { position:absolute; top:40px; font-weight:700; font-size:14px; letter-spacing:.22em; color:var(--terra); }
+  .chip { position:absolute; font-family:"DejaVu Sans Mono", monospace; font-size:17px; color:var(--teal);
+          background:#fff; border:1.5px solid rgba(32,75,76,.35); border-radius:8px; padding:7px 12px; white-space:nowrap;
+          box-shadow:0 2px 0 rgba(23,26,48,.06); }
+  .chip.dim { opacity:.45; }
+  .chip.navy { color:var(--navy); border-color:rgba(23,26,48,.35); }
+  .sowhat { position:absolute; left:826px; top:100px; font-family:Lora, serif; font-style:italic; font-weight:700;
+            font-size:84px; line-height:1; color:var(--navy); letter-spacing:-.02em; }
+  .q { position:absolute; left:826px; font-size:20px; color:var(--gray); }
+  .q b { color:var(--terra); font-weight:600; margin-right:8px; }
+  .gapnote { position:absolute; text-align:left; font-family:Lora, serif;
+             font-style:italic; font-size:18px; color:var(--gray); }
+  .footer { position:absolute; left:0; right:0; bottom:0; height:64px; background:var(--navy); display:flex;
+            align-items:center; padding:0 40px; color:var(--cream); font-size:20px; }
+  .footer strong { font-weight:800; margin-right:14px; letter-spacing:-.01em; }
+  .footer span { opacity:.75; }
+  .footer .dot { color:var(--terra); opacity:1; margin:0 12px; }
+  .logo { position:absolute; right:34px; bottom:82px; width:86px; height:86px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="label" style="left:56px">WHAT YOU SAY</div>
+  <div class="label" style="left:826px">WHAT LEADERSHIP HEARS</div>
+
+  <!-- engineering: a pile of jargon -->
+  <div class="chip"      style="left:52px;  top:86px;  transform:rotate(-3deg)">32 → 24 vCPU</div>
+  <div class="chip navy" style="left:214px; top:80px;  transform:rotate(2deg)">p95 340 ms</div>
+  <div class="chip dim"  style="left:340px; top:98px;  transform:rotate(-1deg)">HPA tuned</div>
+  <div class="chip navy" style="left:64px;  top:140px; transform:rotate(1.5deg)">CVE-2026-4417 patched</div>
+  <div class="chip"      style="left:316px; top:148px; transform:rotate(-4deg)">MTTR 18 min</div>
+  <div class="chip dim"  style="left:40px;  top:196px; transform:rotate(-2deg)">rollback v2.4.1</div>
+  <div class="chip navy" style="left:212px; top:200px; transform:rotate(3deg)">5xx ↓ 0.3%</div>
+  <div class="chip"      style="left:330px; top:206px; transform:rotate(-1.5deg)">14 bugs fixed</div>
+  <div class="chip"      style="left:70px;  top:254px; transform:rotate(2.5deg)">ETL backfill</div>
+  <div class="chip dim"  style="left:220px; top:260px; transform:rotate(-3deg)">IaC drift</div>
+  <div class="chip navy" style="left:340px; top:262px; transform:rotate(1deg)">SLO 99.9</div>
+  <div class="chip dim"  style="left:96px; top:310px; transform:rotate(-1deg)">k8s 1.31 upgrade</div>
+  <div class="chip"      style="left:312px; top:316px; transform:rotate(2deg)">cache hit 92%</div>
+
+  <!-- the message falls into the gap -->
+  <svg width="1280" height="440" style="position:absolute;left:0;top:0">
+    <defs>
+      <marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0,0 L10,5 L0,10 z" fill="#A97F6A"/>
+      </marker>
+    </defs>
+    <!-- the gap: two edges and the empty space between -->
+    <line x1="505" y1="88" x2="505" y2="352" stroke="#EADFD5" stroke-width="2"/>
+    <line x1="790" y1="88" x2="790" y2="352" stroke="#EADFD5" stroke-width="2"/>
+    <!-- the message leaves confidently... -->
+    <path d="M492,196 C540,128 610,112 652,128" stroke="#A97F6A" stroke-width="3" stroke-dasharray="8 8" fill="none" stroke-linecap="round"/>
+    <!-- ...and drops before reaching the other side -->
+    <path d="M666,136 C690,150 700,190 694,262" stroke="#A97F6A" stroke-width="3" stroke-dasharray="8 8" fill="none" stroke-linecap="round" marker-end="url(#ah)"/>
+    <!-- the break -->
+    <path d="M652,116 l7,10 l-6,5 l9,12" stroke="#171A30" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="gapnote" style="left:618px; top:288px; width:240px">lost in translation</div>
+
+  <!-- leadership -->
+  <div class="sowhat">…so what?</div>
+  <div class="q" style="top:218px"><b>💸</b>Did this make or save us money?</div>
+  <div class="q" style="top:252px"><b>👥</b>Did customers notice?</div>
+  <div class="q" style="top:286px"><b>🔥</b>Is anything about to break?</div>
+
+  <img class="logo" src="../../tech-to-business-faq-one-pager/assets/build-to-lead-logo.png" alt="">
+  <div class="footer">
+    <strong>tech-business-skills</strong><span>Claude Skills that translate engineering into business impact</span><span class="dot">●</span><span>EN · ES</span>
+  </div>
+</div>
+</body>
+</html>

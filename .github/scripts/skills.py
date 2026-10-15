@@ -49,6 +49,7 @@ ALLOWED_IMAGES = {
     "tech-to-business-faq-one-pager/assets/build-to-lead-logo.png",
     ".github/assets/faq-example-es.png",
     ".github/assets/faq-example-en.png",
+    ".github/assets/banner.png",  # README header, built from .github/banner/banner.html
 }
 
 

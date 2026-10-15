@@ -16,6 +16,7 @@ dist/
 !tech-to-business-faq-one-pager/assets/build-to-lead-logo.png
 !.github/assets/faq-example-es.png
 !.github/assets/faq-example-en.png
+!.github/assets/banner.png
 
 # OS / editor
 .DS_Store
