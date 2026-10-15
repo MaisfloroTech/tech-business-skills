@@ -17,6 +17,9 @@ BRAND = {
     "placeholder_fg": "7A4A35",
 }
 
+# Build to Lead on Instagram, shown in the footer of every document
+INSTAGRAM = {"label": "Instagram", "handle": "@build2lead.club", "url": "https://www.instagram.com/build2lead.club/"}
+
 DEFAULT_LOGO = Path(__file__).resolve().parent.parent / "assets" / "build-to-lead-logo.png"
 LOGO_MAX_H = 70   # points
 LOGO_MAX_W = 150  # points

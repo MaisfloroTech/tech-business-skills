@@ -30,7 +30,7 @@ except ImportError:  # pragma: no cover
     sys.exit("python-docx is required: pip install python-docx")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from faq_common import BRAND, check_spec, labels, logo_box, resolve_logo, split_placeholders  # noqa: E402
+from faq_common import BRAND, INSTAGRAM, check_spec, labels, logo_box, resolve_logo, split_placeholders  # noqa: E402
 
 FONT = "Arial"
 PT_PER_INCH = 72
@@ -112,6 +112,26 @@ def cell_pad(cell, left=None, right=None) -> None:
         if v is not None:
             e = OxmlElement(f"w:{edge}"); e.set(qn("w:w"), str(v)); e.set(qn("w:type"), "dxa"); mar.append(e)
     tcPr.append(mar)
+
+
+def add_link(paragraph, url: str, text: str, size: float, color: str, bold=False) -> None:
+    """Add a clickable hyperlink run."""
+    from docx.opc.constants import RELATIONSHIP_TYPE as RT
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
+    r_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
+    link = OxmlElement("w:hyperlink")
+    link.set(qn("r:id"), r_id)
+    run = OxmlElement("w:r")
+    rpr = OxmlElement("w:rPr")
+    col = OxmlElement("w:color"); col.set(qn("w:val"), BRAND.get(color, color)); rpr.append(col)
+    sz = OxmlElement("w:sz"); sz.set(qn("w:val"), str(int(size * 2))); rpr.append(sz)
+    if bold:
+        rpr.append(OxmlElement("w:b"))
+    run.append(rpr)
+    t = OxmlElement("w:t"); t.text = text; t.set(qn("xml:space"), "preserve"); run.append(t)
+    link.append(run)
+    paragraph._p.append(link)
 
 
 def tight(paragraph, before=0, after=0, line=None) -> None:
@@ -245,7 +265,7 @@ def build(spec: dict, out: Path, page: str = "a4", logo: str | None = None, scal
                 first = False
         set_widths(t, [100, (inner - 100) / 2, (inner - 100) / 2])
 
-    # footer: "Made with ♥ by Build to Lead" + meta, on every page
+    # footer: "Made with ♥ by Build to Lead · Instagram @build2lead.club" + meta, on every page
     ft = sec.footer.add_table(rows=1, cols=2, width=Pt(inner)); no_borders(ft); cell_margins(ft, 60, 0, 0, 0)
     for c in ft.rows[0].cells:
         cell_border(c, "top", BRAND["rule"], 6)
@@ -253,10 +273,12 @@ def build(spec: dict, out: Path, page: str = "a4", logo: str | None = None, scal
     add_text(fp, L["made"] + " ", 8, "navy", bold=True)
     r = fp.add_run("♥"); r.font.size = Pt(9); r.font.color.rgb = rgb("terracotta"); r.font.name = "Segoe UI Symbol"
     add_text(fp, " " + L["by"], 8, "teal", bold=True)
+    add_text(fp, "  ·  ", 8, "gray")
+    add_link(fp, INSTAGRAM["url"], f'{INSTAGRAM["label"]} {INSTAGRAM["handle"]}', 8, "terracotta", bold=True)
     mp = ft.rows[0].cells[1].paragraphs[0]; tight(mp); mp.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     meta = "  ·  ".join(f"{L[k]}: {spec[k]}" for k in ["owner", "version", "updated"] if spec.get(k))
     add_text(mp, meta, 7.5, "gray")
-    set_widths(ft, [inner * 0.4, inner * 0.6])
+    set_widths(ft, [inner * 0.47, inner * 0.53])
     # drop the empty default footer paragraph so the table sits alone
     first = sec.footer.paragraphs[0]
     if not first.text:

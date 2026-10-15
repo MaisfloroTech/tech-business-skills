@@ -65,7 +65,7 @@ python <this-skill-folder>/scripts/build_faq.py faq.json <output-folder>/faq-<sh
 - Use `--page letter` if the user is in the US or Canada or asks for Letter; otherwise A4.
 - **Deliver Word only** (`.docx`): the team will edit it. Don't make a PDF unless the user explicitly asks for one.
 - **Keep it to one page.** If you notice the content is long (more than ~10 questions or answers longer than 3 sentences), shorten it before building. Never drop the 6 W's, the rules or the help block.
-- The document always has a logo in the top-right corner (**Build to Lead's by default**), the Build to Lead colors and the footer **"Made with ♥ by Build to Lead" / "Hecho con ♥ por Build to Lead"**. Never remove the footer.
+- The document always has a logo in the top-right corner (**Build to Lead's by default**), the Build to Lead colors and the footer **"Made with ♥ by Build to Lead · Instagram @build2lead.club" / "Hecho con ♥ por Build to Lead · Instagram @build2lead.club"** (the handle links to https://www.instagram.com/build2lead.club/). Never remove the footer.
 - **Custom logo:** if the user gives you their own logo (PNG or JPG), pass it with `--logo path/to/logo.png`. It replaces the Build to Lead logo in the corner, keeping its proportions; colors and footer stay. If they send another format (SVG, WEBP…), ask for a PNG or JPG.
 - If you can't run code in this environment, give the FAQ in Markdown in the same order and say the Word file needs code execution turned on.
 

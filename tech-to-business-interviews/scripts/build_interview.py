@@ -26,6 +26,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_LOGO = HERE.parent / "assets" / "build-to-lead-logo.png"
+# Build to Lead on Instagram, shown in the footer of every page
+INSTAGRAM = {"label": "Instagram", "handle": "@build2lead.club", "url": "https://www.instagram.com/build2lead.club/"}
 
 
 def ensure(module: str, package: str) -> None:
@@ -238,8 +240,11 @@ class Doc:
         c.setFillColor(self.C["gray"])
         c.drawString(self.M, 24, clean(f"{self.spec.get('role', '')}  ·  {L['page']} {self.page_no}"))
         made, by = clean(L["made"]) + " ", " " + clean(L["by"])
+        ig = f'{INSTAGRAM["label"]} {INSTAGRAM["handle"]}'
+        sep = "  ·  "
         heart_w = 7
-        w = self.sw(made, "Helvetica", 7.5) + heart_w + self.sw(by, "Helvetica", 7.5)
+        w = (self.sw(made, "Helvetica", 7.5) + heart_w + self.sw(by + sep, "Helvetica", 7.5)
+             + self.sw(ig, "Helvetica-Bold", 7.5))
         x = self.W - self.M - w
         c.drawString(x, 24, made)
         x += self.sw(made, "Helvetica", 7.5)
@@ -247,7 +252,13 @@ class Doc:
         x += heart_w
         c.setFillColor(self.C["gray"])
         c.setFont("Helvetica", 7.5)
-        c.drawString(x, 24, by)
+        c.drawString(x, 24, by + sep)
+        x += self.sw(by + sep, "Helvetica", 7.5)
+        c.setFillColor(self.C["terra"])
+        c.setFont("Helvetica-Bold", 7.5)
+        c.drawString(x, 24, ig)
+        iw = self.sw(ig, "Helvetica-Bold", 7.5)
+        c.linkURL(INSTAGRAM["url"], (x, 21, x + iw, 32), relative=0, thickness=0)
 
     def heart(self, cx: float, cy: float, r: float):
         c = self.c
