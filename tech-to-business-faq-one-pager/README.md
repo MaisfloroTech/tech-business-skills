@@ -40,12 +40,7 @@ You launched a new tool, platform or process. Now people ask the same things ove
 
 ### 👀 What you get
 
-<table>
-<tr>
-<td width="50%"><a href="../.github/assets/faq-example-en.docx"><img src="../.github/assets/faq-example-en.png" alt="FAQ one-pager example in English"></a><p align="center"><b>🇺🇸 English 🇬🇧</b> · <a href="../.github/assets/faq-example-en.docx">Word</a></p></td>
-<td width="50%"><a href="../.github/assets/faq-example-es.docx"><img src="../.github/assets/faq-example-es.png" alt="FAQ one-pager example in Spanish"></a><p align="center"><b>🇪🇸 Español 🌎</b> · <a href="../.github/assets/faq-example-es.docx">Word</a></p></td>
-</tr>
-</table>
+<p align="center"><a href="../.github/assets/faq-example-en.docx"><img src="../.github/assets/faq-example-en.png" alt="FAQ one-pager example in English" width="60%"></a><br><a href="../.github/assets/faq-example-en.docx"><b>Download the Word example</b></a></p>
 
 *Fictional examples.*
 
@@ -99,12 +94,7 @@ Lanzaste una herramienta, plataforma o proceso nuevo. Ahora la gente pregunta lo
 
 ### 👀 Lo que recibes
 
-<table>
-<tr>
-<td width="50%"><a href="../.github/assets/faq-example-es.docx"><img src="../.github/assets/faq-example-es.png" alt="Ejemplo de FAQ de una página en español"></a><p align="center"><b>🇪🇸 Español 🌎</b> · <a href="../.github/assets/faq-example-es.docx">Word</a></p></td>
-<td width="50%"><a href="../.github/assets/faq-example-en.docx"><img src="../.github/assets/faq-example-en.png" alt="Ejemplo de FAQ de una página en inglés"></a><p align="center"><b>🇺🇸 English 🇬🇧</b> · <a href="../.github/assets/faq-example-en.docx">Word</a></p></td>
-</tr>
-</table>
+<p align="center"><a href="../.github/assets/faq-example-es.docx"><img src="../.github/assets/faq-example-es.png" alt="Ejemplo de FAQ de una página en español" width="60%"></a><br><a href="../.github/assets/faq-example-es.docx"><b>Descarga el ejemplo en Word</b></a></p>
 
 *Ejemplos ficticios.*
 
